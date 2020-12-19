@@ -16,14 +16,19 @@ class course extends Model
     const REVISION = 2;
     const PUBLICADO = 3;
 
-    public function getRatingAtribute()
-    {
+    public function getRatingAttribute()
+    {                
         if ($this->reviews_count) {
             return round($this->reviews->avg('rating'), 1);
         }
         return 5;
     }
 
+    public function getRouteKeyName()
+    {
+        return "slug";
+    }
+    
     //Relationship 1:m
     public function reviews()
     {
