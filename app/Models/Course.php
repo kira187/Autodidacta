@@ -24,6 +24,20 @@ class course extends Model
         return 5;
     }
 
+    public function scopeCategory($query, $category_id)
+    {
+        if($category_id) {
+            return $query->whereCategoryId($category_id);
+        }
+    }
+
+    public function scopeLevel($query, $level_id)
+    {
+        if($level_id) {
+            return $query->whereLevelId($level_id);
+        }
+    }
+
     public function getRouteKeyName()
     {
         return "slug";
