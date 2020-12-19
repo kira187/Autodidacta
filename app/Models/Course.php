@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class course extends Model
+class Course extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class course extends Model
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
-
+    
     public function getRatingAttribute()
     {                
         if ($this->reviews_count) {
