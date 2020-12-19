@@ -21,6 +21,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
+
 Route::get('cursos', function () {
     return "Listado de cursos";
 })->name('courses.index');
+
+Route::get('cursos/{course}', function ($course) {
+    return "Info curso";
+})->name('course.info');
