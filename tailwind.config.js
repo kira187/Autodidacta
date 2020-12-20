@@ -13,11 +13,15 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
-    },
-
+    },    
+      
     variants: {
         opacity: ['responsive', 'hover', 'focus', 'disabled'],
     },
 
+    corePlugins: {
+       container: false,
+    },
+    
     plugins: [require('@tailwindcss/ui')],
 };
