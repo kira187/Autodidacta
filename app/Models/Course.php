@@ -86,7 +86,7 @@ class course extends Model
     }
 
     //Relationship 1:m
-    public function goal()
+    public function goals()
     {
         return $this->hasMany(Goal::class);
     }
