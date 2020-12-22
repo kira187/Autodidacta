@@ -24,5 +24,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
-
 Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.info');
+Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');
+Route::get('cursos-status/{course}', [CourseController::class, 'control'])->name('course.status');

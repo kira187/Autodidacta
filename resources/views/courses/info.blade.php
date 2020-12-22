@@ -77,7 +77,16 @@
                             <a href="text-blue-400 text-sm text font-bold">{{'@' . Str::slug($course->teacher->name, '')}}</a>
                         </div>
                     </div>
-                    <a class="btn-danger btn-block mt-4 px-6 py-2 leading-6 rounded-full" href="">Tomar curso</a>
+
+                    @can('enrolled', $course)
+                        <a href="{{route('course.status', $course)}}" class="btn-danger btn-block mt-4 px-6 py-2 leading-6 rounded-full focus:outline-none">Continuar curso</a>
+                    @else
+                        <form action="{{route('course.enrolled', $course)}}" method="POST">
+                            @csrf
+                            <button type="submit" class="btn-danger btn-block mt-4 px-6 py-2 leading-6 rounded-full focus:outline-none">Tomar curso</button>
+                        </form>
+                    @endcan
+                    
                 </div>
             </section>
 
