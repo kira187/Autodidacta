@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Audience;
-use App\Models\course;
+use App\Models\Course;
 use App\Models\Description;
 use App\Models\Goal;
 use App\Models\Image;
@@ -17,11 +17,11 @@ class CourseSeeder extends Seeder
     /**
      * Run the database seeds.
      *
-     * @return void
+     * @return void 
      */
     public function run()
     {
-        $courses = course::factory(40)->create();
+        $courses = Course::factory(40)->create();
 
         foreach ($courses as $course) {
             Image::factory(1)->create([
