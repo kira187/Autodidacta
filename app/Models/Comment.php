@@ -27,13 +27,7 @@ class Comment extends Model
     public function reactions()
     {
         return $this->morphMany(Reaction::class, 'reactionable');
-    }
-
-    //Relationship
-    public function lessons()
-    {
-        return $this->hasManyThrough(Lesson::class, Section::class);
-    }
+    }    
 
     //Relationship 1:m inverse
     public function user()

@@ -108,4 +108,10 @@ class Course extends Model
     {
         return $this->morphOne(Image::class, 'imageable');
     }
+
+    //Relationship
+    public function lessons()
+    {
+        return $this->hasManyThrough(Lesson::class, Section::class);
+    }
 }

@@ -11,6 +11,15 @@ class Lesson extends Model
 
     protected $guarded = ['id'];
 
+    /**
+     * Validate if the user marks the completion of the lesson
+     * @return bool Completed
+     */
+    public function getCompletedAttribute()
+    {
+        return $this->users->contains(auth()->user()->id);
+    }    
+
     //Relationship 1:m inverse
     public function section()
     {
