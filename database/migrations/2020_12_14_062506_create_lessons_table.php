@@ -17,7 +17,7 @@ class CreateLessonsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
-            $table->string('iframe');
+            $table->text('iframe');
             $table->foreignId('platform_id')->nullable()->constrained()->onDelete('set null');
             $table->foreignId('section_id')->constrained()->onDelete('cascade');
             $table->timestamps();
