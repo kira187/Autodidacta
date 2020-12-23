@@ -14,6 +14,21 @@
     @apply text-xl text-gray-700 mb-2 leading-6;
 }
 
+.embed-responsive {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+
+.embed-responsive iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    height: 100%;
+    width: 100%;
+}
+
 @media(min-width:640px){
     .container{
         @apply px-6;
