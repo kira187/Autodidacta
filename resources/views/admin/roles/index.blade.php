@@ -5,6 +5,12 @@
 @stop
 
 @section('content')
+    @if (session('info'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Alerta</strong> {{session('info')}}
+        </div>
+    @endif
+
     <div class="card">
 
         <div class="card-header">
@@ -25,13 +31,13 @@
                         <tr>
                             <td>{{$role->id}}</td>
                             <td>{{$role->name}}</td>
-                            <td>
+                            <td width="10px">
                                 <a class="btn btn-secondary" href="{{route('admin.roles.edit', $role)}}">Editar</a>
                             </td>
-                            <td>
-                                <form action="{{route('admin.roles.destroy', $role)}}" method="POST @method('delete')">
-                                <button btn btn-danger>Eliminar</button>
-                                </form>
+                            <td width="10px">
+                                {{ Form::open(['url' => route('admin.roles.destroy', $role), 'method' => 'delete']) }}
+                                    {!! Form::submit('Eliminar', ['class' => 'btn btn-danger']) !!}    
+                                {{ Form::close() }}                                
                             </td>
                         </tr>   
                     @empty
@@ -43,12 +49,4 @@
             </table>
         </div>
     </div>
-@stop
-
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
-
-@section('js')
-    <script> console.log('Hi!'); </script>
 @stop

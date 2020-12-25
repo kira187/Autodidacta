@@ -28,8 +28,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permisions = Permision::all();
-        return view('admin.roles.create', compact('permisions'));
+        $permissions = Permission::all();
+        return view('admin.roles.create', compact('permissions'));
     }
 
     /**
@@ -40,7 +40,18 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'permissions' => 'required'
+        ]);
+
+        $role =  Role::create([
+            'name' => $request->name
+        ]);
+
+        $role->permissions()->attach($request->permissions);
+
+        return redirect()->route('admin.roles.index')->with('info', 'Rol creado correctamente');
     }
 
     /**
@@ -62,7 +73,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('admin.roles.edit', compact('role'));
+        $permissions = Permission::all();
+
+        return view('admin.roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -72,9 +85,20 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id, Role $role)
+    public function update(Request $request, Role $role)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'permissions' => 'required'
+        ]);
+
+        $role->update([
+            'name' => $request->name
+        ]);
+
+        $role->permissions()->sync($request->permissions);
+
+        return redirect()->route('admin.roles.index');
     }
 
     /**
@@ -85,6 +109,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+
+        return redirect()->route('admin.roles.index')->with('info', 'Rol eliminado correctamente');
     }
 }

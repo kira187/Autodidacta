@@ -1,19 +1,44 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
-
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Editar rol {{$role->name}}</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
-@stop
+    <div class="card">
+        <div class="card-body">
+            {!! Form::model($role, ['route' => ['admin.roles.update', $role], 'method' => 'PUT']) !!}
+                <div class="form-group">
+                    {!! Form::label('name', 'Nombre: ') !!}
+                    {!! Form::text('name', null, ['class' => 'form-control '.($errors->has('name') ? 'is-invalid' : ''), 'placeholder' => 'Escriba un nombre']) !!}
+                    @error('name')
+                        <span class="invalid-feedback">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                    <br>
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+                    <strong>Permisos</strong>
+                    <br>
+                    @error('permissions')
+                        <small class="text-danger">
+                            <strong>{{$message}}</strong>
+                        </small>
+                    @enderror
+                    <br>
 
-@section('js')
-    <script> console.log('Hi!'); </script>
+                    @foreach ($permissions as $permission )
+                        <div>
+                            <label>
+                                {!! Form::checkbox('permissions[]', $permission->id, null, ['class' => 'mr-1']) !!}
+                                {{$permission->name}}
+                            </label>
+                        </div>
+                    @endforeach
+
+                    {!! Form::submit('Actualizar Rol', ['class' => 'btn btn-primary mt-2']) !!}
+                </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
 @stop
