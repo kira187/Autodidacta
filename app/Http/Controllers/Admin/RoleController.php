@@ -28,8 +28,9 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $permissions = Permission::all();
-        return view('admin.roles.create', compact('permissions'));
+        $permissions = Permission::all()->pluck('name', 'id');
+
+        return view('admin.roles.form', compact('permissions'));
     }
 
     /**
@@ -73,9 +74,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        $permissions = Permission::all();
+        $permissions = Permission::all()->pluck('name', 'id');
 
-        return view('admin.roles.edit', compact('role', 'permissions'));
+        return view('admin.roles.form', compact('role', 'permissions'));
     }
 
     /**
