@@ -3,7 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\course;
+use App\Models\Course;
 use App\Models\Category;
 use App\Models\level;
 use Database\Seeders\LevelSeeder;
