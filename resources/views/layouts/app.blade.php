@@ -32,5 +32,10 @@
         @stack('modals')
 
         @livewireScripts
+
+        @isset($js)
+            {{ $js }}
+        @endisset
+        
     </body>
 </html>

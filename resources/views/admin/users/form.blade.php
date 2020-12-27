@@ -19,14 +19,12 @@
                     {!! Form::select('roles[]', $roles, null, ['class' => 'select2bs4', 'multiple' => 'multiple', 'style' => 'width: 100%', 'data-placeholder' => 'Asigar roles']) !!}
                 </div>
 
-                
                 {!! Form::submit('Aceptar', ['class' => 'btn btn-primary']) !!}
                 
             {!! Form::close() !!}
         </div>
     </div>
 @stop
-
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">    

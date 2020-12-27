@@ -1,12 +1,9 @@
 <div class="container py-8">
-    <!-- This example requires Tailwind CSS v2.0+ -->
-
+    <h2 class="text-xl font-semibold text-gray-700 leading-tight mb-4">Mis Cursos</h2>
     <x-table-responsive>
-
         <div class="px-6 py-4 flex">
-            <input wire:keydown="resetPage" wire:model="search" class="form-input flex-1 shadow-sm" placeholder="Ingrese el nombre de un curso ...">
-
-            <a class="btn btn-danger ml-2" href="#">Crear nuevo curso</a>
+            <input wire:keydown="resetPage" wire:model="search" class="form-input flex-1 shadow-sm" placeholder="Buscar curso...">
+            <a class="btn btn-danger ml-2" href="{{route('instructor.courses.create')}}">Crear nuevo curso</a>
         </div>
 
         @if ($courses->count())
@@ -87,7 +84,6 @@
                             
 
                             <td class="px-6 py-4 whitespace-nowrap">
-
                                 @switch($course->status)
                                     @case(1)
                                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
@@ -107,13 +103,11 @@
                                     @default
                                         
                                 @endswitch
-
-
-                                
+                                {{-- Fin switch  --}}
                             </td>
                             
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                            <a href="{{route('instructor.courses.edit', $course)}}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                             </td>
                         </tr>
 

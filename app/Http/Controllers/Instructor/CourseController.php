@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Instructor;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 use App\Models\Course;
+use App\Models\level;
+use App\Models\price;
 
 class CourseController extends Controller
 {
@@ -16,7 +19,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        return view('instructor.index');
+        return view('instructor.courses.index');
     }
 
     /**
@@ -26,7 +29,11 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('instructor.courses.form');
+        $categories = Category::pluck('name', 'id');
+        $levels = level::pluck('name', 'id');
+        $prices = price::pluck('name', 'id');
+
+        return view('instructor.courses.create', compact('categories', 'levels', 'prices'));
     }
 
     /**
@@ -36,8 +43,20 @@ class CourseController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {        
+        $request->validate([
+            'title' => 'required|min:10',
+            'slug' => 'required|unique:courses',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'level_id' => 'required',
+            'price_id' => 'required',
+        ]);
+        
+        $course = Course::create($request->all());
+        
+        return redirect()->route('instructor.courses.edit', $course);
     }
 
     /**
@@ -59,7 +78,11 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view('instructor.courses.form', compact($course));
+        $categories = Category::pluck('name', 'id');
+        $levels = level::pluck('name', 'id');
+        $prices = price::pluck('name', 'id');
+
+        return view('instructor.courses.edit', compact('course', 'categories', 'levels', 'prices'));
     }
 
     /**
