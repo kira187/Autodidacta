@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Instructor;
 
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Course;
 
-class InstructorCourse extends Component
+class CoursesIndex extends Component
 {
     use WithPagination;
 
@@ -19,7 +19,7 @@ class InstructorCourse extends Component
                         ->latest('id')
                         ->paginate(8);
 
-        return view('livewire.instructor-course', compact('courses'));
+        return view('livewire.instructor.courses-index', compact('courses'));
     }
 
     public function resetPage(){
