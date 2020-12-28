@@ -47,7 +47,7 @@
 
     <div>
         {!! Form::label('price_id', 'Precio:') !!}
-        {!! Form::select('prrice_id', $prices, null, ['class' => 'form-input block w-full mt-1']) !!}
+        {!! Form::select('price_id', $prices, null, ['class' => 'form-input block w-full mt-1']) !!}
     </div>
 </div>
 
@@ -64,6 +64,10 @@
 
     <div>
         <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloremque in neque dolores ratione sunt ut eos, provident molestiae quibusdam voluptatibus consequuntur, unde repudiandae inventore aperiam possimus laboriosam corporis itaque!</p>
-        {!! Form::file('file', ['class' => 'form-input w-full', 'id' => 'file']) !!}
+        {!! Form::file('file', ['class' => 'form-input w-full'. ($errors->has('file')? ' border-red-600' : ''), 'id' => 'file', 'accept' => 'image/*']) !!}
+        
+        @error('file')
+            <strong class="text-xs text-red-600">{{ $message}}</strong>
+        @enderror  
     </div>
 </div>
