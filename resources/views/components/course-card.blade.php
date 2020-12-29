@@ -6,10 +6,10 @@
     <div class="card-body">
         <h1 class="card-title">{{Str::limit($course->title, 40)}}</h1>
         <p class="text-gray-500 text-sm mb-2">Prof: {{$course->teacher->name}}</p>
-         
+
         <div class="flex">
             <ul class="flex text-sm">
-                <li class="mr-1">                                
+                <li class="mr-1">
                     <i class="fas fa-star text-{{$course->rating >= 1 ? 'yellow' : 'gray'}}-400"></i>
                     <i class="fas fa-star text-{{$course->rating >= 2 ? 'yellow' : 'gray'}}-400"></i>
                     <i class="fas fa-star text-{{$course->rating >= 3 ? 'yellow' : 'gray'}}-400"></i>
@@ -24,5 +24,5 @@
 
         <a href="{{route('courses.info', $course)}}" class="mt-4 btn btn-primary btn-block"> Mas informacion </a>
     </div>
-    
+
 </article>

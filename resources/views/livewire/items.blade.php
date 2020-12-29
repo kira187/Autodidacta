@@ -2,7 +2,7 @@
     <div class="mt-8 text-2xl">
         Items
     </div>
-
+    {{ $query}}
     <div class="mt-6">
         {{--  <div class="mt-3 mb-4 flex flex-col sm:flex-row">
             <div class="flex">
@@ -51,13 +51,22 @@
          <table class="table-auto w-full">
              <thead>
                  <th class="px-4 py-2">
-                    <div class="flex items-center">ID</div>
+                    <div class="flex items-center">
+                        <button  class="cursor-pointer focus:outline-none" wire:click="sortBy('id')">ID</button>
+                        <x-sort-icon sortField="id" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </div>
                  </th>
                  <th class="px-4 py-2">
-                    <div class="flex items-center">Name</div>
+                    <div class="flex items-center">
+                        <button class="cursor-pointer focus:outline-none" wire:click="sortBy('name')">Name</button>
+                        <x-sort-icon sortField="name" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </div>
                  </th>
                  <th class="px-4 py-2">
-                    <div class="flex items-center">Price</div>
+                    <div class="flex items-center">
+                        <button class="cursor-pointer focus:outline-none" wire:click="sortBy('price')">Price</button>
+                        <x-sort-icon sortField="price" :sort-by="$sortBy" :sort-asc="$sortAsc" />
+                    </div>
                  </th>
                  <th class="px-4 py-2">
                     Status
