@@ -50,7 +50,7 @@
             </section>
 
             <section class="mb-8">
-                <h1 class="font-bold 3-xl">Requisitos</h1>
+                <h1 class="font-bold text-3xl mb-2">Requisitos</h1>
 
                 <ul class="list-disc list-inside">
                     @foreach ($course->requirements as $requirement)
@@ -60,7 +60,7 @@
             </section>
 
             <section>
-                <h1 class="font-bold 3-xl">Descripcion</h1>
+                <h1 class="font-bold text-3xl mb-2">Descripción</h1>
                 <div class="text-gray-700 text-base">
                     {{ $course->description}}
                 </div>
