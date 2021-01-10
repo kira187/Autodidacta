@@ -19,7 +19,7 @@
                 @else
                     <header class="flex justify-between items-center">
                         <h1 class="cursor-pointer"><strong>Sección:</strong> {{$item->name}}</h1>
-                        <div>                        
+                        <div>
                             <button class="p-1 focus:outline-none text-teal-500 hover:text-teal-600" wire:click="edit({{ $item }})">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -32,7 +32,12 @@
                                 </svg>
                             </button>
                         </div>
-                    </header>    
+                    </header>
+
+                    <div>
+                        @livewire('instructor.courses-lesson', ['section' => $item], key($item->id))
+                    </div>
+
                 @endif
                 
             </div>
