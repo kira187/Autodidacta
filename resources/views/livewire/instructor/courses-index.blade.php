@@ -127,6 +127,4 @@
             </div>
         @endif
     </x-table-responsive>
-   
-  
 </div>
