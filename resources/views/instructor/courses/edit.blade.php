@@ -48,7 +48,7 @@
                     console.log( error );
                 } );
 
-                //Cambiar imagen
+            //Cambiar imagen
             document.getElementById("file").addEventListener('change', cambiarImagen);
 
             function cambiarImagen(event){
