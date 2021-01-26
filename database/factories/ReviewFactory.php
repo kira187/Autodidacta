@@ -2,17 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Image;
+use App\Models\Review;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ImageFactory extends Factory
+class ReviewFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Image::class;
+    protected $model = Review::class;
 
     /**
      * Define the model's default state.
@@ -22,8 +23,9 @@ class ImageFactory extends Factory
     public function definition()
     {
         return [
-            // 'url' => 'courses/'.$this->faker->image('public/storage/courses', 640, 480, null, false),
-            'url' => 'example.jpg',
+            'comment' => $this->faker->text(),
+            'rating' => $this->faker->randomElement([3, 4, 5]),
+            'user_id' => User::all()->random()->id,
         ];
     }
 }

@@ -9,7 +9,7 @@
          
         <div class="flex">
             <ul class="flex text-sm">
-                <li class="mr-1">                                
+                <li class="mr-1">
                     <i class="fas fa-star text-{{$course->rating >= 1 ? 'yellow' : 'gray'}}-400"></i>
                     <i class="fas fa-star text-{{$course->rating >= 2 ? 'yellow' : 'gray'}}-400"></i>
                     <i class="fas fa-star text-{{$course->rating >= 3 ? 'yellow' : 'gray'}}-400"></i>
