@@ -1,10 +1,10 @@
 <x-app-layout>
 
     {{--  Header site  --}}
-    <section class="bg-cover" style="background-image: url({{asset('img/home/main-backgroundv2.jpg')}})">
+    <section class="bg-cover bg-white"}})">
         <div class="container py-36">
             <div class="w-full md:w-3/4 lg:w-1/2">
-                <h1 class="font-bold text-white text-4xl">Aprende nuevas cosas o refuerza lo que ya sabes con: AutoDidacta</h1>
+                <h1 class="font-popins font-bold text-white text-4xl">Aprende nuevas cosas o refuerza lo que ya sabes con: AutoDidacta</h1>
                 <p class="text-white text-lg mt-2 mb-8">En Coders Free encontrarás cursos, manuales y artículos que te ayudarán a convertirte en un profesional del desarrollador web </p>
                 
                 @livewire('search')
