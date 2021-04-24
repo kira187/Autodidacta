@@ -13,7 +13,7 @@
         [
             'name' => 'Descubre',
             'route' => route('courses.index'),
-            'active' => request()->routeIs('courses.*')
+            'active' => request()->routeIs('instructor.*')
         ],
     ]
 @endphp
