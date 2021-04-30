@@ -10,7 +10,12 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Poppins', 'sans-serif'],
+            },
+            textColor: {
+                'primary': '#1C88F4',
+                'secondary': '#ffed4a',
+                'danger': '#e3342f',
             },
         },
     },    

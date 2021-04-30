@@ -17,6 +17,7 @@ use App\Http\Livewire\CourseStatus;
 */
 
 Route::get('/', HomeController::class)->name('home');
+Route::get('/descubre', HomeController::class)->name('disvover');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
