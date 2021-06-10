@@ -22,9 +22,9 @@ class CreateCoursesTable extends Migration
             $table->enum('status', [Course::BORRADOR, Course::REVISION, course::PUBLICADO])->default(Course::BORRADOR);
             $table->string('slug');
 
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');;
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('level_id')->nullable()->constrained()->onDelete('set null');
-            $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');;
+            $table->foreignId('category_id')->nullable()->constrained()->onDelete('set null');
             $table->foreignId('price_id')->nullable()->constrained()->onDelete('set null');
 
             $table->timestamps();

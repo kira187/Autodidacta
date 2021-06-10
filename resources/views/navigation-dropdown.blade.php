@@ -13,7 +13,7 @@
         [
             'name' => 'Descubre',
             'route' => route('courses.index'),
-            'active' => request()->routeIs('courses.*')
+            'active' => request()->routeIs('instructor.*')
         ],
     ]
 @endphp
@@ -42,6 +42,13 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div class=" space-x-8 sm:-my-px sm:mr-10">                    
+                    @foreach ($nav_links as $nav_link)
+                        <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                            {{ $nav_link['name'] }}
+                        </x-jet-nav-link>                    
+                    @endforeach
+                </div>
                 @auth
                      <div x-data="{ isOpen: false }">
                     {{--     <button @click="isOpen = !isOpen" class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
@@ -248,15 +255,9 @@
                         </x-slot>
                     </x-jet-dropdown>
                 @else
-                    <div class=" space-x-8 sm:-my-px sm:mr-10">                    
-                        @foreach ($nav_links as $nav_link)
-                            <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                                {{ $nav_link['name'] }}
-                            </x-jet-nav-link>                    
-                        @endforeach
-                    </div>
+                    
                     <a href="{{ route('login') }}" class="bg-gray-500 hover:bg-gray-600 text-white text-sm font-poppins font-light	py-2 px-4 mr-2  rounded-full">
-                        Iniciar sesion
+                        Iniciar sesión
                     </a>
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-poppins font-light	py-2 px-4 rounded-full">

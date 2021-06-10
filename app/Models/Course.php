@@ -114,4 +114,10 @@ class Course extends Model
     {
         return $this->hasManyThrough(Lesson::class, Section::class);
     }
+
+    //Relationship 1:1
+    public function observation()
+    {
+        return $this->hasOne(Observation::class);
+    }
 }

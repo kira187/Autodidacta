@@ -1,8 +1,4 @@
-<x-instructor-layout>
-    
-    <x-slot name="course">
-        {{$course->slug}}
-    </x-slot>
+<x-instructor-layout :course="$course">    
 
     <h1 class="text-2xl font-bold">Informacion del curso</h1>
     <hr class="mt-2 mb-6">
@@ -52,7 +48,7 @@
                     console.log( error );
                 } );
 
-                //Cambiar imagen
+            //Cambiar imagen
             document.getElementById("file").addEventListener('change', cambiarImagen);
 
             function cambiarImagen(event){
