@@ -43,6 +43,118 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 @auth
+                     <div x-data="{ isOpen: false }">
+                    {{--     <button @click="isOpen = !isOpen" class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
+                            <span class="pr-1 flex-1 text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700">Mis cursos</span>
+                            <span>
+                                <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" > <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                            </span>
+                        </button>  --}}
+                  <button @click="isOpen = !isOpen" class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring">
+                    <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                  </button>
+
+                  <!-- Dropdown -->
+                  <div @click.away="isOpen = false" @keydown.escape="isOpen = false" x-show.transition.opacity="isOpen" class="absolute mt-3 transform bg-white rounded-md shadow-lg z-10 -translate-x-2/4 min-w-max" style="">
+                    <ul class="flex flex-col p-2 my-3 space-y-3">
+                      <li>
+                        <a href="#" class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">
+                          <span class="block mt-1">
+                            <div class="pl-2 w-16">
+                                <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
+                            </div>
+                            
+                          </span>
+                          <span class="flex flex-col">
+                            <span class="text-lg">Atlassian</span>
+                            <span class="text-sm text-gray-400">Lorem ipsum dolor sit.</span>
+                          </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#" class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">
+                          <span class="block mt-1">
+                            <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                            </svg>
+                          </span>
+                          <span class="flex flex-col">
+                            <span class="text-lg">Slack</span>
+                            <span class="text-sm text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
+                      <a href="#">Ir a mis cursos</a>
+                    </div>
+                  </div>
+                </div>
+                    {{--  <div class="group sm:-my-px sm:mr-10">
+                        <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
+                            <span class="pr-1 flex-1 text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700">Mis cursos</span>
+                            <span>
+                                <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" > <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                            </svg>
+                            </span>
+                        </button>
+                        <ul class="bg-white group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top mt-2 transform rounded-md shadow-lg w-70 scale-0">
+                            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
+                                <div class="flex items-center justify-between my-2 mr-4">
+                                    <div class="pl-2 w-16">
+                                        <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
+                                    </div>
+                                    <div class="flex-1 pl-2">
+                                        <div class="text-gray-700 font-semibold">
+                                            PHP Developers
+                                        </div>
+                                        <div class="text-gray-600 font-thin">
+                                            Web House
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
+                                <div class="flex items-center justify-between my-2 mr-4">
+                                    <div class="pl-2 w-16">
+                                        <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
+                                    </div>
+                                    <div class="flex-1 pl-2">
+                                        <div class="text-gray-700 font-semibold">
+                                            PHP Developers
+                                        </div>
+                                        <div class="text-gray-600 font-thin">
+                                            Web House
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
+                                <div class="flex items-center justify-between my-2 mr-4">
+                                    <div class="pl-2 w-16">
+                                        <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
+                                    </div>
+                                    <div class="flex-1 pl-2">
+                                        <div class="text-gray-700 font-semibold">
+                                            PHP Developers
+                                        </div>
+                                        <div class="text-gray-600 font-thin">
+                                            Web House
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
+                                    <a href="#">Ir a mis cursos</a>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                    </div>  --}}
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -151,7 +263,7 @@
                             Registrate
                         </a>
                     @endif
-                @endauth                
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -269,3 +381,4 @@
         
     </div>
 </nav>
+
