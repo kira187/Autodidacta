@@ -9,8 +9,8 @@
                 <h2 class="text-xl mb-3">{{ $course->subtitle }}</h2>
                 <p class="mb-2"><i class="fas fa-chart-line"></i> Nivel: {{ $course->level->name }}</p>
                 <p class="mb-2"><i class="fas fa-tag"></i> Categoria: {{ $course->category->name }}</p>
-                <p class="mb-2"><i class="fas fa-users"></i> Matriculados: {{ $course->students_count }}</p>
-                <p class=""><i class="far fa-star"></i> Calificacion {{ $course->rating }}</p>
+                <p class="mb-2"><i class="fas fa-users"></i> Inscritos: {{ $course->students_count }}</p>
+                <p class=""><i class="far fa-star"></i> Calificación {{ $course->rating }}</p>
             </div>
         </div>
     </section>

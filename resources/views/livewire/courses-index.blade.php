@@ -5,7 +5,7 @@
                 <i class="fas fa-stream text-xs mr-2"></i> Todos los cursos
             </button>
 
-            <!-- Dropdown categorias-->
+            <!-- Dropdown categories-->
             <div class="relative mr-4" x-data="{ open:false }">
                 <button class="bg-white shadow block h-12 rounded-lg overflow-hidden focus:outline-none px-4 text-gray-700 focus:bg-gray-50" x-on:click="open = true">
                     <i class="fas fa-tags text-sm mr-2"></i> Categoria
@@ -18,6 +18,7 @@
                 </div>
             </div>
 
+            <!-- Dropdown levels-->
             <div class="relative" x-data="{ open:false }">
                 <button class="bg-white shadow block h-12 rounded-lg overflow-hidden focus:outline-none px-4 text-gray-700 focus:bg-gray-50" x-on:click="open = true">
                     <i class="fas fa-glasses text-sm mr-2"></i> Niveles
@@ -35,9 +36,17 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 pb-10 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
-        @foreach ($courses as $course)
+        @forelse ($courses as $course)
             <x-course-card :course="$course"/>
-        @endforeach
+        @empty
+            <div class="flex w-full px-6 py-4 my-2 rounded-xl shadow-md font-semibold text-md bg-yellow-50 text-yellow-800">
+                <span class="h-6 w-6 mr-4">
+                    <svg  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </span> Sin resultados.
+            </div>
+        @endforelse
     </div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
         {{$courses->links()}}
