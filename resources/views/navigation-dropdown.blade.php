@@ -28,140 +28,48 @@
                         Autodidacta
                     </a>
                 </div>
-
-                <!-- Navigation Links -->
-                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">                    
-
-                    @foreach ($nav_links as $nav_link)
-                        <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                            {{ $nav_link['name'] }}
-                        </x-jet-nav-link>                    
-                    @endforeach
-                </div> --}}
             </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <div class=" space-x-8 sm:-my-px sm:mr-10">                    
+                <div class=" space-x-8 sm:-my-px sm:mr-8">
                     @foreach ($nav_links as $nav_link)
                         <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
                             {{ $nav_link['name'] }}
-                        </x-jet-nav-link>                    
+                        </x-jet-nav-link>
                     @endforeach
                 </div>
                 @auth
-                     <div x-data="{ isOpen: false }">
-                    {{--     <button @click="isOpen = !isOpen" class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
-                            <span class="pr-1 flex-1 text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700">Mis cursos</span>
-                            <span>
-                                <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" > <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
-                            </span>
-                        </button>  --}}
-                  <button @click="isOpen = !isOpen" class="p-2 bg-gray-100 rounded-full hover:bg-gray-200 focus:outline-none focus:ring">
-                    <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-                    </svg>
-                  </button>
-
-                  <!-- Dropdown -->
-                  <div @click.away="isOpen = false" @keydown.escape="isOpen = false" x-show.transition.opacity="isOpen" class="absolute mt-3 transform bg-white rounded-md shadow-lg z-10 -translate-x-2/4 min-w-max" style="">
-                    <ul class="flex flex-col p-2 my-3 space-y-3">
-                      <li>
-                        <a href="#" class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">
-                          <span class="block mt-1">
-                            <div class="pl-2 w-16">
-                                <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
-                            </div>
-                            
-                          </span>
-                          <span class="flex flex-col">
-                            <span class="text-lg">Atlassian</span>
-                            <span class="text-sm text-gray-400">Lorem ipsum dolor sit.</span>
-                          </span>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#" class="flex items-start px-2 py-1 space-x-2 rounded-md hover:bg-gray-100">
-                          <span class="block mt-1">
-                            <svg class="w-6 h-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
-                            </svg>
-                          </span>
-                          <span class="flex flex-col">
-                            <span class="text-lg">Slack</span>
-                            <span class="text-sm text-gray-400">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
-                    <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
-                      <a href="#">Ir a mis cursos</a>
-                    </div>
-                  </div>
-                </div>
-                    {{--  <div class="group sm:-my-px sm:mr-10">
-                        <button class="outline-none focus:outline-none px-3 py-1 bg-white rounded-sm flex items-center min-w-32">
-                            <span class="pr-1 flex-1 text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700">Mis cursos</span>
-                            <span>
-                                <svg class="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" > <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                            </svg>
-                            </span>
+                    <div x-data="{ open:false }" class="relative my-32">
+                        <button x-on:click="open = true" class="inline-flex items-center mr-10 pt-1 border-b-2 border-transparent text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            Mi aprendizaje
                         </button>
-                        <ul class="bg-white group-hover:scale-100 absolute transition duration-150 ease-in-out origin-top mt-2 transform rounded-md shadow-lg w-70 scale-0">
-                            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
-                                <div class="flex items-center justify-between my-2 mr-4">
-                                    <div class="pl-2 w-16">
-                                        <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
-                                    </div>
-                                    <div class="flex-1 pl-2">
-                                        <div class="text-gray-700 font-semibold">
-                                            PHP Developers
-                                        </div>
-                                        <div class="text-gray-600 font-thin">
-                                            Web House
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
-                                <div class="flex items-center justify-between my-2 mr-4">
-                                    <div class="pl-2 w-16">
-                                        <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
-                                    </div>
-                                    <div class="flex-1 pl-2">
-                                        <div class="text-gray-700 font-semibold">
-                                            PHP Developers
-                                        </div>
-                                        <div class="text-gray-600 font-thin">
-                                            Web House
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="rounded-sm px-3 py-1 hover:bg-gray-100">
-                                <div class="flex items-center justify-between my-2 mr-4">
-                                    <div class="pl-2 w-16">
-                                        <img class="w-12 h-12 rounded-lg" src="https://source.unsplash.com/50x50/?nature">
-                                    </div>
-                                    <div class="flex-1 pl-2">
-                                        <div class="text-gray-700 font-semibold">
-                                            PHP Developers
-                                        </div>
-                                        <div class="text-gray-600 font-thin">
-                                            Web House
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center justify-center p-4 text-blue-700 underline border-t">
-                                    <a href="#">Ir a mis cursos</a>
-                                </div>
-                            </li>
-                        </ul>
-                        
-                    </div>  --}}
+                
+                        <div x-show="open" x-on:click.away="open = false" x-transition:enter="transition ease-out origin-top-left duration-200" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition origin-top-left ease-in duration-100" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" class="absolute right-0 mt-2 bg-white rounded-md shadow overflow-hidden z-20" style="width:20rem;">
+                            <div class="py-2">
+                                <a href="#" class="transition-colors duration-200 flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
+                                    <img class="h-14 w-14 rounded-sm object-cover mx-1" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="avatar">
+                                    <p class="text-gray-600 text-sm mx-2">
+                                        <span class="font-bold" href="#">Aprende hacer interfaces con Adobe XD</span>
+                                    </p>
+                                </a>
+                                <a href="#" class="transition-colors duration-200 flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
+                                    <img class="h-14 w-14 rounded object-cover mx-1" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="avatar">
+                                    <p class="text-gray-600 text-sm mx-2">
+                                        <span class="font-bold" href="#">Aprende hacer interfaces con Adobe XD</span>
+                                    </p>
+                                </a>
+                                <a href="#" class="transition-colors duration-500 flex items-center px-4 py-3 hover:bg-gray-100 -mx-2">
+                                    <img class="h-14 w-14 rounded-md object-cover mx-1" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80" alt="avatar">
+                                    <p class="text-gray-600 text-sm mx-2">
+                                        <span class="font-bold" href="#">Github</span> Aprede github
+                                    </p>
+                                </a>
+                            </div>
+                            <a href="#" class="block bg-gray-600 text-white text-center font-bold py-2 hover:bg-gray-800">Ir a mis cursos</a>
+                        </div>
+                    </div>
+
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
