@@ -1,21 +1,21 @@
 <x-app-layout>
-    <section class="bg-gray-700 py-12 mb-12">
+    <section class="bg-gray-800 py-12 mb-12 shadow-md">
         <div class="container grid grid-cols-1 lg:grid-cols-2 gap-6">
             <figure>
-                <img class="h-60 w-full object-cover" src="{{Storage::url($course->image->url)}}" alt="">
+                <img class="h-60 w-full object-cover rounded" src="{{Storage::url($course->image->url)}}" alt="">
             </figure>
             <div class="text-white">
-                <h1 class="text-4xl">{{ $course->title }}</h1>
-                <h2 class="text-xl mb-3">{{ $course->subtitle }}</h2>
-                <p class="mb-2"><i class="fas fa-chart-line"></i> Nivel: {{ $course->level->name }}</p>
-                <p class="mb-2"><i class="fas fa-tag"></i> Categoria: {{ $course->category->name }}</p>
-                <p class="mb-2"><i class="fas fa-users"></i> Matriculados: {{ $course->students_count }}</p>
-                <p class=""><i class="far fa-star"></i> Calificacion {{ $course->rating }}</p>
+                <h1 class="text-xl mb-2 font-bold">{{ $course->title }}</h1>
+                <h2 class="text-base mb-8 font-semibold">{{ $course->subtitle }}</h2>
+                <p class="mb-3 text-sm"><i class="fas fa-chart-line mr-1"></i> Nivel: {{ $course->level->name }}</p>
+                <p class="mb-3 text-sm"><i class="fas fa-tag mr-1"></i> Categoria: {{ $course->category->name }}</p>
+                <p class="mb-3 text-sm"><i class="fas fa-users mr-1"></i> Inscritos: {{ $course->students_count }}</p>
+                <p class="text-sm"><i class="far fa-star mr-1"></i> Calificación {{ $course->rating }}</p>
             </div>
         </div>
     </section>
 
-    <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6 pb-24">
         <div class="order-2 lg:col-span-2 lg:order-1">
             <section class="card mb-12">
                 <div class="card-body">
@@ -31,7 +31,6 @@
 
             <section class="mb-12">
                 <h1 class="font-bold text-3xl mb-2">Temario</h1>
-
                 @foreach ($course->sections as $section)
                     <article class="mb-4 shadow" {{($loop->first) ? 'x-data={open:true}' : 'x-data={open:false}'}}>
                         <header class="border-gray-200 px-4 py-2 cursor-pointer bg-gray-200" x-on:click="open =!open">
@@ -47,6 +46,22 @@
                         </div>
                     </article>
                 @endforeach
+
+                {{-- @foreach ($course->sections as $section)
+                    <article class="mb-4 shadow" {{($loop->first) ? 'x-data={open:true}' : 'x-data={open:false}'}}>
+                        <header class="border-gray-200 px-4 py-2 cursor-pointer bg-gray-200" x-on:click="open =!open">
+                            <h1 class="font-bold text-lg text-gray-600">{{ $section->name}}</h1>
+                        </header>
+
+                        <div class="bg-white py-2 px-4 border-l-2 bg-grey-lightest border-indigo" x-show="open">
+                            <ul class="grid grid-cols-1 gap-2">
+                                @foreach ($section->lessons as $lesson)
+                                    <li class="text-gray-700 text-base"><i class="fas fa-play-circle mr-2 text-gray-600"></i> {{ $lesson->name }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </article>
+                @endforeach --}}
             </section>
 
             <section class="mb-8">

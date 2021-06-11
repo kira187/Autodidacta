@@ -35,17 +35,17 @@
 </div>
 
 <div class="grid grid-cols-3 gap-4 mb-4">
-    <div>
+    <div class="col-span-3 lg:col-span-1">
         {!! Form::label('category_id', 'Categoria:') !!}
         {!! Form::select('category_id', $categories, null, ['class' => 'form-input block w-full mt-1']) !!}
     </div>
 
-    <div>
+    <div class="col-span-3 lg:col-span-1">
         {!! Form::label('level_id', 'Nivel:') !!}
         {!! Form::select('level_id', $levels, null, ['class' => 'form-input block w-full mt-1']) !!}
     </div>
 
-    <div>
+    <div class="col-span-3 lg:col-span-1">
         {!! Form::label('price_id', 'Precio:') !!}
         {!! Form::select('price_id', $prices, null, ['class' => 'form-input block w-full mt-1']) !!}
     </div>
@@ -54,15 +54,15 @@
 <h1 class="text-2xl font-bold mt-8 mb-2">Imagen del curso</h1>
 
 <div class="grid grid-cols-2 gap-4">
-    <figure>
+    <figure class="col-span-2 lg:col-span-1">
         @isset($course->image)
             <img id="picture" class="w-full h-64 object-cover object-center" src="{{Storage::url($course->image->url)}}" alt="">
         @else 
             <img id="picture" class="w-full h-64 object-cover object-center" src="https://i.pinimg.com/originals/03/89/30/038930bfa7f643504c11efda1a750795.jpg" alt="">
-        @endisset        
+        @endisset
     </figure>
 
-    <div>
+    <div class="col-span-2 lg:col-span-1">
         <p class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita doloremque in neque dolores ratione sunt ut eos, provident molestiae quibusdam voluptatibus consequuntur, unde repudiandae inventore aperiam possimus laboriosam corporis itaque!</p>
         {!! Form::file('file', ['class' => 'form-input w-full'. ($errors->has('file')? ' border-red-600' : ''), 'id' => 'file', 'accept' => 'image/*']) !!}
         

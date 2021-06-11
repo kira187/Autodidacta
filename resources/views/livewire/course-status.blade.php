@@ -1,4 +1,4 @@
-<div class="mt-8">
+<div class="my-10">
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
             <div class="embed-responsive">
@@ -21,19 +21,19 @@
                 @else
                     <i class="fas fa-toggle-off text-2xl text-gray-600"></i>
                 @endif
-                <p class="text-sm ml-2">Marcar unidad como finalizada</p>
+                <p class="text-sm ml-2">Marcar tema como finalizado</p>
             </div>
 
             <div class="card mt-2">
                 <div class="card-body flex text-gray-500">
                     @if ($this->previous)
-                        <svg class="h-6 w-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="15 6 9 12 15 18" /></svg>
-                        <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer font-bold">Tema anterior</a>
+                        <svg class="h-5 w-5 lg:h-6 lg:w-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="15 6 9 12 15 18" /></svg>
+                        <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer font-bold text-sm lg:text-base">Tema anterior</a>
                     @endif
                     
                     @if ($this->next)
-                        <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer font-bold">Tema siguiente </a>
-                        <svg class="h-6 w-6"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer font-bold text-sm lg:text-base">Tema siguiente </a>
+                        <svg class="h-5 w-5 lg:h-6 lg:w-6"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                           </svg> 
                     @endif
@@ -59,7 +59,7 @@
                 <div class="h-3 relative max-w-xl rounded-full overflow-hidden mb-4">
                     <div class="w-full h-full bg-gray-200 absolute"></div>
                     <div class="h-full bg-green-500 absolute transtion-all duration-500" style="width:{{$this->progress. '%'}}"></div>
-                </div>                
+                </div>
 
                 <ul>
                     @foreach ($course->sections as $section)

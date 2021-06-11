@@ -1,7 +1,7 @@
 @php
     $nav_links = [
         [
-            'name' => 'Home',
+            'name' => 'Inicio',
             'route' => route('home'),
             'active' => request()->routeIs('home')
         ],
@@ -10,34 +10,66 @@
             'route' => route('courses.index'),
             'active' => request()->routeIs('courses.*')
         ],
+        [
+            'name' => 'Descubre',
+            'route' => route('courses.index'),
+            'active' => request()->routeIs('instructor.*')
+        ],
     ]
 @endphp
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100 shadow">
+<nav x-data="{ open: false }" class="bg-white mt-2">
     <!-- Primary Navigation Menu -->
     <div class="container">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                    <a href="{{ route('home') }}"  class="font-poppins font-bold text-2xl text-primary">
+                        Autodidacta
                     </a>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">                    
-
-                    @foreach ($nav_links as $nav_link)
-                        <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
-                            {{ $nav_link['name'] }}
-                        </x-jet-nav-link>                    
-                    @endforeach
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
+                <div class=" space-x-8 sm:-my-px sm:mr-8">
+                    @foreach ($nav_links as $nav_link)
+                        <x-jet-nav-link href="{{ $nav_link['route'] }}" :active="$nav_link['active']">
+                            {{ $nav_link['name'] }}
+                        </x-jet-nav-link>
+                    @endforeach
+                </div>
                 @auth
+                    <div x-data="{ open:false }" class="relative my-32">
+                        <button x-on:click="open = true" class="inline-flex items-center mr-10 pt-1 border-b-2 border-transparent text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                            Mi aprendizaje
+                        </button>
+                
+                        <div x-show="open" x-on:click.away="open = false" x-transition:enter="transition ease-out origin-top-left duration-200" x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100" x-transition:leave="transition origin-top-left ease-in duration-100" x-transition:leave-start="opacity-100 transform scale-100" x-transition:leave-end="opacity-0 transform scale-90" class="absolute right-0 mt-2 bg-white rounded-md shadow overflow-hidden z-20" style="width:20rem;">
+                            <div class="py-2">
+                                <a href="#" class="transition-colors duration-200 flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
+                                    <img class="h-14 w-14 rounded-sm object-cover mx-1" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="avatar">
+                                    <p class="text-gray-600 text-sm mx-2">
+                                        <span class="font-bold" href="#">Aprende hacer interfaces con Adobe XD</span>
+                                    </p>
+                                </a>
+                                <a href="#" class="transition-colors duration-200 flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
+                                    <img class="h-14 w-14 rounded object-cover mx-1" src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="avatar">
+                                    <p class="text-gray-600 text-sm mx-2">
+                                        <span class="font-bold" href="#">Aprende hacer interfaces con Adobe XD</span>
+                                    </p>
+                                </a>
+                                <a href="#" class="transition-colors duration-500 flex items-center px-4 py-3 hover:bg-gray-100 -mx-2">
+                                    <img class="h-14 w-14 rounded-md object-cover mx-1" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=398&q=80" alt="avatar">
+                                    <p class="text-gray-600 text-sm mx-2">
+                                        <span class="font-bold" href="#">Github</span> Aprede github
+                                    </p>
+                                </a>
+                            </div>
+                            <a href="#" class="block bg-gray-600 text-white text-center font-bold py-2 hover:bg-gray-800">Ir a mis cursos</a>
+                        </div>
+                    </div>
+
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -131,12 +163,16 @@
                         </x-slot>
                     </x-jet-dropdown>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
+                    
+                    <a href="{{ route('login') }}" class="bg-gray-500 hover:bg-gray-600 text-white text-sm font-poppins font-light	py-2 px-4 mr-2  rounded-full">
+                        Iniciar sesión
+                    </a>
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                        <a href="{{ route('register') }}" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-poppins font-light	py-2 px-4 rounded-full">
+                            Registrate
+                        </a>
                     @endif
-                @endauth                
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -254,3 +290,4 @@
         
     </div>
 </nav>
+
