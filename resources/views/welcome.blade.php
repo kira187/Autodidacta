@@ -5,8 +5,8 @@
         <div class="container py-10 lg:py-36">
             <div class="grid gird-rows-1 grid-cols-1 lg:grid-cols-2">
                 <div class="grid gird-rows-3 order-last grid-cols-1 md:mx-20 lg:order-first lg:mx-0 lg:ml-28">
-                    <h1 class="font-popins title-header font-bold text-black text-4xl text-gray-700 text-center lg:text-left">La plataforma donde <span class="text-primary">aprendes</span> y enseñas.</h1>
-                    <p class="text-black text-lg mt-2 mb-10 md:mb-20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
+                    <h1 class="font-popins title-header font-bold text-4xl text-gray-700 text-center my-5 lg:text-left sm:my-0">La plataforma donde <span class="text-primary">aprendes</span> y enseñas.</h1>
+                    <p class="text-black text-lg mt-2 mb-10 md:mb-20 text-center lg:mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
                     
                     @livewire('search')
                     
@@ -121,8 +121,8 @@
                 </div>
                 <div class="grid gird-rows-1 grid-cols-1 md:mx-20 lg:mx-0 lg:ml-20 xl:ml-28 box-center">
                     <div>
-                        <h1 class="font-popins title-header font-bold text-black text-4xl text-gray-700 text-center lg:text-left">Conecta y Aprende.</h1>
-                        <p class="text-black text-lg mt-10 mb-10 md:mb-14">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
+                        <h1 class="font-popins lg:title-header font-bold text-3xl lg:text-4xl text-gray-700 text-center lg:text-left mt-5">Conecta y Aprende.</h1>
+                        <p class="text-black text-justify text-lg mt-10 mb-10 md:mb-14 sm:text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
                         <div class="flex justify-center mt-4">
                             <a href="{{route('courses.index')}}" class="bg-primary hover:bg-gray-500 hover:text-white text-white font-bold py-4 px-12 rounded-xl"> Descubre cursos </a>
                         </div>
