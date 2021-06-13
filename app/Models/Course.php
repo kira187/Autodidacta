@@ -120,4 +120,19 @@ class Course extends Model
     {
         return $this->hasOne(Observation::class);
     }
+
+    public function getProgressAttribute()
+    {
+        $i = 0;
+
+        foreach ($this->lessons as $lesson) {
+            if ($lesson->completed) {
+                $i++;
+            }
+        }
+
+        $progressPorcentage = ($i * 100)/($this->lessons->count());
+
+        return round($progressPorcentage, 2);
+    }
 }

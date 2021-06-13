@@ -1,4 +1,4 @@
-<div class="container py-8">
+<div class="container py-8 h-screen">
     <h2 class="text-xl font-semibold text-gray-700 leading-tight mb-4">Mis Cursos</h2>
     <x-table-responsive>
         <div class="px-6 py-4 flex">

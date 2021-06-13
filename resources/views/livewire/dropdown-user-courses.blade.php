@@ -16,8 +16,8 @@
                 <p class="px-4 py-3 border-b text-gray-600 text-sm mx-2 text-center bg-gray-200">Aun no cuentas con cursos</p>
             @endforelse
         </div>
-        @if ($courses->count() != 0)            
-            <a href="#" class="block bg-gray-600 text-white text-center font-bold py-2 hover:bg-gray-800">Ir a mis cursos</a>
+        @if ($courses->count() != 0)
+            <a href="{{ route('student.courses' )}}" class="block bg-gray-600 text-white text-center font-bold py-2 hover:bg-gray-800">Ir a mis cursos</a>
         @endif
     </div>
 </div>

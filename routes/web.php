@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Livewire\CourseStatus;
+use App\Http\Livewire\Student\MyCoursesLearning;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,5 +30,6 @@ Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.info');
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');
 Route::get('cursos-status/{course}', CourseStatus::class)->name('course.status')->middleware('auth');
-Route::view('make-me/instructor', 'instructor.make-instructor')->name('make-instructor');
-Route::view('contact-us', 'contact')->name('contact-us');
+Route::get('mis-cursos', MyCoursesLearning::class)->name('student.courses')->middleware('auth');
+Route::view('hacerme/instructor', 'instructor.make-instructor')->name('make-instructor');
+Route::view('contactanos', 'contact')->name('contact-us');
