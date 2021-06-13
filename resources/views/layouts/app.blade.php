@@ -46,7 +46,7 @@
                             <p  class="font-bold text-gray-600 subtitle mb-4">Instructores</p>
                             <hr class="hr-gray">
                             <a href="{{ route('make-instructor')}}" class="hover:text-primary hover:font-bold text-gray-600"><p class=" mt-6 mb-4">Convertirme en instructor</p></a>
-                            <a href="" class="hover:text-primary hover:font-bold text-gray-600"><p class="">Contacto</p></a>
+                            <a href="{{ route('contact-us')}}" class="hover:text-primary hover:font-bold text-gray-600"><p class="">Contacto</p></a>
                         </div>
                     </div>
                 </div>

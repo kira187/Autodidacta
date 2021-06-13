@@ -30,3 +30,4 @@ Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');
 Route::get('cursos-status/{course}', CourseStatus::class)->name('course.status')->middleware('auth');
 Route::view('make-me/instructor', 'instructor.make-instructor')->name('make-instructor');
+Route::view('contact-us', 'contact')->name('contact-us');
