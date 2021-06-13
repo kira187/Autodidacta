@@ -76,7 +76,7 @@ class User extends Authenticatable
     //Relationship m:n
     public function courses_enrolled()
     {
-        return $this->belongsTo(Course::class);
+        return $this->belongsToMany(Course::class);
     }
 
     //Relationship 1:m
