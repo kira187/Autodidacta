@@ -91,7 +91,7 @@
                     @endswitch
                    </div>
                 </div>
-                <div class="w-full lg:w-4/5 p-8 mt-6 lg:mt-0 leading-normal bg-white card">
+                <div class="w-full lg:w-4/5 sm:p-8 mt-6 lg:mt-0 leading-normal bg-white card">
                     <div class="card-body text-gray-600">
                         {{$slot}}
                     </div>
