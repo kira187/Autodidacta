@@ -41,7 +41,7 @@
 
         <div class="flex items-center justify-between mt-4">
             <span class="w-2/6 border-b dark:border-gray-600"></span>
-            <a href="#" class="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">o ingresa con</a>
+            <a href="#" class="text-xs text-center text-gray-500 uppercase dark:text-gray-400">o ingresa con</a>
             <span class="w-2/6 border-b dark:border-gray-400"></span>
         </div>
         <div class="pt-2">

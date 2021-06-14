@@ -1,21 +1,56 @@
 <div class="my-10">
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
-            <div class="embed-responsive">
+            <div class="embed-responsive rounded-lg shadow-md">
                 {!!$currentLesson->iframe!!}
             </div>
-
-            <div class="text-3xl text-gray-600 font-bold mt-4">
+            <div class="text-3xl text-gray-700 font-semibold mt-6">
                 {{$currentLesson->name}}
             </div>
 
-            @if ($currentLesson->description)
-                <div class="text-gray-600 ">
-                    {{$currentLesson->description->name}}
+            <div class="flex items-center justify-between mt-6 mb-4">
+                <span class="w-full border-b dark:border-gray-600"></span>
+            </div>
+            <div class="grid grid-cols-3 gap-4 items-center">
+                <div class="bg-white rounded-full p-2 shadow-md col-span-3 lg:col-span-1 md:col-span-2">
+                    <div class=" flex items-center text-gray-500">
+                        @if ($this->previous)
+                            <svg class="h-5 w-5 lg:h-6 lg:w-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="15 6 9 12 15 18" /></svg>
+                            <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer font-semibold text-sm lg:text-base">Anterior</a>
+                        @endif
+                        @if ($this->next)
+                            <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer font-semibold text-sm lg:text-base">Siguiente </a>
+                            <svg class="h-5 w-5 lg:h-6 lg:w-6"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg> 
+                        @endif
+                    </div>
                 </div>
-            @endif
-
-            <div class="flex items-center mt-4 cursor-pointer" wire:click="completed">
+                <div class="hidden sm:block cursor-pointer" wire:click="completed">
+                    <div x-data="{ tooltip: false }" class="relative z-30 inline-flex">
+                        <div x-on:mouseover="tooltip = true" x-on:mouseleave="tooltip = false" class="rounded-full h-10 w-10 flex items-center justify-center bg-white shadow-md">
+                          @if ($currentLesson->completed)
+                              <svg class="h-6 w-6 text-green-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />  <circle cx="12" cy="12" r="3" /></svg>
+                          @else
+                              <svg class="h-6 w-6 text-gray-600"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>
+                              </svg>                          
+                          @endif
+                        </div>
+                        <div class="relative" x-cloak x-show.transition.origin.top="tooltip">
+                          <div class="absolute top-0 z-10 w-40 p-2 -mt-1 text-sm leading-tight text-white transform -translate-x-1/2 -translate-y-full bg-black rounded-lg shadow-lg text-center">
+                            Marcar como visto
+                          </div>
+                          <svg class="absolute z-10 w-6 h-6 text-black-500 transform -translate-x-12 -translate-y-3 fill-current stroke-current" width="8" height="8">
+                            <rect x="12" y="-10" width="8" height="8" transform="rotate(45)" />
+                          </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            {{-- Responsive checkbox for finished class --}}
+            <div class="sm:hidden flex items-center mt-4 p-2 cursor-pointer text-center bg-white rounded-full shadow-md" wire:click="completed">
                 @if ($currentLesson->completed)
                     <i class="fas fa-toggle-on text-2xl text-blue-600"></i>
                 @else
@@ -24,20 +59,16 @@
                 <p class="text-sm ml-2">Marcar tema como finalizado</p>
             </div>
 
-            <div class="card mt-2">
-                <div class="card-body flex text-gray-500">
-                    @if ($this->previous)
-                        <svg class="h-5 w-5 lg:h-6 lg:w-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="15 6 9 12 15 18" /></svg>
-                        <a wire:click="changeLesson({{$this->previous}})" class="cursor-pointer font-bold text-sm lg:text-base">Tema anterior</a>
-                    @endif
-                    
-                    @if ($this->next)
-                        <a wire:click="changeLesson({{$this->next}})" class="ml-auto cursor-pointer font-bold text-sm lg:text-base">Tema siguiente </a>
-                        <svg class="h-5 w-5 lg:h-6 lg:w-6"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                          </svg> 
-                    @endif
+            @if ($currentLesson->description)
+                <div class="ml-5" x-data="{ show: false }">
+                    <button x-on:click="show = !show" x-text="show ? 'Mostrar menos': 'Mostrar mas'" class="mt-4 text-bold text-sm focus:outline-none text-gray-700"></button>
+                    <div x-show="show" class="text-gray-800">
+                        {{$currentLesson->description->name}}
+                    </div>
                 </div>
+            @endif
+            <div class="flex items-center justify-between my-4">
+                <span class="w-full border-b dark:border-gray-600"></span>
             </div>
         </div>
 
