@@ -5,7 +5,10 @@
                 {!!$currentLesson->iframe!!}
             </div>
             <div class="text-3xl text-gray-700 font-semibold mt-6">
-                {{$currentLesson->name}}
+                <div class="flex">
+                    <svg class="h-8 w-8 mr-3"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1" />  <polygon points="12 15 17 21 7 21 12 15" /></svg>
+                    {{$currentLesson->name}}
+                </div>
             </div>
 
             <div class="flex items-center justify-between mt-6 mb-4">
@@ -49,7 +52,6 @@
                 </div>
             </div>
             
-            {{-- Responsive checkbox for finished class --}}
             <div class="sm:hidden flex items-center mt-4 p-2 cursor-pointer text-center bg-white rounded-full shadow-md" wire:click="completed">
                 @if ($currentLesson->completed)
                     <i class="fas fa-toggle-on text-2xl text-blue-600"></i>
@@ -70,11 +72,93 @@
             <div class="flex items-center justify-between my-4">
                 <span class="w-full border-b dark:border-gray-600"></span>
             </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="flex items-center space-x-2">
+                        <div class="group relative flex flex-shrink-0 self-start cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1507965613665-5fbb4cbb8399?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDQzfHRvd0paRnNrcEdnfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" class="h-8 w-8 object-fill rounded-full">
+                        </div>
+                
+                        <div class="flex items-center justify-center space-x-2">
+                            <div class="block">
+                                <div class="flex justify-center items-center space-x-2">
+                                    <div class="bg-gray-100 w-auto rounded-xl px-2 pb-2">
+                                        <div class="font-medium">
+                                            <a href="#" class="hover:underline text-sm">
+                                                <small>Ganendra</small>
+                                            </a>
+                                        </div>
+                                        <div class="text-xs">
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, maiores!
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad alias sed vitae? Officiis repellendus dolorum eaque natus amet exercitationem, consequuntur similique, ullam totam esse possimus quam ipsam fugiat. Officiis, voluptatum?
+                                        </div>
+                                    </div>
+                                    <div class="self-stretch flex justify-center items-center transform transition-opacity duration-200 opacity-0 hover:opacity-100">
+                                        <a href="#" class="">
+                                            <div class="text-xs cursor-pointer flex h-6 w-6 transform transition-colors duration-200 hover:bg-gray-100 rounded-full items-center justify-center">
+                                                <svg class="w-4 h-6 bg-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flex justify-start items-center text-xs w-full">
+                                    <div class="font-semibold text-gray-700 px-2 flex items-center justify-center space-x-1">
+                                        <a href="#" class="hover:underline"> <small>Like</small></a>
+                                        <small class="self-center">.</small>
+                                        <a href="#" class="hover:underline"> <small>Reply</small></a>
+                                        <small class="self-center">.</small>
+                                        <a href="#" class="hover:underline"><small>15 hour</small></a>
+                                    </div>
+                                </div>
+                                <!-- Subcomment Sample -->
+                                <div class="flex items-center space-x-2 space-y-2">
+                                    <div class="group relative flex flex-shrink-0 self-start cursor-pointer pt-2">
+                                        <img x-on:mouseover="open2 = true" x-on:mouseleave="open2 = false" src="https://images.unsplash.com/photo-1610156830615-2eb9732de349?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDExfHJuU0tESHd3WVVrfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" class="h-8 w-8 object-fill rounded-full">
+                                    </div>
+                                    <div class="flex items-center justify-center space-x-2">
+                                        <div class="block">
+                                            <div class="bg-gray-100 w-auto rounded-xl px-2 pb-2">
+                                                <div class="font-medium">
+                                                    <a href="#" class="hover:underline text-sm"><small>Hasan Muhammad</small></a>
+                                                </div>
+                                                <div class="text-xs">
+                                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Expedita, maiores!
+                                                </div>
+                                            </div>
+                                            <div class="flex justify-start items-center text-xs w-full">
+                                                <div class="font-semibold text-gray-700 px-2 flex items-center justify-center space-x-1">
+                                                    <a href="#" class="hover:underline"><small>Like</small></a>
+                                                    <small class="self-center">.</small>
+                                                    <a href="#" class="hover:underline">
+                                                        <small>Reply</small>
+                                                    </a>
+                                                    <small class="self-center">.</small>
+                                                    <a href="#" class="hover:underline">
+                                                        <small>15 hour</small>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="self-stretch flex justify-center items-center transform transition-opacity duration-200 opacity-0 translate -translate-y-2 hover:opacity-100">
+                                        <a href="#" class="">
+                                            <div class="text-xs cursor-pointer flex h-6 w-6 transform transition-colors duration-200 hover:bg-gray-100 rounded-full items-center justify-center">
+                                                <svg class="w-4 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+            </div>
         </div>
 
         <div class="card">
             <div class="card-body">
-                <h1 class="text-2xl leading-8 text-center mt-4 mb-4">{{ $course->title }}</h1>
+                <h1 class="text-xl leading-8 text-center mt-4 mb-4">{{ $course->title }}</h1>
                 <div class="flex items-center">
                     <figure>
                         <img class="w-12 h-12 object-cover rounded-full mr-4" src="{{$course->teacher->profile_photo_url}}" alt="">
@@ -89,7 +173,7 @@
                 <p class="text-gray-600 text-sm mt-4">{{$this->progress. '%'}} completado</p>
                 <div class="h-3 relative max-w-xl rounded-full overflow-hidden mb-4">
                     <div class="w-full h-full bg-gray-200 absolute"></div>
-                    <div class="h-full bg-green-500 absolute transtion-all duration-500" style="width:{{$this->progress. '%'}}"></div>
+                    <div class="h-full bg-green-400 absolute transtion-all duration-500" style="width:{{$this->progress. '%'}}"></div>
                 </div>
 
                 <ul>
@@ -110,11 +194,11 @@
                                                 @if ($currentLesson->id == $lesson->id)
                                                     <span class="inline-block w-4 h-4 border-2 border-gray-500 rounded-full mr-2 mt-1"></span>
                                                 @else
-                                                    <span class="inline-block w-4 h-4 bg-gray-500 rounded-full mr-2 mt-1"></span>
+                                                    <span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2 mt-1"></span>
                                                 @endif
                                             @endif
                                         </div>
-                                        <a class="cursor-pointer" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
+                                        <a class="cursor-pointer text-sm" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
                                     </li>
                                 @endforeach
                             </ul>

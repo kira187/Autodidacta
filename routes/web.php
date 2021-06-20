@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Livewire\CourseStatus;
 use App\Http\Livewire\Student\MyCoursesLearning;
 
@@ -33,3 +34,5 @@ Route::get('cursos-status/{course}', CourseStatus::class)->name('course.status')
 Route::get('mis-cursos', MyCoursesLearning::class)->name('student.courses')->middleware('auth');
 Route::view('hacerme/instructor', 'instructor.make-instructor')->name('make-instructor');
 Route::view('contactanos', 'contact')->name('contact-us');
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
