@@ -4,7 +4,7 @@ namespace App\Policies;
 
 use App\Models\User;
 use App\Models\course;
-use App\Models\review;
+use App\Models\Review;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class CoursePolicy
