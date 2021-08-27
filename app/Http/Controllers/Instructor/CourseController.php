@@ -7,8 +7,8 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 
 use App\Models\Course;
-use App\Models\level;
-use App\Models\price;
+use App\Models\Level;
+use App\Models\Price;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\Storage;
 
@@ -40,8 +40,8 @@ class CourseController extends Controller
     public function create()
     {
         $categories = Category::pluck('name', 'id');
-        $levels = level::pluck('name', 'id');
-        $prices = price::pluck('name', 'id');
+        $levels = Level::pluck('name', 'id');
+        $prices = Price::pluck('name', 'id');
 
         return view('instructor.courses.create', compact('categories', 'levels', 'prices'));
     }
@@ -100,8 +100,8 @@ class CourseController extends Controller
         $this->authorize('dictated', $course);
 
         $categories = Category::pluck('name', 'id');
-        $levels = level::pluck('name', 'id');
-        $prices = price::pluck('name', 'id');
+        $levels = Level::pluck('name', 'id');
+        $prices = Price::pluck('name', 'id');
 
         return view('instructor.courses.edit', compact('course', 'categories', 'levels', 'prices'));
     }

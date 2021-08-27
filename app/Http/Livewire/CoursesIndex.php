@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Course;
 use App\Models\Category;
-use App\Models\level;
+use App\Models\Level;
 use Database\Seeders\LevelSeeder;
 
 use Livewire\WithPagination;
