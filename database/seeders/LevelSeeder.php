@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\level;
+use App\Models\Level;
 
 class LevelSeeder extends Seeder
 {

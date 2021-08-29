@@ -9,7 +9,7 @@ use App\Models\Goal;
 use App\Models\Image;
 use App\Models\Lesson;
 use App\Models\Requirement;
-use App\Models\review;
+use App\Models\Review;
 use App\Models\Section;
 use Illuminate\Database\Seeder;
 
