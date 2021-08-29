@@ -38,7 +38,7 @@
                       <ul class="list-reset text-gray-700">
                          <li class="py-1 md:my-0 hover:bg-purple-100 lg:hover:bg-transparent">
                             <a href="{{route('instructor.courses.edit', $course)}}" class="@routeIs('instructor.courses.edit', $course) border-blue-500 text-gray-900 font-bold @else border-transparent @endif block pl-4 align-middle no-underline hover:text-blue-500 border-l-4 lg:hover:border-blue-500">
-                            <span class="pb-1 md:pb-0 text-sm">Informacion del curso</span>
+                            <span class="pb-1 md:pb-0 text-sm">Información del curso</span>
                             </a>
                          </li>
                          <li class="py-1 md:my-0 hover:bg-purple-100 lg:hover:bg-transparent">
@@ -68,7 +68,7 @@
                         @case(1)
                             <form action="{{ route('instructor.courses.status', ($course))}}" method="POST">
                                 @csrf
-                                <button class="mt-5 btn btn-danger text-sm btn-sm" type="submit">Solicitar revisión</button>
+                                <button class="mt-5 btn-danger btn-sm" type="submit"><i class="fas fa-paper-plane"></i> Enviar a revisión</button>
                             </form>
                             @break
                         @case(2)

@@ -35,8 +35,8 @@
                     <span class="text-xs text-red-500">{{ $message }}</span>    
                 @enderror
 
-                <div class="flex justify-end mt-2">
-                    <button type="submit" class="btn btn-primary ">Agregar meta</button>
+                <div class="flex justify-end mt-4">
+                    <button type="submit" class="btn-sm btn-primary"><i class="fas fa-flag-checkered"></i> Agregar meta</button>
                 </div>
             </form>
         </div>

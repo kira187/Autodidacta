@@ -17,8 +17,8 @@
                         @enderror
 
                         <div class="flex justify-end">
-                            <button type="button" class="btn btn-danger text-sm" wire:click="destroy({{$lesson}})">Eliminar</button>
-                            <button type="sumbit" class="btn btn-primary text-sm ml-2">Actualizar</button>
+                            <button type="button" class="btn-sm btn-danger" wire:click="destroy({{$lesson}})">Eliminar</button>
+                            <button type="sumbit" class="btn-sm btn-primary ml-2">Actualizar</button>
                         </div>
                     </form>
                     @else
@@ -29,8 +29,8 @@
                                 <span class="text-sm text-red-500">{{ $message }}</span>
                             @enderror
 
-                            <div class="flex justify-end">
-                                <button type="sumbit" class="btn btn-primary text-sm ml-2" wire:click="store">Agregar</button>
+                            <div class="flex justify-end mt-2">
+                                <button type="sumbit" class="btn-sm btn-primary text-sm ml-2" wire:click="store">Agregar</button>
                             </div>
                         </div>
                 @endif

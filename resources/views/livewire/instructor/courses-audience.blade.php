@@ -29,14 +29,14 @@
     <article class="card">
         <div class="card-body bg-gray-100">
             <form wire:submit.prevent="store">
-                <input wire:model="name" type="text" class="form-input w-full" placeholder="Agregar la aduencia del curso">
+                <input wire:model="name" type="text" class="form-input w-full" placeholder="Agregar la audiencia del curso">
 
                 @error('name')
                     <span class="text-xs text-red-500">{{ $message }}</span>    
                 @enderror
 
-                <div class="flex justify-end mt-2">
-                    <button type="submit" class="btn btn-primary ">Agregar audiencia</button>
+                <div class="flex justify-end mt-4">
+                    <button type="submit" class="btn-sm btn-primary "><i class="fas fa-users"></i> Agregar audiencia</button>
                 </div>
             </form>
         </div>

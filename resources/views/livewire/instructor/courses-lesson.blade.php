@@ -5,17 +5,16 @@
 
                 @if ($lesson->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <div class="flex items-center">
-                            <label for="" class="w-32">Nombre:</label>
-                            <input wire:model="lesson.name" type="text" class="form-input w-full">
+                        <div class="text-gray-700">
+                            <label class="block mb-1">Nombre</label>
+                            <input wire:model="lesson.name" type="text" class="form-input w-full border">
                         </div>
-
                         @error('lesson.name')
                             <span class="text-xs text-red-700">{{ $message }}</span>
                         @enderror
 
-                        <div class="flex items-center mt-4">
-                            <label for="" class="w-32">Plataforma: </label>
+                        <div class="text-gray-700 mt-4">
+                            <label class="block mb-1">Plataforma</label>
                             <select wire:model="lesson.platform_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 @foreach ($platforms as $platform)
                                     <option value="{{$platform->id}}">{{$platform->name}}</option>
@@ -23,20 +22,19 @@
                             </select>
                         </div>
 
-                        <div class="flex items-center mt-4">
+                        <div class=" mt-4">
                             <label for="" class="w-32">URL:</label>
-                            <input wire:model="lesson.url" type="text" class="form-input w-full">
+                            <input wire:model="lesson.url" type="text" class="form-input w-full border">
                         </div>
 
                         @error('lesson.url')
                             <span class="text-xs text-red-700">{{ $message }}</span>
                         @enderror
 
-                        <div class="mt-4 flex justify-end">
-                            <button type="button" class="btn btn-danger" wire:click="cancel">Cancelar</button>
-                            <button type="submit" class="btn btn-primary ml-2">Actualizar</button>
+                        <div class="mt-4 flex justify-center sm:justify-end">
+                            <button type="submit" class="btn-sm btn-primary">Actualizar</button>
+                            <button type="button" class="btn-sm btn-danger ml-2" wire:click="cancel">Cancelar</button>
                         </div>
-
                     </form>
                 @else
                     <header>
@@ -49,8 +47,8 @@
                         <p class="text-sm"> Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
 
                         <div class="my-2">
-                            <button class="btn btn-primary text-sm" wire:click="edit({{$item}})" >Editar</button>
-                            <button class="btn btn-danger text-sm" wire:click="destroy({{ $item }})">Eliminar</button>
+                            <button class="btn-sm btn-primary text-sm" wire:click="edit({{$item}})" >Editar</button>
+                            <button class="btn-sm btn-danger text-sm" wire:click="destroy({{ $item }})">Eliminar</button>
                         </div>
 
                         <div class="mb-4">
@@ -77,16 +75,16 @@
                 <h1 class="text-xl font-bold mb-4"> Agregar nueva lección</h1>
                 
                 <div>
-                    <div class="flex items-center">
+                    <div class="md:flex md:items-center">
                         <label for="" class="w-32">Nombre:</label>
-                        <input wire:model="name" type="text" class="form-input w-full">
+                        <input wire:model="name" type="text" class="form-input w-full border">
                     </div>
 
                     @error('name')
                         <span class="text-xs text-red-700">{{ $message }}</span>
                     @enderror
 
-                    <div class="flex items-center mt-4">
+                    <div class="md:flex md:items-center mt-4">
                         <label for="" class="w-32">Plataforma: </label>
                         <select wire:model="platform_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             @foreach ($platforms as $platform)
@@ -99,9 +97,9 @@
                         <span class="text-xs text-red-700">{{ $message }}</span>
                     @enderror
 
-                    <div class="flex items-center mt-4">
+                    <div class="md:flex md:items-center mt-4">
                         <label for="" class="w-32">URL:</label>
-                        <input wire:model="url" type="text" class="form-input w-full">
+                        <input wire:model="url" type="text" class="form-input w-full border">
                     </div>
 
                     @error('url')
@@ -110,8 +108,8 @@
                 </div>
                 
                 <div class="mt-4 flex justify-end">
-                    <button class="btn btn-danger" x-on:click="open = false">Cancelar</button>
-                    <button class="btn btn-primary ml-2" wire:click="store">Agregar</button>
+                    <button class="btn-sm btn-danger" x-on:click="open = false">Cancelar</button>
+                    <button class="btn-sm btn-primary ml-2" wire:click="store">Agregar</button>
                 </div>
             </div>
         </article>

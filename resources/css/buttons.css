@@ -2,12 +2,16 @@
     @apply font-bold py-2 px-4 rounded;
 }
 
+.btn-sm {
+    @apply text-sm font-medium h-8 px-4 rounded-lg;
+}
+
 .btn-primary {
     @apply bg-blue-500 text-white;
 }
 
 .btn-primary:hover {
-    @apply bg-blue-700;
+    @apply bg-blue-600;
   }
 
 .btn-danger {
@@ -15,7 +19,7 @@
 }
 
 .btn-danger:hover {
-    @apply bg-red-700;
+    @apply bg-red-600;
 }
 
 .btn-block {

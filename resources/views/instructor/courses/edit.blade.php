@@ -1,6 +1,6 @@
 <x-instructor-layout :course="$course">    
 
-    <h1 class="text-2xl font-bold">Informacion del curso</h1>
+    <h1 class="text-2xl font-bold">Información del curso</h1>
     <hr class="mt-2 mb-6">
                         
     {!! Form::model($course, ['route' => ['instructor.courses.update', $course], 'method' => 'PUT', 'files' => 'true']) !!}
@@ -8,7 +8,7 @@
     @include('instructor.courses.partials.form')
                         
     <div class="flex justify-end">
-        {!! Form::submit('Actualizar curso', ['class' => 'btn btn-primary']) !!}
+        {{ Form::button('<i class="fas fa-sync"></i> Actualizar curso', ['type' => 'submit', 'class' => 'btn btn-primary min-w-full md:min-w-0'] )  }}
     </div>
 
     <x-slot name="js">
