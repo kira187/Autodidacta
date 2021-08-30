@@ -121,10 +121,10 @@
                 </div>
                 <div class="grid gird-rows-1 grid-cols-1 md:mx-20 lg:mx-0 lg:ml-20 xl:ml-28 box-center">
                     <div>
-                        <h1 class="font-popins lg:title-header font-bold text-3xl lg:text-4xl text-gray-700 text-center lg:text-left mt-5">Conecta y Aprende.</h1>
-                        <p class="text-black text-justify text-lg mt-10 mb-10 md:mb-14 sm:text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
+                        <h1 class="font-popins lg:title-header font-bold text-3xl lg:text-4xl text-gray-700 text-center mt-6">Conecta y Aprende.</h1>
+                        <p class="text-black text-justify text-lg mt-10 mb-6 md:mb-14 sm:text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
                         <div class="flex justify-center mt-4">
-                            <a href="{{route('courses.index')}}" class="bg-primary hover:bg-gray-500 hover:text-white text-white font-bold py-4 px-12 rounded-xl"> Descubre cursos </a>
+                            <a href="{{route('courses.index')}}" class="transition duration-500 ease-in-out bg-primary hover:bg-gray-500 hover:text-white text-white font-bold py-4 px-12 rounded-full transform hover:-translate-y-1 hover:scale-105"> Descubre cursos </a>
                         </div>
                     </div>
                     
@@ -138,11 +138,11 @@
     {{--  Catalago de cursos  --}}
     <section class="bg-primary py-12">
         <h1 class="text-center font-bold text-white text-3xl"> ¿No sabes que curso llevar? </h1>
-        <p class="text-center text-white">Dirígete al catálogo de cursos y filtralos
+        <p class="text-center text-white mt-3 mb-6">Dirígete al catálogo de cursos y filtralos
              por categoría o nivel </p>
 
-        <div class="flex justify-center mt-4">
-            <a href="{{route('courses.index')}}" class="bg-white hover:bg-gray-500 hover:text-white text-primary font-bold py-2 px-4 rounded"> Catalago de cursos </a>
+        <div class="flex justify-center">
+            <a href="{{route('courses.index')}}" class="transition duration-500 ease-in-out rounded-full transform hover:-translate-y-1 hover:scale-105  bg-white hover:bg-gray-500 hover:text-white text-primary font-bold py-2 px-4"> Catalago de cursos </a>
         </div>
 
     </section>
