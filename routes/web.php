@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
-use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\LoginController;
 use App\Http\Livewire\CourseStatus;
 use App\Http\Livewire\Student\MyCoursesLearning;
 
@@ -25,8 +25,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.info');
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');
@@ -34,5 +32,6 @@ Route::get('cursos-status/{course}', CourseStatus::class)->name('course.status')
 Route::get('mis-cursos', MyCoursesLearning::class)->name('student.courses')->middleware('auth');
 Route::view('hacerme/instructor', 'instructor.make-instructor')->name('make-instructor');
 Route::view('contactanos', 'contact')->name('contact-us');
-Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
-Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
+Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
+Route::get('login/{driver}/callback', [LoginController::class, 'handleProviderCallback']);

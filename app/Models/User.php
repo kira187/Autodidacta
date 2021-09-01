@@ -103,4 +103,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Lesson::class);
     }
+
+    //Relationship 1:m
+    public function socialProfiles()
+    {
+        return $this->hasMany(socialProfiles::class);
+    }
 }
