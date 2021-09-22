@@ -35,4 +35,3 @@ Route::view('contactanos', 'contact')->name('contact-us');
 
 Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
 Route::get('login/{driver}/callback', [LoginController::class, 'handleProviderCallback']);
-Route::view('vuexy', 'layouts.dashboard');
