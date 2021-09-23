@@ -82,8 +82,8 @@
 
 .file-manager-application .sidebar-file-manager .sidebar-inner .sidebar-list .active {
   background-color : transparent;
-  border-color : #7367F0;
-  color : #7367F0;
+  border-color : #2563EB;
+  color : #2563EB;
 }
 
 .file-manager-application .sidebar-file-manager.show {
@@ -215,7 +215,7 @@
 }
 
 .file-manager-application .content-area-wrapper .file-manager-main-content .file-manager-content-body .view-container .file-manager-item.selected {
-  border-color : #7367F0;
+  border-color : #2563EB;
 }
 
 .file-manager-application .content-area-wrapper .file-manager-main-content .file-manager-content-body .view-container .file-name {

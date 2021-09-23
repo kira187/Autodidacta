@@ -118,38 +118,92 @@ html .content .content-wrapper .content-header-right .btn-icon i, html .content 
 }
 
 html .navbar-floating.footer-static .app-content .content-area-wrapper, html .navbar-floating.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-floating.footer-static .app-content .content-area-wrapper, html .navbar-floating.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +    1.3rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +    1.3rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +
+    1.3rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +
+    1.3rem + 0rem
+    ));
   }
 }
 
 html .navbar-floating.footer-hidden .app-content .content-area-wrapper, html .navbar-floating.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-floating.footer-hidden .app-content .content-area-wrapper, html .navbar-floating.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +    1.3rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +    1.3rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +
+    1.3rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +
+    1.3rem + 0rem
+    ));
   }
 }
 
 html .navbar-floating.footer-fixed .app-content .content-area-wrapper, html .navbar-floating.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-floating.footer-fixed .app-content .content-area-wrapper, html .navbar-floating.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +    1.3rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +    1.3rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +
+    1.3rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +
+    1.3rem + 0rem
+    ));
   }
 }
 
@@ -158,38 +212,92 @@ html .navbar-hidden .app-content {
 }
 
 html .navbar-hidden.footer-static .app-content .content-area-wrapper, html .navbar-hidden.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-hidden.footer-static .app-content .content-area-wrapper, html .navbar-hidden.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 0rem + 3.35rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 0rem + 3.35rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 0rem + 3.35rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 0rem + 3.35rem +
+    0rem + 0rem
+    ));
   }
 }
 
 html .navbar-hidden.footer-hidden .app-content .content-area-wrapper, html .navbar-hidden.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 0rem + 0rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 0rem + 0rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 0rem + 0rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 0rem + 0rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-hidden.footer-hidden .app-content .content-area-wrapper, html .navbar-hidden.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 0rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 0rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 0rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 0rem +
+    0rem + 0rem
+    ));
   }
 }
 
 html .navbar-hidden.footer-fixed .app-content .content-area-wrapper, html .navbar-hidden.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-hidden.footer-fixed .app-content .content-area-wrapper, html .navbar-hidden.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 3.35rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 3.35rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 3.35rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 0rem + 3.35rem +
+    0rem + 0rem
+    ));
   }
 }
 
@@ -206,38 +314,92 @@ html .navbar-static .app-content {
 }
 
 html .navbar-static.footer-static .app-content .content-area-wrapper, html .navbar-static.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-static.footer-static .app-content .content-area-wrapper, html .navbar-static.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
   }
 }
 
 html .navbar-static.footer-hidden .app-content .content-area-wrapper, html .navbar-static.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-static.footer-hidden .app-content .content-area-wrapper, html .navbar-static.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +
+    0rem + 0rem
+    ));
   }
 }
 
 html .navbar-static.footer-fixed .app-content .content-area-wrapper, html .navbar-static.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-static.footer-fixed .app-content .content-area-wrapper, html .navbar-static.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
   }
 }
 
@@ -246,38 +408,92 @@ html .navbar-sticky .app-content {
 }
 
 html .navbar-sticky.footer-static .app-content .content-area-wrapper, html .navbar-sticky.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-sticky.footer-static .app-content .content-area-wrapper, html .navbar-sticky.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 1) - calc(0.8rem * 1)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
   }
 }
 
 html .navbar-sticky.footer-hidden .app-content .content-area-wrapper, html .navbar-sticky.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-sticky.footer-hidden .app-content .content-area-wrapper, html .navbar-sticky.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 0rem +
+    0rem + 0rem
+    ));
   }
 }
 
 html .navbar-sticky.footer-fixed .app-content .content-area-wrapper, html .navbar-sticky.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 0rem
+  ));
 }
 
 @media (max-width: 575.98px) {
   html .navbar-sticky.footer-fixed .app-content .content-area-wrapper, html .navbar-sticky.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +    0rem + 0rem    ));
+    height : calc(
+    100vh -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(
+    calc(calc(2rem * 2) - calc(0.8rem * 2)) + 4.45rem + 3.35rem +
+    0rem + 0rem
+    ));
   }
 }
 
@@ -301,7 +517,8 @@ html [data-col='1-column'] .header-navbar {
 }
 
 html [data-col='1-column'] .header-navbar.floating-nav {
-  width : calc(  100vw - (100vw - 100%) - calc(2rem * 2)) !important;
+  width : calc(
+  100vw - (100vw - 100%) - calc(2rem * 2)) !important;
 }
 
 html [data-col='1-column'] .content, html [data-col='1-column'] .footer {
@@ -358,7 +575,7 @@ html .blank-page .content-wrapper .flexbox-container {
 }
 
 html .pace .pace-progress {
-  background : #7367F0;
+  background : #2563EB;
 }
 
 .app-content.center-layout {
@@ -697,8 +914,8 @@ footer.footer-border {
 }
 
 .main-menu.menu-light .navigation > li.active > a {
-  background : -webkit-linear-gradient(208deg, #7367F0, rgba(115, 103, 240, 0.7));
-  background :         linear-gradient(-118deg, #7367F0, rgba(115, 103, 240, 0.7));
+  background : -webkit-linear-gradient(208deg, #2563EB, rgba(115, 103, 240, 0.7));
+  background :         linear-gradient(-118deg, #2563EB, rgba(115, 103, 240, 0.7));
   box-shadow : 0 0 10px 1px rgba(115, 103, 240, 0.7);
   color : #FFFFFF;
   font-weight : 400;
@@ -710,7 +927,7 @@ footer.footer-border {
 }
 
 .main-menu.menu-light .navigation > li .active > a {
-  color : #7367F0;
+  color : #2563EB;
   margin-bottom : 0;
 }
 
@@ -764,8 +981,8 @@ footer.footer-border {
 }
 
 .main-menu.menu-light .navigation > li ul .active {
-  background : -webkit-linear-gradient(208deg, #7367F0, rgba(115, 103, 240, 0.7));
-  background :         linear-gradient(-118deg, #7367F0, rgba(115, 103, 240, 0.7));
+  background : -webkit-linear-gradient(208deg, #2563EB, rgba(115, 103, 240, 0.7));
+  background :         linear-gradient(-118deg, #2563EB, rgba(115, 103, 240, 0.7));
   box-shadow : 0 0 10px 1px rgba(115, 103, 240, 0.7);
   border-radius : 4px;
   z-index : 1;
@@ -888,8 +1105,8 @@ footer.footer-border {
 }
 
 .main-menu.menu-dark .navigation > li.active > a {
-  background : -webkit-linear-gradient(208deg, #7367F0, rgba(115, 103, 240, 0.7));
-  background :         linear-gradient(-118deg, #7367F0, rgba(115, 103, 240, 0.7));
+  background : -webkit-linear-gradient(208deg, #2563EB, rgba(115, 103, 240, 0.7));
+  background :         linear-gradient(-118deg, #2563EB, rgba(115, 103, 240, 0.7));
   box-shadow : 0 0 10px 1px rgba(115, 103, 240, 0.7);
   color : #FFFFFF;
   font-weight : 400;
@@ -901,7 +1118,7 @@ footer.footer-border {
 }
 
 .main-menu.menu-dark .navigation > li .active > a {
-  color : #7367F0;
+  color : #2563EB;
   margin-bottom : 0;
 }
 
@@ -955,8 +1172,8 @@ footer.footer-border {
 }
 
 .main-menu.menu-dark .navigation > li ul .active {
-  background : -webkit-linear-gradient(208deg, #7367F0, rgba(115, 103, 240, 0.7));
-  background :         linear-gradient(-118deg, #7367F0, rgba(115, 103, 240, 0.7));
+  background : -webkit-linear-gradient(208deg, #2563EB, rgba(115, 103, 240, 0.7));
+  background :         linear-gradient(-118deg, #2563EB, rgba(115, 103, 240, 0.7));
   box-shadow : 0 0 10px 1px rgba(115, 103, 240, 0.7);
   border-radius : 4px;
   z-index : 1;
@@ -1038,7 +1255,7 @@ footer.footer-border {
 }
 
 .main-menu .navbar-header .navbar-brand .brand-text {
-  color : #7367F0;
+  color : #2563EB;
   padding-right : 1rem;
   margin-bottom : 0;
   font-weight : 600;
@@ -1563,7 +1780,7 @@ footer.footer-border {
 }
 
 .navbar-container .bookmark-input input:focus {
-  border : 1px solid #7367F0;
+  border : 1px solid #2563EB;
 }
 
 .navbar-container .bookmark-input .search-list {
@@ -2902,7 +3119,7 @@ footer.footer-border {
 }
 
 .customizer .customizer-toggle {
-  background : #7367F0;
+  background : #2563EB;
   color : #FFFFFF !important;
   display : block;
   box-shadow : 3px 0 8px rgba(34, 41, 47, 0.1);
@@ -2929,7 +3146,7 @@ footer.footer-border {
 
 .customizer .color-box.selected:after {
   content : '';
-  border : 1px solid #7367F0;
+  border : 1px solid #2563EB;
   height : 30px;
   width : 30px;
   top : -3px;
@@ -2985,7 +3202,7 @@ footer.footer-border {
   padding-right : 0;
 }
 
-.divider.divider-left .divider-text:before {
+.divider.divider-#2563EBvider-text:before {
   display : none;
 }
 
@@ -3013,7 +3230,7 @@ footer.footer-border {
   border-color : #EBE9F1;
 }
 
-.divider.divider-dashed .divider-text:before, .divider.divider-dashed .divider-text:after {
+.divider.divider-#2563EBdivider-text:before, .divider.divider-dashed .divider-text:after {
   border-style : dashed;
   border-width : 1px;
   border-top-width : 0;
@@ -3022,7 +3239,7 @@ footer.footer-border {
 
 .timeline {
   padding : 0;
-  margin-bottom : 0;
+  margin-bottom :#2563EB
   margin-right : 1rem;
   list-style : none;
 }
@@ -3048,17 +3265,17 @@ footer.footer-border {
   display :         flex;
   -webkit-box-pack : center;
   -webkit-justify-content : center;
-  -ms-flex-pack : center;
+  -ms-flex-pack :#2563EB
           justify-content : center;
   -webkit-box-align : center;
   -webkit-align-items : center;
   -ms-flex-align : center;
-          align-items : center;
-  height : 1.75rem;
+          align-items#2563EBr;
+  height : 1.75re#2563EB
   width : 1.75rem;
   text-align : center;
   border-radius : 50%;
-  border : 1px solid #7367F0;
+  border : 1px solid #2563EB;
   background-color : #FFFFFF;
 }
 
@@ -3068,7 +3285,7 @@ footer.footer-border {
   height : 12px;
   width : 12px;
   border : 0;
-  background-color : #7367F0;
+  background-color : #2563EB;
 }
 
 .timeline .timeline-item .timeline-point.timeline-point-indicator:before {
@@ -3084,7 +3301,7 @@ footer.footer-border {
 }
 
 .timeline .timeline-item .timeline-point i, .timeline .timeline-item .timeline-point svg {
-  color : #7367F0;
+  color : #2563EB;
   font-size : 0.85rem;
   vertical-align : baseline;
 }
@@ -3112,7 +3329,7 @@ footer.footer-border {
   width : 1px;
   height : 100%;
   background : -webkit-linear-gradient(#EBE9F1, transparent);
-  background :         linear-gradient(#EBE9F1, transparent);
+  background :       #2563EB-gradient(#EBE9F1, transparent);
 }
 
 @media screen and (min-width: 0) {
@@ -3125,7 +3342,7 @@ footer.footer-border {
 }
 
 @media screen and (min-width: 544px) {
-  head {
+  head {#2563EB
     font-family : 'sm 544px';
   }
   body:after {
@@ -3202,7 +3419,7 @@ body:after {
 
 .select2-container--classic .select2-selection--single:focus, .select2-container--default .select2-selection--single:focus {
   outline : 0;
-  border-color : #7367F0 !important;
+  border-color : #2563EB!important;
   box-shadow : 0 3px 10px 0 rgba(34, 41, 47, 0.1) !important;
 }
 
@@ -3229,17 +3446,17 @@ body:after {
   box-shadow : 0 5px 25px rgba(34, 41, 47, 0.1);
 }
 
-.select2-container--classic.select2-container--open .select2-selection--single, .select2-container--default.select2-container--open .select2-selection--single {
-  border-color : #7367F0 !important;
+.select2-c#2563EB--classic.select2-container--open .select2-selection--single, .select2-container--default.select2-container--open .select2-selection--single {
+  border-color : #2563EB!important;
   outline : 0;
 }
 
-.select2-container--classic.select2-container--focus, .select2-container--default.select2-container--focus {
+.select2-c#2563EB--classic.select2-container--focus, .select2-container--default.select2-container--focus {
   outline : 0;
 }
 
 .select2-container--classic.select2-container--focus .select2-selection--multiple, .select2-container--default.select2-container--focus .select2-selection--multiple {
-  border-color : #7367F0 !important;
+  border-color : #2563EB!important;
   outline : 0;
 }
 
@@ -3265,13 +3482,13 @@ body:after {
 
 .select2-container--classic .select2-selection--multiple:focus, .select2-container--default .select2-selection--multiple:focus {
   outline : 0;
-  border-color : #7367F0 !important;
+  border-color : #2563EB!important;
   box-shadow : 0 3px 10px 0 rgba(34, 41, 47, 0.1) !important;
 }
 
 .select2-container--classic .select2-selection--multiple .select2-selection__choice, .select2-container--default .select2-selection--multiple .select2-selection__choice {
-  background-color : #7367F0 !important;
-  border-color : #7367F0 !important;
+  background-color : #2563EB!important;
+  border-color : #2563EB!important;
   color : #FFFFFF;
   padding : 2px 5px;
 }
@@ -3329,7 +3546,7 @@ body:after {
 }
 
 .select2-container--classic .select2-results__option[aria-selected='true'], .select2-container--default .select2-results__option[aria-selected='true'] {
-  background-color : #7367F0 !important;
+  background-color : #2563EB!important;
   color : white !important;
 }
 
@@ -3342,7 +3559,7 @@ body:after {
 
 .select2-container--classic .select2-results__option--highlighted, .select2-container--default .select2-results__option--highlighted {
   background-color : rgba(115, 103, 240, 0.12) !important;
-  color : #7367F0 !important;
+  color : #2563EB!important;
 }
 
 .select2-container--classic .select2-result-repository__avatar img, .select2-container--default .select2-result-repository__avatar img {
@@ -3446,12 +3663,12 @@ body:after {
 
 .dark-layout .select2-container .select2-selection--multiple .select2-selection__choice {
   background : rgba(115, 103, 240, 0.12) !important;
-  color : #7367F0 !important;
+  color : #2563EB!important;
   border : none;
 }
 
 .dark-layout .select2-container .select2-selection--multiple .select2-selection__choice .select2-selection__choice__remove {
-  color : #7367F0 !important;
+  color : #2563EB!important;
 }
 
 .dark-layout .select2-container .select2-selection--multiple .select2-selection__choice__remove:before {

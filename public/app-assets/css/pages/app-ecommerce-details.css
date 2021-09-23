@@ -17,7 +17,7 @@
   color: #babfc7; }
 
 .ecommerce-application .app-ecommerce-details .item-price {
-  color: #7367f0; }
+  color: #2563EB; }
 
 .ecommerce-application .app-ecommerce-details .item-company {
   display: inline-flex;
@@ -68,7 +68,7 @@
   font-size: 2.5rem;
   height: 2.5rem;
   width: 2.5rem;
-  color: #7367f0; }
+  color: #2563EB; }
 
 .ecommerce-application .swiper-responsive-breakpoints.swiper-container .swiper-slide {
   text-align: center;
@@ -155,7 +155,7 @@
   border-radius: 50%; }
 
 .ecommerce-application .product-color-options .selected .b-primary {
-  border-color: #7367f0; }
+  border-color: #2563EB; }
 
 .ecommerce-application .product-color-options .selected .b-primary .filloption {
   box-shadow: 0 2px 4px 0 rgba(115, 103, 240, 0.4); }

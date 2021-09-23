@@ -96,7 +96,7 @@
 }
 
 .horizontal-menu .header-navbar.navbar-brand-center .navbar-header .navbar-brand .brand-text {
-  color : #7367F0;
+  color : #2563EB;
   padding-right : 1rem;
   margin-bottom : 0;
   font-weight : 600;
@@ -207,7 +207,7 @@
 
 .horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation > li > .dropdown-menu .active > a {
   background : #F8F8F8;
-  color : #7367F0;
+  color : #2563EB;
   font-weight : 500;
 }
 
@@ -238,8 +238,8 @@
 }
 
 .horizontal-menu .header-navbar.navbar-horizontal ul#main-menu-navigation > li.active > a {
-  background : -webkit-linear-gradient(208deg, #7367F0, rgba(115, 103, 240, 0.7));
-  background :         linear-gradient(-118deg, #7367F0, rgba(115, 103, 240, 0.7));
+  background : -webkit-linear-gradient(208deg, #2563EB, rgba(115, 103, 240, 0.7));
+  background :         linear-gradient(-118deg, #2563EB, rgba(115, 103, 240, 0.7));
   box-shadow : 0 0 6px 1px rgba(115, 103, 240, 0.6);
   color : #FFFFFF;
   border-radius : 4px;
@@ -254,7 +254,7 @@
 }
 
 .horizontal-menu .navbar-dark .nav-item.active > a {
-  border-bottom : 2px solid #7367F0;
+  border-bottom : 2px solid #2563EB;
   background-color : #313C50;
 }
 
@@ -279,38 +279,71 @@
 }
 
 .horizontal-layout.navbar-floating.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-floating.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 1.3rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-floating.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-floating.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
   }
 }
 
 .horizontal-layout.navbar-floating.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-floating.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 1.3rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-floating.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-floating.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
   }
 }
 
 .horizontal-layout.navbar-floating.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-floating.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 1.3rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-floating.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-floating.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
   }
 }
 
@@ -331,38 +364,71 @@
 }
 
 .horizontal-layout.navbar-sticky.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-sticky.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 4.45rem + 3.35rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-sticky.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-sticky.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + 3.35rem));
   }
 }
 
 .horizontal-layout.navbar-sticky.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-sticky.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-sticky.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-sticky.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
   }
 }
 
 .horizontal-layout.navbar-sticky.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-sticky.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-sticky.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-sticky.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
   }
 }
 
@@ -393,74 +459,140 @@
 }
 
 .horizontal-layout.navbar-static.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-static.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 4.45rem + calc(3.35rem + 0.2rem) + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 4.45rem + calc(3.35rem + 0.2rem) + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 4.45rem + calc(3.35rem + 0.2rem) + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 4.45rem + calc(3.35rem + 0.2rem) + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-static.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-static.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + calc(3.35rem + 0.2rem)));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + calc(3.35rem + 0.2rem)));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + calc(3.35rem + 0.2rem)));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 1) + 4.45rem + calc(3.35rem + 0.2rem)));
   }
 }
 
 .horizontal-layout.navbar-static.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-static.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 0rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-static.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-static.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 0rem));
   }
 }
 
 .horizontal-layout.navbar-static.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-static.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 4.45rem + 3.35rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-static.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-static.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 4.45rem + 3.35rem));
   }
 }
 
 .horizontal-layout.navbar-hidden.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-hidden.footer-static .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 1) + 0rem + 3.35rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-hidden.footer-static .app-content .content-area-wrapper, .horizontal-layout.navbar-hidden.footer-static .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 0rem + 3.35rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 1) + 0rem + 3.35rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 1) + 0rem + 3.35rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 1) + 0rem + 3.35rem));
   }
 }
 
 .horizontal-layout.navbar-hidden.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-hidden.footer-hidden .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 0rem + 0rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 0rem + 0rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 0rem + 0rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 0rem + 0rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-hidden.footer-hidden .app-content .content-area-wrapper, .horizontal-layout.navbar-hidden.footer-hidden .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 0rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 0rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 0rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 0rem));
   }
 }
 
 .horizontal-layout.navbar-hidden.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-hidden.footer-fixed .app-content .kanban-wrapper {
-  height : calc(  100vh -  calc(  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 4.45rem  ));
-  height : calc(  var(--vh, 1vh) * 100 -  calc(  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 4.45rem  ));
+  height : calc(
+  100vh -
+  calc(
+  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 4.45rem
+  ));
+  height : calc(
+  var(--vh, 1vh) * 100 -
+  calc(
+  calc(2rem * 2) + 0rem + 3.35rem + 0rem + 4.45rem
+  ));
 }
 
 @media (max-width: 1199.98px) {
   .horizontal-layout.navbar-hidden.footer-fixed .app-content .content-area-wrapper, .horizontal-layout.navbar-hidden.footer-fixed .app-content .kanban-wrapper {
-    height : calc(    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 3.35rem));
-    height : calc(    var(--vh, 1vh) * 100 -    calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 3.35rem));
+    height : calc(
+    100vh - calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 3.35rem));
+    height : calc(
+    var(--vh, 1vh) * 100 -
+    calc(calc(calc(2rem - 0.8rem) * 2) + 0rem + 3.35rem));
   }
 }
 

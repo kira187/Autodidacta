@@ -611,7 +611,7 @@ $(function () {
                 from: 51,
                 to: 60,
                 name: '50-60',
-                color: '#7367f0'
+                color: '#2563EB'
               }
             ]
           }

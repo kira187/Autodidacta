@@ -46,7 +46,7 @@
   border : none;
   border-radius : 50%;
   background : #FFFFFF;
-  border : 2px solid #7367F0;
+  border : 2px solid #2563EB;
 }
 
 .noUi-handle:after, .noUi-handle:before {
@@ -54,7 +54,7 @@
 }
 
 .noUi-connect {
-  background : #7367F0;
+  background : #2563EB;
   box-shadow : none;
 }
 

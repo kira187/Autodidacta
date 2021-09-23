@@ -57,7 +57,7 @@ $(function () {
       rtl: isRtl,
       multiColor: {
         startColor: '#ea5455',
-        endColor: '#7367f0'
+        endColor: '#2563EB'
       }
     });
   }
