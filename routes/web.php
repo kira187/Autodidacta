@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
@@ -30,7 +31,8 @@ Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');
 Route::get('cursos-status/{course}', CourseStatus::class)->name('course.status')->middleware('auth');
 Route::get('mis-cursos', MyCoursesLearning::class)->name('student.courses')->middleware('auth');
-Route::view('hacerme/instructor', 'instructor.make-instructor')->name('make-instructor');
+Route::view('convertirme/instructor', 'instructor.make-instructor')->name('make-instructor');
+Route::get('upgrade/to-instructor', [UserController::class, 'upgradeUserToInstructor'])->name('upgrade.to-instructor')->middleware('auth');
 Route::view('contactanos', 'contact')->name('contact-us');
 
 Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
