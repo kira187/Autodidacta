@@ -75,7 +75,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="3">Sin datos por listar</td>
+                                    <td colspan="3" class="text-center">Sin datos por listar</td>
                                 </tr>
                             @endforelse
                         </tbody>

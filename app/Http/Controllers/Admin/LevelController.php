@@ -27,7 +27,7 @@ class LevelController extends Controller
      */
     public function create()
     {
-        return view('admin.levels.create');
+        return view('admin.levels.form');
     }
 
     /**
@@ -66,7 +66,7 @@ class LevelController extends Controller
      */
     public function edit(Level $level)
     {
-        return view('admin.levels.edit', compact('level'));
+        return view('admin.levels.form', compact('level'));
     }
 
     /**

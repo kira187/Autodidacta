@@ -9,7 +9,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Inicio</a></li>
                             <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">Listado</a></li>
-                            <li class="breadcrumb-item active">Crear</li>
+                            <li class="breadcrumb-item active">{{isset($role)? 'Editar': 'Crear'}}</li>
                         </ol>
                     </div>
                 </div>

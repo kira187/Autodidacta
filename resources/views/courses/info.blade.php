@@ -19,10 +19,10 @@
         <div class="order-2 lg:col-span-2 lg:order-1">
             <section class="card mb-12">
                 <div class="card-body">
-                    <h1 class="font-bold text-2xl mb-2">Lo que aprenderas</h1>
+                    <h1 class="font-semibold text-2xl mb-2 text-gray-600">Lo que aprenderas</h1>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                         @foreach ($course->goals as $goal)
-                            <li class="d-flex text-gray-700 text-base"><i class="fas fa-check text-gray-600 mr-2"></i> {{ $goal->name }}</li>
+                            <li class="d-flex text-gray-700 text-sm"><i class="fas fa-check text-gray-600 mr-2"></i> {{ $goal->name }}</li>
                         @endforeach
                     </ul>
                 </div>
