@@ -25,3 +25,18 @@
 .btn-block {
     @apply block text-center w-full;
 }
+
+.subindice {
+    position: relative;
+}
+
+.subindice::before {
+    content: ' ';
+    background: #d4d9df;
+    display: inline-block;
+    position: absolute;
+    top: 4px;
+    left: 7px;
+    width: 2px;
+    height: 100%;
+}

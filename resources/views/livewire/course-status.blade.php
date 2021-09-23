@@ -4,9 +4,9 @@
             <div class="embed-responsive rounded-lg shadow-md">
                 {!!$currentLesson->iframe!!}
             </div>
-            <div class="text-3xl text-gray-700 font-semibold mt-6">
-                <div class="flex">
-                    <svg class="h-8 w-8 mr-3"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1" />  <polygon points="12 15 17 21 7 21 12 15" /></svg>
+            <div class="text-2xl text-gray-700 font-medium mt-6 text-opacity-80">
+                <div class="flex items-center">
+                    <svg class="mr-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     {{$currentLesson->name}}
                 </div>
             </div>
@@ -64,7 +64,7 @@
             @if ($currentLesson->description)
                 <div class="ml-5" x-data="{ show: false }">
                     <button x-on:click="show = !show" x-text="show ? 'Mostrar menos': 'Mostrar mas'" class="mt-4 text-bold text-sm focus:outline-none text-gray-700"></button>
-                    <div x-show="show" class="text-gray-800">
+                    <div x-show="show" class="text-sm text-gray-700 mt-5 tracking-wide">
                         {{$currentLesson->description->name}}
                     </div>
                 </div>
@@ -161,16 +161,16 @@
                 <h1 class="text-xl leading-8 text-center mt-4 mb-4">{{ $course->title }}</h1>
                 <div class="flex items-center">
                     <figure>
-                        <img class="w-12 h-12 object-cover rounded-full mr-4" src="{{$course->teacher->profile_photo_url}}" alt="">
+                        <img class="w-12 h-12 object-cover rounded-full mr-4 shadow-xl" src="{{$course->teacher->profile_photo_url}}" alt="">
                     </figure>
 
                     <div>
-                        <p>{{$course->teacher->name}}</p>
-                        <a class="text-blue-500 text-sm" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a>
+                        <p class="text-sm text-opacity-50 tracking-wide">{{$course->teacher->name}}</p>
+                        <a class="text-blue-500 text-xs" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a>
                     </div>
                 </div>
 
-                <p class="text-gray-600 text-sm mt-4">{{$this->progress. '%'}} completado</p>
+                <p class="text-gray-600 text-sm mt-6">{{$this->progress. '%'}} completado</p>
                 <div class="h-3 relative max-w-xl rounded-full overflow-hidden mb-4">
                     <div class="w-full h-full bg-gray-200 absolute"></div>
                     <div class="h-full bg-green-400 absolute transtion-all duration-500" style="width:{{$this->progress. '%'}}"></div>
@@ -179,11 +179,11 @@
                 <ul>
                     @foreach ($course->sections as $section)
                         <li class="text-gray-600 mb-4">
-                            <a class="font-bold text-base inline-block mb-2" href="">{{$section->name}}</a>
-                            <ul>
+                            <a class="font-bold text-sm inline-block mb-2" href="">{{$section->name}}</a>
+                            <ul class="subindice">
                                 @foreach ($section->lessons as $lesson)
-                                    <li class="flex">
-                                        <div>
+                                    <li class="flex mb-2">
+                                        <div class="z-10">
                                             @if ($lesson->completed)
                                                 @if ($currentLesson->id == $lesson->id)
                                                     <span class="inline-block w-4 h-4 border-2 border-yellow-300 rounded-full mr-2 mt-1"></span>
@@ -192,13 +192,13 @@
                                                 @endif
                                             @else
                                                 @if ($currentLesson->id == $lesson->id)
-                                                    <span class="inline-block w-4 h-4 border-2 border-gray-500 rounded-full mr-2 mt-1"></span>
+                                                    <span class="inline-block w-4 h-4 border-2 border-gray-500 bg-white rounded-full mr-2 mt-1"></span>
                                                 @else
                                                     <span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2 mt-1"></span>
                                                 @endif
                                             @endif
                                         </div>
-                                        <a class="cursor-pointer text-sm" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
+                                        <a class="cursor-pointer text-sm tracking-wide text-opacity-75" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
                                     </li>
                                 @endforeach
                             </ul>
