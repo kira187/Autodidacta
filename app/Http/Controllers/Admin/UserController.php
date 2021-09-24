@@ -57,7 +57,7 @@ class UserController extends Controller
     {
         $rol = Role::whereName('Instructor')->first();
         if($rol == null) {
-            return redirect()->route('home')->with('info', 'Esta opcion no se encuentra disponible');
+            return redirect()->route('home')->with('info', 'Esta opción no se encuentra disponible');
         } elseif (Auth::user()->hasRole('Instructor')) {
             return redirect()->route('instructor.courses.index');
         } else {

@@ -50,7 +50,7 @@
                                         {!! Form::label('permissions','Permisos') !!}
                                     </div>
                                     <div class="col-sm-9">
-                                        {!! Form::select('permissions[]', $permissions, null, ['class' => 'select2bs4 '.($errors->has('permissions') ? 'is-invalid' : ''), 'multiple' => 'multiple', 'style' => 'width: 100%', 'data-placeholder' => 'Asigar permisos']) !!}
+                                        {!! Form::select('permissions[]', $permissions, null, ['class' => 'select2 '.($errors->has('permissions') ? 'is-invalid' : ''), 'multiple' => 'multiple', 'style' => 'width: 100%', 'data-placeholder' => 'Asigar permisos']) !!}
                                         @error('permissions')
                                             <div class="invalid-feedback">{{$message}}</div>
                                         @enderror
@@ -75,11 +75,8 @@
 
 @section('js')
     <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}"></script>
-    <script src="{{ asset('app-assets/js/scripts/forms/form-select2.js') }}"></script>
 
     <script>
-        $(function () {
-            $('.select2bs4').select2();
-        })
+        $('.select2').select2();
     </script>
 @stop

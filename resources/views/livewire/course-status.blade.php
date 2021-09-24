@@ -186,7 +186,7 @@
                                         <div class="z-10">
                                             @if ($lesson->completed)
                                                 @if ($currentLesson->id == $lesson->id)
-                                                    <span class="inline-block w-4 h-4 border-2 border-yellow-300 rounded-full mr-2 mt-1"></span>
+                                                    <span class="inline-block w-4 h-4 border-2 bg-white border-yellow-300 rounded-full mr-2 mt-1"></span>
                                                 @else
                                                     <span class="inline-block w-4 h-4 bg-yellow-300 rounded-full mr-2 mt-1"></span>
                                                 @endif
