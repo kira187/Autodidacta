@@ -43,8 +43,8 @@
   color : #FFFFFF;
   -webkit-transition : all 0.2s ease;
           transition : all 0.2s ease;
-  background-image : -webkit-linear-gradient(137deg, #2563EB, #9E95F5);
-  background-image :         linear-gradient(-47deg, #2563EB, #9E95F5);
+  background-image : -webkit-linear-gradient(137deg, #2563EB, #2563EB);
+  background-image :         linear-gradient(-47deg, #2563EB, #2563EB);
   background-repeat : repeat-x;
   background-repeat : repeat;
 }

@@ -451,28 +451,28 @@ input:focus ~ .bg-light {
   background: rgba(179, 173, 247, 0.6); }
 
 .text-primary.text-lighten-2 {
-  color: #9e95f5 !important; }
+  color: #2563EB !important; }
 
 .bg-primary.bg-lighten-2 {
-  background-color: #9e95f5 !important; }
+  background-color: #2563EB !important; }
 
 .border-primary.border-lighten-2 {
-  border: 1px solid #9e95f5 !important; }
+  border: 1px solid #2563EB !important; }
 
 .border-top-primary.border-top-lighten-2 {
-  border-top: 1px solid #9e95f5 !important; }
+  border-top: 1px solid #2563EB !important; }
 
 .border-bottom-primary.border-bottom-lighten-2 {
-  border-bottom: 1px solid #9e95f5 !important; }
+  border-bottom: 1px solid #2563EB !important; }
 
 .border-left-primary.border-left-lighten-2 {
-  border-left: 1px solid #9e95f5 !important; }
+  border-left: 1px solid #2563EB !important; }
 
 .border-right-primary.border-right-lighten-2 {
-  border-right: 1px solid #9e95f5 !important; }
+  border-right: 1px solid #2563EB !important; }
 
 .overlay-primary.overlay-lighten-2 {
-  background: #9e95f5;
+  background: #2563EB;
   /* The Fallback */
   background: rgba(158, 149, 245, 0.6); }
 
@@ -3756,7 +3756,7 @@ input:focus ~ .bg-danger {
 .btn-gradient-primary {
   color: #fff;
   transition: all 0.2s ease;
-  background-image: linear-gradient(47deg, #2563EB, #9e95f5);
+  background-image: linear-gradient(47deg, #2563EB, #2563EB);
   background-repeat: repeat-x;
   background-repeat: repeat; }
 

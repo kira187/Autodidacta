@@ -182,8 +182,8 @@
 }
 
 .chat-application .sidebar-content .chat-user-list-wrapper li.active {
-  background-image : -webkit-linear-gradient(170deg, #2563EB, #9E95F5);
-  background-image :         linear-gradient(-80deg, #2563EB, #9E95F5);
+  background-image : -webkit-linear-gradient(170deg, #2563EB, #2563EB);
+  background-image :         linear-gradient(-80deg, #2563EB, #2563EB);
   background-repeat : repeat-x;
 }
 
