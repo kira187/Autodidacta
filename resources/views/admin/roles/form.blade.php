@@ -75,8 +75,5 @@
 
 @section('js')
     <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}"></script>
-
-    <script>
-        $('.select2').select2();
-    </script>
+    <script> $('.select2').select2(); </script>
 @stop

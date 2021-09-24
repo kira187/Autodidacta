@@ -21,7 +21,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-50">
+        <div class="min-h-screen bg-gray-100">
             @livewire('navigation-dropdown')
 
             <!-- Page Content -->
@@ -33,12 +33,12 @@
                 <div class="container py-10 lg:py-16">
                     <div class="grid gird-rows-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                         <div class="col-span-1 md:col-span-2 lg:col-span-1">
-                            <a href="" class="hover:text-primary text-gray-600"><p class="name-title font-bold">Autodidacta</p></a>
+                            <a href="{{ route('home') }}" class="hover:text-primary text-gray-600"><p class="name-title font-bold">Autodidacta</p></a>
                         </div>
                         <div class="pr-10 md:pr-16 lg:pr-28 pt-10 lg:pt-0">
                             <p  class="font-bold text-gray-600 subtitle mb-4">Alumnos</p>
                             <hr class="hr-gray">
-                            <a href="" class="hover:text-primary hover:font-bold text-gray-600"><p class=" mt-6 mb-4">Cursos</p></a>
+                            <a href="{{ route('courses.index')}} " class="hover:text-primary hover:font-bold text-gray-600"><p class=" mt-6 mb-4">Cursos</p></a>
                             <a href="" class="hover:text-primary hover:font-bold text-gray-600"><p class=" mb-4">Conocer más</p></a>
                             <a href="" class="hover:text-primary hover:font-bold text-gray-600"><p class="">Recomendaciones</p></a>
                         </div>
