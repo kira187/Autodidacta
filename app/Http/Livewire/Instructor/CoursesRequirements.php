@@ -9,6 +9,7 @@ use App\Models\Requirement;
 class CoursesRequirements extends Component
 {
     public $course, $requirement, $name;
+    public $confirmingRequirementDeletion = false;
     protected $rules = [
         'requirement.name' => 'required'
     ];
@@ -52,9 +53,15 @@ class CoursesRequirements extends Component
         $this->course = Course::find($this->course->id);
     }
 
-    public function destroy(Requirement $requirement)
+    public function confirmRequirementDeletion(Requirement $requirement)
+    {
+        $this->confirmingRequirementDeletion = $requirement->id;
+    }
+
+    public function deleteRequirement(Requirement $requirement)
     {
         $requirement->delete();
         $this->course = Course::find($this->course->id);
+        $this->confirmingRequirementDeletion = false;
     }
 }

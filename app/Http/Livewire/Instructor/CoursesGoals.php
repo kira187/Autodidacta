@@ -9,6 +9,7 @@ use App\Models\Goal;
 class CoursesGoals extends Component
 {
     public $course, $goal, $name;
+    public $confirmingGoalDeletion = false;
     protected $rules = [
         'goal.name' => 'required'
     ];
@@ -52,10 +53,16 @@ class CoursesGoals extends Component
         $this->course = Course::find($this->course->id);
     }
 
-    public function destroy(Goal $goal)
+    public function confirmGoalDeletion(Goal $goal)
+    {
+        $this->confirmingGoalDeletion = $goal->id;
+    }
+
+    public function deleteGoal(Goal $goal)
     {
         $goal->delete();
         $this->course = Course::find($this->course->id);
+        $this->confirmingGoalDeletion = false;
     }
     
 }

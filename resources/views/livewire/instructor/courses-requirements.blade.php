@@ -18,7 +18,7 @@
                         <h1> {{ $item->name }} </h1>
                         <div>
                             <i class="fas fa-edit text-blue-500 cursor-pointer" wire:click="edit({{ $item }})"></i>
-                            <i class="fas fa-trash text-red-500 cursor-pointer ml-2" wire:click="destroy({{ $item }})"></i>
+                            <i class="fas fa-trash text-red-500 cursor-pointer ml-2" wire:click="confirmRequirementDeletion({{ $item }})" wire:loading.attr="disabled"></i>
                         </div>
                     </header>
                 @endif
@@ -41,4 +41,17 @@
             </form>
         </div>
     </article>
+
+    <x-jet-dialog-modal wire:model="confirmingRequirementDeletion">
+        <x-slot name="title">
+            Eliminar Requerimiento
+        </x-slot>
+        <x-slot name="content">
+            Estas seguro que deseas eliminar el requerimiento ?
+        </x-slot>
+        <x-slot name="footer">
+            <x-jet-secondary-button wire:click="$toggle('confirmingRequirementDeletion', false)" wire:loading.attr="disabled"> Mantenerlo </x-jet-secondary-button>
+            <x-jet-danger-button class="ml-2" wire:click="deleteRequirement({{ $confirmingRequirementDeletion }})" wire:loading.attr="disabled">Eliminar</x-jet-danger-button>
+        </x-slot>
+    </x-jet-dialog-modal>
 </section>
