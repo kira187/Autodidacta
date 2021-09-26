@@ -86,7 +86,7 @@
                                 class="z-10 h-full leading-snug font-normal text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-2">
                                 <i class="fas fa-search"></i>
                               </span>
-                              <input type="text" placeholder="Buscar todas las preguntas del curso" class="px-2 py-2 placeholder-gray-400 text-gray-600 border border-gray-300 relative bg-white rounded text-sm border border-grey-lighter w-full pl-10 focus:outline-none" />
+                              <input type="text" placeholder="Buscar todas las preguntas del curso" class="px-2 py-2 placeholder-gray-400 text-gray-600 border-gray-300 relative bg-white rounded text-sm border border-grey-lighter w-full pl-10 focus:outline-none" />
                             </div>
                           </div>
                         </div>
@@ -94,7 +94,7 @@
                         <div class="-mx-3 md:flex mb-4">
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                             <div class="relative">
-                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
+                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
                                     <option hidden selected>Todas las clases</option>
                                     <option>Element 1</option>
                                     <option>Element 2</option>
@@ -107,7 +107,7 @@
                           </div>
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                             <div class="relative">
-                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
+                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
                                     <option hidden selected>Seleccionar orden</option>
                                     <option>Element 1</option>
                                     <option>Element 2</option>
@@ -120,7 +120,7 @@
                           </div>
                           <div class="md:w-1/2 px-3 mb-6 md:mb-0">
                             <div class="relative">
-                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 rounded leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
+                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
                                     <option hidden selected>Filtrar preguntas</option>
                                     <option>Element 1</option>
                                     <option>Element 2</option>
@@ -203,55 +203,57 @@
             </div>
         </div>
         <!-- Left section lessons -->
-        <div class="card">
-            <div class="card-body">
-                <h1 class="text-xl leading-8 text-center mt-4 mb-4">{{ $course->title }}</h1>
-                <div class="flex items-center">
-                    <figure>
-                        <img class="w-12 h-12 object-cover rounded-full mr-4 shadow-xl" src="{{$course->teacher->profile_photo_url}}" alt="">
-                    </figure>
-
-                    <div>
-                        <p class="text-sm text-opacity-50 tracking-wide">{{$course->teacher->name}}</p>
-                        <a class="text-blue-500 text-xs" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-xl leading-8 text-center mt-4 mb-4">{{ $course->title }}</h1>
+                    <div class="flex items-center">
+                        <figure>
+                            <img class="w-12 h-12 object-cover rounded-full mr-4 shadow-xl" src="{{$course->teacher->profile_photo_url}}" alt="">
+                        </figure>
+    
+                        <div>
+                            <p class="text-sm text-opacity-50 tracking-wide">{{$course->teacher->name}}</p>
+                            <a class="text-blue-500 text-xs" href="">{{'@' . Str::slug($course->teacher->name, '')}}</a>
+                        </div>
                     </div>
-                </div>
-
-                <p class="text-gray-600 text-sm mt-6">{{$this->progress. '%'}} completado</p>
-                <div class="h-3 relative max-w-xl rounded-full overflow-hidden mb-4">
-                    <div class="w-full h-full bg-gray-200 absolute"></div>
-                    <div class="h-full bg-green-400 absolute transtion-all duration-500" style="width:{{$this->progress. '%'}}"></div>
-                </div>
-
-                <ul>
-                    @foreach ($course->sections as $section)
-                        <li class="text-gray-600 mb-4">
-                            <a class="font-bold text-sm inline-block mb-2" href="">{{$section->name}}</a>
-                            <ul class="subindice">
-                                @foreach ($section->lessons as $lesson)
-                                    <li class="flex mb-2">
-                                        <div class="z-10">
-                                            @if ($lesson->completed)
-                                                @if ($currentLesson->id == $lesson->id)
-                                                    <span class="inline-block w-4 h-4 border-2 bg-white border-yellow-300 rounded-full mr-2 mt-1"></span>
+    
+                    <p class="text-gray-600 text-sm mt-6">{{$this->progress. '%'}} completado</p>
+                    <div class="h-3 relative max-w-xl rounded-full overflow-hidden mb-4">
+                        <div class="w-full h-full bg-gray-200 absolute"></div>
+                        <div class="h-full bg-green-400 absolute transtion-all duration-500" style="width:{{$this->progress. '%'}}"></div>
+                    </div>
+    
+                    <ul>
+                        @foreach ($course->sections as $section)
+                            <li class="text-gray-600 mb-4">
+                                <a class="font-bold text-sm inline-block mb-2" href="">{{$section->name}}</a>
+                                <ul class="subindice">
+                                    @foreach ($section->lessons as $lesson)
+                                        <li class="flex mb-2">
+                                            <div class="z-10">
+                                                @if ($lesson->completed)
+                                                    @if ($currentLesson->id == $lesson->id)
+                                                        <span class="inline-block w-4 h-4 border-2 bg-white border-yellow-300 rounded-full mr-2 mt-1"></span>
+                                                    @else
+                                                        <span class="inline-block w-4 h-4 bg-yellow-300 rounded-full mr-2 mt-1"></span>
+                                                    @endif
                                                 @else
-                                                    <span class="inline-block w-4 h-4 bg-yellow-300 rounded-full mr-2 mt-1"></span>
+                                                    @if ($currentLesson->id == $lesson->id)
+                                                        <span class="inline-block w-4 h-4 border-2 border-gray-500 bg-white rounded-full mr-2 mt-1"></span>
+                                                    @else
+                                                        <span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2 mt-1"></span>
+                                                    @endif
                                                 @endif
-                                            @else
-                                                @if ($currentLesson->id == $lesson->id)
-                                                    <span class="inline-block w-4 h-4 border-2 border-gray-500 bg-white rounded-full mr-2 mt-1"></span>
-                                                @else
-                                                    <span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2 mt-1"></span>
-                                                @endif
-                                            @endif
-                                        </div>
-                                        <a class="cursor-pointer text-sm tracking-wide text-opacity-75" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </li>
-                    @endforeach
-                </ul>
+                                            </div>
+                                            <a class="cursor-pointer text-sm tracking-wide text-opacity-75" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
