@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LoginController;
 use App\Http\Livewire\CourseStatus;
+use App\Http\Livewire\Chat\ContentChat;
 use App\Http\Livewire\Student\MyCoursesLearning;
 
 /*
@@ -35,6 +36,7 @@ Route::view('convertirme/instructor', 'instructor.make-instructor')->name('make-
 Route::get('upgrade/to-instructor', [UserController::class, 'upgradeUserToInstructor'])->name('upgrade.to-instructor')->middleware('auth');
 Route::view('contactanos', 'contact')->name('contact-us');
 Route::view('chat', 'chat')->name('chat');
+Route::get('chat/{chat}', ContentChat::class)->name('chat.content');
 
 Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
 Route::get('login/{driver}/callback', [LoginController::class, 'handleProviderCallback']);
