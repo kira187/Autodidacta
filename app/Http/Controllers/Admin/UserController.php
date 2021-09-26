@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -21,8 +22,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('admin.users.index');
+    {   
+        $users =  User::all();
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -49,5 +51,19 @@ class UserController extends Controller
         $user->roles()->sync($request->roles);
 
         return redirect()->route('admin.users.index');
+    }
+
+    public function upgradeUserToInstructor()
+    {
+        $rol = Role::whereName('Instructor')->first();
+        if($rol == null) {
+            return redirect()->route('home')->with('info', 'Esta opción no se encuentra disponible');
+        } elseif (Auth::user()->hasRole('Instructor')) {
+            return redirect()->route('instructor.courses.index');
+        } else {
+            $user = Auth::user();
+            $user->roles()->attach($rol->id);
+            return redirect()->route('instructor.courses.index')->with('info', 'Nivel creado correctamente');
+        }
     }
 }

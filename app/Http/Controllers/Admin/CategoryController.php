@@ -27,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.categories.form');
     }
 
     /**
@@ -44,7 +44,7 @@ class CategoryController extends Controller
 
         $category = Category::create($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'Categoría creada correctamente');
+        return redirect()->route('admin.categories.index')->with('info', 'Categoría creada correctamente');
     }
 
     /**
@@ -66,7 +66,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.categories.form', compact('category'));
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return redirect()->route('admin.categories.edit', $category)->with('info', 'Categoría actualizada correctamente');
+        return redirect()->route('admin.categories.index')->with('info', 'Categoría actualizada correctamente');
     }
 
     /**

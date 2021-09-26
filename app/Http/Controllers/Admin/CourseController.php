@@ -13,7 +13,9 @@ class CourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::where('status', 2)->paginate(10);
+        $courses = Course::where('status', 2)
+            ->with('category')
+            ->get();
 
         return view('admin.courses.index', compact('courses'));
     }

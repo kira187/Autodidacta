@@ -27,7 +27,7 @@ class PriceController extends Controller
      */
     public function create()
     {
-        return view('admin.prices.create');
+        return view('admin.prices.form');
     }
 
     /**
@@ -67,7 +67,7 @@ class PriceController extends Controller
      */
     public function edit(Price $price)
     {
-        return view('admin.prices.edit', compact('price'));
+        return view('admin.prices.form', compact('price'));
     }
 
     /**
