@@ -12,7 +12,7 @@ class CoursesCurriculum extends Component
 {
     use AuthorizesRequests;
 
-    public $course, $section, $name;
+    public $course, $section, $name, $confirmingSectionDeletion = false;
     
     protected $rules = [
         'section.name' => 'required'
@@ -57,9 +57,16 @@ class CoursesCurriculum extends Component
         $this->section = new Section();
         $this->course = Course::find($this->course->id);
     }
-    public function destroy(Section $section)
+
+    public function confirmSectionDeletion(Section $section)
+    {
+        $this->confirmingSectionDeletion = $section->id;
+    }
+
+    public function deleteSection(Section $section)
     {
         $section->delete();
         $this->course = Course::find($this->course->id);
+        $this->confirmingSectionDeletion = false;
     }
 }

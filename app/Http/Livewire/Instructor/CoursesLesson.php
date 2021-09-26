@@ -11,6 +11,7 @@ class CoursesLesson extends Component
 {
 
     public $section, $lesson, $platforms, $name, $platform_id = 1, $url;
+    public $confirmingLessonDeletion = false;
 
     protected $rules = [
         'lesson.name' => 'required',
@@ -79,9 +80,15 @@ class CoursesLesson extends Component
         $this->lesson = new Lesson();
     }
 
-    public function destroy(Lesson $lesson)
+    public function confirmLessonDeletion(Lesson $lesson)
+    {
+        $this->confirmingLessonDeletion = $lesson->id;
+    }
+
+    public function deleteLesson(Lesson $lesson)
     {
         $lesson->delete();
         $this->section = Section::find($this->section->id);
+        $this->confirmingLessonDeletion = false;
     }
 }
