@@ -36,12 +36,16 @@
               <!-- Main chat area -->
               <section class="chat-app-window">
                 <!-- To load Conversation -->
-                <div class="start-chat-area">
-                  <div class="mb-1 start-chat-icon">
-                    <i data-feather="message-square"></i>
-                  </div>
-                  <h4 class="sidebar-toggle start-chat-text">Iniciar conversación</h4>
-                </div>
+                @yield('chat')
+                @if(View::hasSection('chat'))
+                @else
+                    <div class="start-chat-area">
+                      <div class="mb-1 start-chat-icon">
+                        <i data-feather="message-square"></i>
+                      </div>
+                      <h4 class="sidebar-toggle start-chat-text">Iniciar conversación</h4>
+                    </div>
+                @endif
                 <!--/ To load Conversation -->
                 <!-- Active Chat -->
                 <div class="active-chat d-none">
@@ -323,7 +327,7 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat-list.min.css') }}">
 @endsection
 
