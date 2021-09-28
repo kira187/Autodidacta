@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class chat-layout extends Component
+class ChatLayout extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class chat-layout extends Component
      */
     public function render()
     {
-        return view('components.chat-layout');
+        return view('layouts.chat');
     }
 }
