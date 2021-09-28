@@ -60,5 +60,7 @@
     @include('layouts.sections.footer')
     @livewireScripts
     <script src="{{ asset('app-assets/js/scripts/pages/app-chat.min.js') }}"></script>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    @stack('js')
   </body>
 </html>
