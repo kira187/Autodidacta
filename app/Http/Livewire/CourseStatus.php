@@ -95,4 +95,9 @@ class CourseStatus extends Component
 
         return round($progressPorcentage, 2);
     }
+
+    public function download()
+    {
+        return response()->download(storage_path('app/public/' . $this->currentLesson->resource->url));
+    }
 }

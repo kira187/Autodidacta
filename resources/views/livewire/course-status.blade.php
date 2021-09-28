@@ -17,7 +17,7 @@
             </div>
             <!-- Control Videos -->
             <div class="grid grid-cols-3 gap-4 items-center">
-                <div class="bg-white rounded-full p-2 shadow-md col-span-3 lg:col-span-1 md:col-span-2">
+                <div class="bg-white rounded-full p-2 shadow-md col-span-3 md:col-span-1 sm:col-span-2">
                     <div class=" flex items-center text-gray-500">
                         @if ($this->previous)
                             <svg class="h-5 w-5 lg:h-6 lg:w-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="15 6 9 12 15 18" /></svg>
@@ -31,8 +31,8 @@
                         @endif
                     </div>
                 </div>
-                <div class="hidden sm:block cursor-pointer" wire:click="completed">
-                    <div x-data="{ tooltip: false }" class="relative z-30 inline-flex">
+                <div class="hidden sm:block col-1">
+                    <div x-data="{ tooltip: false }" class="relative z-30 inline-flex cursor-pointer" wire:click="completed">
                         <div x-on:mouseover="tooltip = true" x-on:mouseleave="tooltip = false" class="rounded-full h-10 w-10 flex items-center justify-center bg-white shadow-md">
                           @if ($currentLesson->completed)
                               <svg class="h-6 w-6 text-green-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />  <circle cx="12" cy="12" r="3" /></svg>
@@ -52,6 +52,12 @@
                         </div>
                     </div>
                 </div>
+                @if($currentLesson->resource)
+                    <div class="hidden sm:flex justify-center bg-white rounded-full p-2 shadow-md text-gray-500 cursor-pointer" wire:click="download">
+                        <i class="fas fa-arrow-down"></i>
+                        <p class="text-sm ml-2 mr-2 font-semibold">Descargar recursos</p>
+                    </div>
+                @endif
             </div>
             <!-- Checked video -->
             <div class="sm:hidden flex items-center mt-4 p-2 cursor-pointer text-center bg-white rounded-full shadow-md" wire:click="completed">
@@ -61,6 +67,10 @@
                     <i class="fas fa-toggle-off text-2xl text-gray-600"></i>
                 @endif
                 <p class="text-sm ml-2">Marcar tema como finalizado</p>
+            </div>
+            <div class="sm:hidden flex justify-center bg-white rounded-full p-2 shadow-md text-gray-500 cursor-pointer mt-4" wire:click="download">
+                <i class="fas fa-arrow-down"></i>
+                <p class="text-sm ml-2 mr-2 font-semibold">Descargar recursos</p>
             </div>
             <!-- Description video -->
             @if ($currentLesson->description)
