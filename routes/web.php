@@ -35,7 +35,7 @@ Route::get('mis-cursos', MyCoursesLearning::class)->name('student.courses')->mid
 Route::view('convertirme/instructor', 'instructor.make-instructor')->name('make-instructor');
 Route::get('upgrade/to-instructor', [UserController::class, 'upgradeUserToInstructor'])->name('upgrade.to-instructor')->middleware('auth');
 Route::view('contactanos', 'contact')->name('contact-us');
-Route::view('chat', 'chat');
+Route::view('chat', 'layouts.chat');
 Route::get('chat/{id}', ContentChat::class)->name('chat');
 
 Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);

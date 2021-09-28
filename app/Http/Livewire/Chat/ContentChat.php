@@ -15,7 +15,6 @@ class ContentChat extends Component
     
     public function render()
     {
-        return view('livewire.chat.content-chat')->layout('chat')
-        ->slot('chat');
+        return view('livewire.chat.content-chat')->layout('layouts.chat');
     }
 }
