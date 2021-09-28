@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Chat;
 
 use Livewire\Component;
+use App\Models\Chat;
 
 class ContentChat extends Component
 {
@@ -15,6 +16,8 @@ class ContentChat extends Component
     
     public function render()
     {
-        return view('livewire.chat.content-chat')->layout('layouts.chat');
+        $chat = Chat::find($this->chatId);
+        return view('livewire.chat.content-chat', compact('chat'))
+            ->layout('layouts.chat');
     }
 }

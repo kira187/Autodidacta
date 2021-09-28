@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html class="loading" lang="es" data-textdirection="ltr">
-  <!-- BEGIN: Head-->
   <head>
     <title>Autodidacta</title>
     @include('layouts.sections.styles')
@@ -8,20 +7,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat-list.min.css') }}">
   </head>
-  <!-- END: Head-->
 
-  <!-- BEGIN: Body-->
   <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="">
-
-    <!-- BEGIN: Header-->
     @include('layouts.sections.header')
-    <!-- END: Header-->
 
-    <!-- BEGIN: Main Menu-->
     @include('layouts.sections.menu')
-    <!-- END: Main Menu-->
 
-    <!-- BEGIN: Content-->
     <div class="app-content content ">
         <div class="content-overlay"></div>
         <div class="header-navbar-shadow"></div>
@@ -34,10 +25,6 @@
                                 <div class="sidebar-content">
                                     <div class="chat-fixed-search">
                                         <div class="d-flex align-items-center w-100">
-                                            <div class="avatar avatar-border">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="user_avatar" height="42" width="42"/>
-                                                <span class="avatar-status-online"></span>
-                                            </div>
                                             <livewire:chat.search-input /> 
                                         </div>
                                     </div>
@@ -70,10 +57,8 @@
             </div>
         </div>
     </div>
-    <!-- END: Content-->
     @include('layouts.sections.footer')
     @livewireScripts
     <script src="{{ asset('app-assets/js/scripts/pages/app-chat.min.js') }}"></script>
   </body>
-  <!-- END: Body-->
 </html>
