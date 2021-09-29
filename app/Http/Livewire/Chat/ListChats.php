@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Chat;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\Chat;
+use App\Models\Course;
 
 class ListChats extends Component
 {
@@ -32,8 +33,12 @@ class ListChats extends Component
         ->orWhere('receiver', $this->currentUser)
         ->get();
         
-        $contacts = User::limit(4)->get();
+        $courses = Course::whereHas('students', function($query){ 
+            $query->where('user_id', $this->currentUser); 
+        })->select(['id', 'user_id', 'title'])
+        ->with(['teacher:id,name'])
+        ->get();
 
-        return view('livewire.chat.list-chats', compact('chats', 'contacts'));
+        return view('livewire.chat.list-chats', compact('chats', 'courses'));
     }
 }
