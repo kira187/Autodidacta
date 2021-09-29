@@ -6,6 +6,8 @@
     @livewireStyles
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/app-chat-list.min.css') }}">
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
   </head>
 
   <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="">
@@ -60,7 +62,6 @@
     @include('layouts.sections.footer')
     @livewireScripts
     <script src="{{ asset('app-assets/js/scripts/pages/app-chat.min.js') }}"></script>
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
     @stack('js')
   </body>
 </html>

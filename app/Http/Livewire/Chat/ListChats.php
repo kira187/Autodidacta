@@ -9,12 +9,16 @@ use App\Models\Chat;
 class ListChats extends Component
 {
     public $chat, $currentUser;
+    protected $listeners = ['messageSent' => 'refresh'];
 
     public function mount()
     {
         $this->chat = new Chat();
         $this->currentUser = auth()->user()->id;
     }
+
+    public function refresh(){}
+
     public function render()
     {   
         $chats = $this->chat->with([
@@ -28,7 +32,7 @@ class ListChats extends Component
         ->orWhere('receiver', $this->currentUser)
         ->get();
         
-        $contacts = User::limit(3)->get();
+        $contacts = User::limit(4)->get();
 
         return view('livewire.chat.list-chats', compact('chats', 'contacts'));
     }

@@ -29,7 +29,7 @@
       @if (count($contacts) > 0)
         @foreach ($contacts as $contact)
           <li>
-            <a href="#" class="d-flex justify-content-start">
+            <a href="{{ route('chat', ['id' => $contact->id])}}" class="d-flex justify-content-start">
               <span class="avatar" ><img src="{{ $contact->profile_photo_url }}" height="42" width="42" alt="Generic placeholder image" />
               </span>
               <div class="chat-info">

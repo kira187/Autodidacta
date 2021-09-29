@@ -9,12 +9,15 @@ use App\Models\User;
 class ContentChat extends Component
 {
     public $userChatId, $currentUser;
+    protected $listeners = ['reciveMessage' => 'refresh'];
 
     public function mount($id)
     {
         $this->userChatId = $id;
         $this->currentUser = auth()->user()->id;
     } 
+
+    public function refresh() {}
     
     public function render()
     {
@@ -28,11 +31,11 @@ class ContentChat extends Component
                 ->where('sender', $this->userChatId)
                 ->Orwhere('receiver', $this->userChatId)
                 ->first()
-            ])->layout('layouts.chat');
+            ])  ->layout('layouts.chat');
         } else {
             return view('livewire.chat.content-chat', [
                 'user' => User::find($this->userChatId)
-            ]);
+            ])->layout('layouts.chat');
         }
     }
 }

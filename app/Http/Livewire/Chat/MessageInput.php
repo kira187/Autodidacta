@@ -28,8 +28,12 @@ class MessageInput extends Component
 
     public function sendMessage()
     {
+        $this->validate ([
+            'text' => 'required'
+        ]);
+
         if (!$this->chat) {
-            Chat::create([
+            $this->chat = Chat::create([
                 'sender' => $this->currentUser,
                 'receiver' => $this->userChatId
             ]);
@@ -42,7 +46,9 @@ class MessageInput extends Component
             'send_date' => Carbon::now()
         ]);
 
+        $this->emit('messageSent');
         event(new SendMessage($this->currentUser, $this->text));
+        $this->text = '';
     }
 
     public function render()
