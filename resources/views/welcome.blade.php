@@ -4,6 +4,7 @@
     <section class="bg-cover bg-white">
         <div class="container py-10 lg:py-36">
             <div class="grid gird-rows-1 grid-cols-1 lg:grid-cols-2">
+                <a href="{{ route('youtube') }}">Get time</a>
                 <div class="grid gird-rows-3 order-last grid-cols-1 md:mx-20 lg:order-first lg:mx-0 lg:ml-28">
                     <h1 class="font-popins title-header font-bold text-4xl text-gray-700 text-center my-5 lg:text-left sm:my-0">La plataforma donde <span class="text-primary">aprendes</span> y enseñas.</h1>
                     <p class="text-black text-lg mt-2 mb-10 md:mb-20 text-center lg:mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
