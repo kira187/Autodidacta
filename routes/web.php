@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
-Route::get('youtube', [HomeController::class, 'getYoutubeDuration'])->name('youtube');
+Route::get('importador/play-list-youtube/{video_id}', [HomeController::class, 'getPlayListDetail'])->name('youtube');
 Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.info');
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');
 Route::get('cursos-status/{course}', CourseStatus::class)->name('course.status')->middleware('auth');
