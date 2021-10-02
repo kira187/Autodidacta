@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Level;
+use App\Models\Price;
 
 class HomeController extends Controller
 {
     public function __invoke()
     {
-        $courses = Course::whereStatus(3)->latest('id')->limit(8)->get();
+        $courses = Course::whereStatus(3)->latest('id')->with(['teacher', 'image'])->get();
 
         return view('welcome', compact('courses'));
     }
@@ -22,28 +25,32 @@ class HomeController extends Controller
         
         $instructor = $response->items[0]->snippet->channelTitle;
         $tituloCurso = $response->items[0]->snippet->title;
-        $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $tituloCurso);
         
         $url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2C+id&playlistId='.$playListId.'&key=';
         $response = $this->consultaYoutube($url, false);
         
-        $user = User::create([
-            'name' => $instructor,
-            'email' => trim($instructor).'@instructor.com',
-            'password' => bcrypt(123)
-        ]);
 
-        $curso = Course::Create([
-            'title' => $tituloCurso,
-            'subtitle' => 'lorem ipsun',
-            'description' => 'lorem ipsun',
-            'status' => 3,
-            'slug' => $slug,
-            'user_id' => $user->id,
-            'level_id' => rand(1,3),
-            'category_id' => rand(1,3),
-            'price_id' => 1,
-        ]);
+        $categories = Category::pluck('name', 'id');
+        $levels = Level::pluck('name', 'id');
+        $prices = Price::pluck('name', 'id');
+
+        // $user = User::create([
+        //     'name' => $instructor,
+        //     'email' => trim($instructor).'@instructor.com',
+        //     'password' => bcrypt(123)
+        // ]);
+
+        // $curso = Course::Create([
+        //     'title' => $tituloCurso,
+        //     'subtitle' => 'lorem ipsun',
+        //     'description' => 'lorem ipsun',
+        //     'status' => 3,
+        //     'slug' => $slug,
+        //     'user_id' => $user->id,
+        //     'level_id' => rand(1,3),
+        //     'category_id' => rand(1,3),
+        //     'price_id' => 1,
+        // ]);
         // titulo, slug, subitulo, descripcion del curso, categoria, nivel, precio, imagen, 
         //secciones > lecciones > nombre, plataforma, url > descripcion, recursos
         //metas del curso
@@ -85,7 +92,7 @@ class HomeController extends Controller
             }
         }
 
-        return $videos;
+        return view('youtube.form-playlist', compact('videos', 'categories', 'levels', 'prices', 'tituloCurso', 'instructor'));
     }
 
     public function consultaYoutube($url, $onlyInfo)
