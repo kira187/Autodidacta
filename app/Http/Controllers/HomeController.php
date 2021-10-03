@@ -8,6 +8,14 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Level;
 use App\Models\Price;
+use App\Models\Goal;
+use App\Models\Section;
+use App\Models\Audience;
+use App\Models\Requirement;
+use App\Models\Lesson;
+use App\Models\Description;
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -33,31 +41,6 @@ class HomeController extends Controller
         $categories = Category::pluck('name', 'id');
         $levels = Level::pluck('name', 'id');
         $prices = Price::pluck('name', 'id');
-
-        // $user = User::create([
-        //     'name' => $instructor,
-        //     'email' => trim($instructor).'@instructor.com',
-        //     'password' => bcrypt(123)
-        // ]);
-
-        // $curso = Course::Create([
-        //     'title' => $tituloCurso,
-        //     'subtitle' => 'lorem ipsun',
-        //     'description' => 'lorem ipsun',
-        //     'status' => 3,
-        //     'slug' => $slug,
-        //     'user_id' => $user->id,
-        //     'level_id' => rand(1,3),
-        //     'category_id' => rand(1,3),
-        //     'price_id' => 1,
-        // ]);
-        // titulo, slug, subitulo, descripcion del curso, categoria, nivel, precio, imagen, 
-        //secciones > lecciones > nombre, plataforma, url > descripcion, recursos
-        //metas del curso
-        //requerimientos del curso
-        //audiencia del curso
-        //poner como aprobado
-        
         $videos = array();
 
         foreach ($response->items as $video) {
@@ -149,5 +132,109 @@ class HomeController extends Controller
         }
         
         return $youtube_time;
+    }
+
+    public function saveCourse(Request $request)
+    {   
+        $request->validate([
+            'title' => 'required|min:10',
+            'slug' => 'required|unique:courses',
+            'subtitle' => 'required',
+            'description' => 'required',
+            'category_id' => 'required',
+            'level_id' => 'required',
+            'price_id' => 'required',
+            'file' => 'image',
+            'nombre_instructor' => 'required',
+            'correo_instructor' => 'required',
+            'password' => 'required',
+            'secciones' => 'required',
+            'metas' => 'required',
+            'requerimientos' => 'required',
+            'audiencia' => 'required',
+        ]);
+
+        $user = User::create([
+            'name' => $request->nombre_instructor,
+            'email' => trim($request->nombre_instructor).'@instructor.com',
+            'password' => bcrypt($request->password)
+        ]);
+
+        $curso = Course::Create([
+            'title' => $request->title,
+            'subtitle' => $request->subtitle,
+            'description' => $request->description,
+            'status' => 3,
+            'slug' => $request->slug,
+            'user_id' => $user->id,
+            'level_id' => $request->level_id,
+            'category_id' => $request->category_id,
+            'price_id' => 1,
+        ]);
+
+        $curso->status = 3;
+        $curso->save();
+
+        if ($request->file('file')) {
+            $url = Storage::put('courses', $request->file('file'));
+
+            $curso->image()->create([
+                'url' => $url
+            ]);
+        }
+        
+        if ($request->secciones[0] != null) {
+            foreach ($request->secciones as $seccion) {
+                $seccion = Section::create([
+                    'name' => $seccion,
+                    'course_id' => $curso->id
+                ]);
+            }
+        }
+
+        if ($request->metas[0] != null) {
+            foreach ($request->metas as $meta) {
+                $meta = Goal::create([
+                    'name' => $meta,
+                    'course_id' => $curso->id
+                ]);
+            }
+        }
+
+        if ($request->requerimientos[0] != null) {
+            foreach ($request->requerimientos as $requerimiento) {
+                $requerimiento = Requirement::create([
+                    'name' => $requerimiento,
+                    'course_id' => $curso->id
+                ]);
+            }
+        }
+
+        if ($request->audiencia[0] != null) {
+            foreach ($request->audiencia as $audiencia) {
+                $audiencia = Audience::create([
+                    'name' => $audiencia,
+                    'course_id' => $curso->id
+                ]);
+            }
+        }
+
+        $sections = Section::where('course_id', $curso->id)->pluck( 'id');
+        for ($i=0; $i < count($request->video_id); $i++) {
+            $leccion = Lesson::create([
+                'name' => $request->titulo[$i],
+                'url' => 'https://www.youtube.com/watch?v='.$request->video_id[$i],
+                'iframe' => '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$request->video_id[$i].'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
+                'platform_id' => 1,
+                'section_id' => $sections[$request->section_id[$i]-1]
+            ]);
+            
+            Description::create([
+                'name' => substr($request->description_video[$i],0,250),
+                'lesson_id' => $leccion->id
+            ]);
+        }
+
+        return redirect(route('home'));
     }
 }

@@ -6,8 +6,7 @@
                 <h1 class="text-2xl font-bold">Crear nuevo curso</h1>
                 <hr class="mt-2 mb-6">
 
-                {!! Form::open(['route' => 'instructor.courses.store', 'files' => true, 'autocomplete' => 'off']) !!}
-                    {!! Form::hidden('user_id', auth()->user()->id) !!}
+                {!! Form::open(['route' => 'importador.store', 'files' => true, 'autocomplete' => 'off']) !!}
                     
                     <div class="mb-4">
                         {!! Form::label('title', 'Titulo del curso', ['class' => 'font-medium text-sm']) !!}
@@ -88,18 +87,27 @@
                     <div class="grid grid-cols-3 gap-4 mb-4">
                         <div class="col-span-3 lg:col-span-1">
                             {!! Form::label('V', 'Nombre:') !!}
-                            {!! Form::text('nombre_instructor', $instructor, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('subtitle')? ' border-red-600' : '')]) !!}
+                            {!! Form::text('nombre_instructor', $instructor, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('nombre_instructor')? ' border-red-600' : '')]) !!}
                         </div>
+                        @error('nombre_instructor')
+                            <strong class="text-xs text-red-600">{{ $message}}</strong>
+                        @enderror
                     
                         <div class="col-span-3 lg:col-span-1">
                             {!! Form::label('correo_instructor', 'Correo:') !!}
-                            {!! Form::text('correo_instructor', $instructor.'@instructor.com', ['class' => 'form-input block w-full mt-1 border'. ($errors->has('subtitle')? ' border-red-600' : '')]) !!}
+                            {!! Form::text('correo_instructor', trim($instructor).'@instructor.com', ['class' => 'form-input block w-full mt-1 border'. ($errors->has('correo_instructor')? ' border-red-600' : '')]) !!}
                         </div>
+                        @error('correo_instructor')
+                            <strong class="text-xs text-red-600">{{ $message}}</strong>
+                        @enderror
                     
                         <div class="col-span-3 lg:col-span-1">
                             {!! Form::label('password', 'Contraseña:') !!}
-                            {!! Form::text('password', null, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('subtitle')? ' border-red-600' : '')]) !!}
+                            {!! Form::text('password', null, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('password')? ' border-red-600' : '')]) !!}
                         </div>
+                        @error('password')
+                            <strong class="text-xs text-red-600">{{ $message}}</strong>
+                        @enderror
                     </div>
 
                     <h1 class="text-2xl font-bold mt-8 mb-2">Secciones</h1>
@@ -120,22 +128,22 @@
                         <div class="grid grid-cols-6 gap-4 mb-4">
                             <div class="col-span-6 lg:col-span-4">
                                 {!! Form::label('titulo', 'Titulo:') !!}
-                                {!! Form::text('titulo[]', $video['titulo'], ['class' => 'form-input block w-full mt-1 border'. ($errors->has('subtitle')? ' border-red-600' : '')]) !!}
+                                {!! Form::text('titulo[]', $video['titulo'], ['class' => 'form-input block w-full mt-1 border'. ($errors->has('titulo')? ' border-red-600' : '')]) !!}
                             </div>
                         
                             <div class="col-span-6 lg:col-span-1">
                                 {!! Form::label('video_id', 'Video ID:') !!}
-                                {!! Form::text('video_id[]', $video['video_id'], ['readonly' => 'readonly', 'class' => 'form-input block w-full mt-1 border'. ($errors->has('subtitle')? ' border-red-600' : '')]) !!}
+                                {!! Form::text('video_id[]', $video['video_id'], ['readonly' => 'readonly', 'class' => 'form-input block w-full mt-1 border'. ($errors->has('video_id')? ' border-red-600' : '')]) !!}
                             </div>
                         
                             <div class="col-span-6 lg:col-span-1">
                                 {!! Form::label('section_id', 'Section:') !!}
-                                {!! Form::text('section_id[]', null, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('subtitle')? ' border-red-600' : '')]) !!}
+                                {!! Form::number('section_id[]', null, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('section_id')? ' border-red-600' : '')]) !!}
                             </div>
                         </div>
                         <div class="mb-4">
                             {!! Form::label('description_video', 'Descripcion', ['class' => 'font-medium text-sm']) !!}
-                            {!! Form::textarea('description_video[]', $video['descripcion'], ['class' => 'form-input block w-full mt-1 border'. ($errors->has('description')? ' border-red-600' : '')]) !!}
+                            {!! Form::textarea('description_video[]', $video['descripcion'], ['class' => 'form-input block w-full mt-1 border'. ($errors->has('description_video')? ' border-red-600' : '')]) !!}
                         </div>
                     @endforeach
 
