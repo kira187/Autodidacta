@@ -1,5 +1,5 @@
 <section class="mt-4">
-    <h1 class="font-bold text-3xl mb-2 text-gray-800">Valoración</h1>
+    <h1 class="font-bold text-3xl py-2 text-gray-800">Valoraciones</h1>
 
     @can('enrolled', $course)
         <article class="my-4">            
@@ -37,7 +37,7 @@
 
     <div class="card">
         <div class="card-body">
-            <p class="text-gray-800 text-xl">{{ $course->reviews->count() }} Calificaciones</p>
+            <p class="text-gray-800 text-xl pb-2">{{ $course->reviews->count() }} Calificaciones</p>
 
             @foreach ($course->reviews as $review)
                 <article class="flex mb-4 text-gray-800">
