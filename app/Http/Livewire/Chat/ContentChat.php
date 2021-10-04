@@ -21,17 +21,22 @@ class ContentChat extends Component
     
     public function render()
     {
-        if (Chat::where('receiver', $this->userChatId)->orWhere('sender', $this->userChatId)->exists()) {
-            return view('livewire.chat.content-chat', [
-                'chat' => Chat::with([
-                    'user_sender:id,name,profile_photo_path',
-                    'user_receiver:id,name,profile_photo_path',
-                    'messages'
-                ])
+        $chat = Chat::with([
+            'user_sender:id,name,profile_photo_path',
+            'user_receiver:id,name,profile_photo_path',
+            'messages'
+            ])
+        ->where('receiver', $this->userChatId)
+        ->where('sender', $this->currentUser)
+        ->Orwhere( function($query) {
+            return $query
                 ->where('sender', $this->userChatId)
-                ->Orwhere('receiver', $this->userChatId)
-                ->first()
-            ])  ->layout('layouts.chat');
+                ->where('receiver', $this->currentUser);
+        })->first();
+
+        if ($chat != null) {
+            return view('livewire.chat.content-chat', compact('chat'))
+                ->layout('layouts.chat');
         } else {
             return view('livewire.chat.content-chat', [
                 'user' => User::find($this->userChatId)

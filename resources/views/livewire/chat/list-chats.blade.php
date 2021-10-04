@@ -4,7 +4,7 @@
         @if (count($chats) > 0)
             @foreach ($chats as $chat)
                 <li>
-                    <a href="{{ route('chat', ['id' => $chat->id])}}" class="d-flex justify-content-between">
+                    <a href="{{ route('chat', ['id' => $chat->user_receiver->id == $currentUser ? $chat->user_sender->id : $chat->user_receiver->id])}}" class="d-flex justify-content-between">
                         <span class="avatar"><img src="{{ $chat->user_receiver->id == $currentUser ? $chat->user_sender->profile_photo_url : $chat->user_receiver->profile_photo_url }}" height="42" width="42" />
                             <span class="avatar-status-offline"></span>
                         </span>
