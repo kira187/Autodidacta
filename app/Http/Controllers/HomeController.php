@@ -30,6 +30,9 @@ class HomeController extends Controller
     {
         $url = 'https://www.googleapis.com/youtube/v3/playlists?id='.$playListId.'&key=';
         $response = $this->consultaYoutube($url, true);
+        if ($response->items == null) {
+            return redirect(route('home'));
+        }
         
         $instructor = $response->items[0]->snippet->channelTitle;
         $tituloCurso = $response->items[0]->snippet->title;
@@ -148,17 +151,12 @@ class HomeController extends Controller
             'nombre_instructor' => 'required',
             'correo_instructor' => 'required',
             'password' => 'required',
-            'secciones' => 'required',
-            'metas' => 'required',
-            'requerimientos' => 'required',
-            'audiencia' => 'required',
         ]);
 
-        $user = User::create([
-            'name' => $request->nombre_instructor,
-            'email' => trim($request->nombre_instructor).'@instructor.com',
-            'password' => bcrypt($request->password)
-        ]);
+        $user = User::firstOrCreate(
+            ['name' => $request->nombre_instructor],
+            ['email' => preg_replace("/\s+/", "", $request->nombre_instructor).'@instructor.com', 'password' => bcrypt($request->password)]
+        );
 
         $curso = Course::Create([
             'title' => $request->title,
@@ -230,7 +228,7 @@ class HomeController extends Controller
             ]);
             
             Description::create([
-                'name' => substr($request->description_video[$i],0,250),
+                'name' => $request->description_video[$i],
                 'lesson_id' => $leccion->id
             ]);
         }

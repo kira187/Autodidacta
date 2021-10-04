@@ -5,7 +5,6 @@
             <div class="card-body text-gray-600">
                 <h1 class="text-2xl font-bold">Crear nuevo curso</h1>
                 <hr class="mt-2 mb-6">
-
                 {!! Form::open(['route' => 'importador.store', 'files' => true, 'autocomplete' => 'off']) !!}
                     
                     <div class="mb-4">
@@ -65,7 +64,7 @@
                             @isset($course->image)
                                 <img id="picture" class="w-full h-64 object-cover object-center rounded" src="{{Storage::url($course->image->url)}}" alt="">
                             @else 
-                                <img id="picture" class="w-full h-64 object-contain object-center rounded" src="{{asset('img/home/bg-cover.png')}}" alt="">
+                                <img id="picture" class="w-full h-64 object-contain object-center rounded" src="{{asset('img/home/bg-cover.png')}}" alt="" requiered>
                             @endisset
                         </figure>
                     
@@ -95,7 +94,7 @@
                     
                         <div class="col-span-3 lg:col-span-1">
                             {!! Form::label('correo_instructor', 'Correo:') !!}
-                            {!! Form::text('correo_instructor', trim($instructor).'@instructor.com', ['class' => 'form-input block w-full mt-1 border'. ($errors->has('correo_instructor')? ' border-red-600' : '')]) !!}
+                            {!! Form::text('correo_instructor', preg_replace("/\s+/", "", $instructor).'@instructor.com', ['class' => 'form-input block w-full mt-1 border'. ($errors->has('correo_instructor')? ' border-red-600' : '')]) !!}
                         </div>
                         @error('correo_instructor')
                             <strong class="text-xs text-red-600">{{ $message}}</strong>
@@ -117,12 +116,12 @@
                     <div class="container1">
                         <div>
                             {!! Form::label('title', 'Seccion', ['class' => 'font-medium text-sm']) !!}
-                            <input class="form-input block w-full mt-1 border" type="text" name="secciones[]">
+                            <input class="form-input block w-full mt-1 border" type="text" name="secciones[]" required>
                         </div>
                     </div>
 
                     <h1 class="text-2xl font-bold mt-8 mb-2">Lecciones</h1>
-                    @foreach ($videos as $video)
+                    @foreach ($videos as $key =>$video)
                         <P class="mt-5 font-bold text-lg"> Posicion en lista #{{ $video['posicion_list']}}</P>
                         <hr class="mt-2 mb-6">
                         <div class="grid grid-cols-6 gap-4 mb-4">
@@ -138,12 +137,12 @@
                         
                             <div class="col-span-6 lg:col-span-1">
                                 {!! Form::label('section_id', 'Section:') !!}
-                                {!! Form::number('section_id[]', null, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('section_id')? ' border-red-600' : '')]) !!}
+                                {!! Form::number('section_id[]', null, ['class' => 'form-input block w-full mt-1 border'. ($errors->has('section_id')? ' border-red-600' : ''), 'required' => 'required']) !!}
                             </div>
                         </div>
                         <div class="mb-4">
                             {!! Form::label('description_video', 'Descripcion', ['class' => 'font-medium text-sm']) !!}
-                            {!! Form::textarea('description_video[]', $video['descripcion'], ['class' => 'form-input block w-full mt-1 border'. ($errors->has('description_video')? ' border-red-600' : '')]) !!}
+                            {!! Form::textarea('description_video[]', $video['descripcion'], ['class' => 'form-input block w-full mt-1 border description-video', 'id' => 'description_id_'.$key ]) !!}
                         </div>
                     @endforeach
 
@@ -154,7 +153,7 @@
                     <div class="container2">
                         <div>
                             {!! Form::label('title', 'Meta', ['class' => 'font-medium text-sm']) !!}
-                            <input class="form-input block w-full mt-1 border" type="text" name="metas[]">
+                            <input class="form-input block w-full mt-1 border" type="text" name="metas[]" required>
                         </div>
                     </div>
 
@@ -165,7 +164,7 @@
                     <div class="container3">
                         <div>
                             {!! Form::label('title', 'Requerimiento', ['class' => 'font-medium text-sm']) !!}
-                            <input class="form-input block w-full mt-1 border" type="text" name="requerimientos[]">
+                            <input class="form-input block w-full mt-1 border" type="text" name="requerimientos[]" required>
                         </div>
                     </div>
                     <h1 class="text-2xl font-bold mt-8 mb-2">Audiencia</h1>
@@ -175,7 +174,7 @@
                     <div class="container4">
                         <div>
                             {!! Form::label('title', 'Audiencia', ['class' => 'font-medium text-sm']) !!}
-                            <input class="form-input block w-full mt-1 border" type="text" name="audiencia[]">
+                            <input class="form-input block w-full mt-1 border" type="text" name="audiencia[]" required>
                         </div>
                     </div>
 
@@ -212,6 +211,24 @@
                 return $slug.toLowerCase();
             }
 
+            var descriptions = document.getElementsByClassName('description-video');
+
+            for (let description of descriptions) {
+                ClassicEditor
+                .create( document.querySelector( '#'+description.id ), {
+                    toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote' ],
+                    heading: {
+                        options: [
+                            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                            { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                            { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+                        ]
+                    }
+                } )
+                .catch( error => {
+                    console.log( error );
+                } );    
+            }
             //CKEDITOR
             ClassicEditor
                 .create( document.querySelector( '#description' ), {
@@ -227,6 +244,8 @@
                 .catch( error => {
                     console.log( error );
                 } );
+
+            
 
                 //Cambiar imagen
             document.getElementById("file").addEventListener('change', cambiarImagen);
