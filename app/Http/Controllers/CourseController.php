@@ -30,6 +30,6 @@ class CourseController extends Controller
     {
         $course->students()->attach(auth()->user()->id);
 
-        return redirect()->route('course.status', $course);
+        return redirect()->route('course.status', $course)->with('alert', 'Muy bien! Tu inscripción ha sido exitosa.');
     }
 }
