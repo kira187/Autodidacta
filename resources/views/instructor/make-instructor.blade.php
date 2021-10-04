@@ -14,11 +14,11 @@
               <span class="inline-block text-blue-500">nosotros</span>
             </h2>
             <p class="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
+              Enseña lo que sabes y ayuda a los estudiantes a explorar sus intereses, adquirir nuevas habilidades y avanzar en sus carreras.
             </p>
             <div class="flex items-center">
               <a
-                href="{{ route('upgrade.to-instructor')}}" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-500 hover:bg-red-700 focus:shadow-outline focus:outline-none" > Empieza ahora </a>
+                href="{{ route('upgrade.to-instructor')}}" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-blue-500 hover:bg-blue-700 focus:shadow-outline focus:outline-none" > Empieza ahora </a>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@
           <div class="flex">
             <div class="mr-4">
               <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
-                <svg class="h-8 w-8 text-red-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg class="h-8 w-8 text-blue-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
                   </svg>                  
               </div>
@@ -47,7 +47,7 @@
           <div class="flex">
             <div class="mr-4">
               <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
-                <i class="fas fa-chalkboard-teacher fa-2x text-red-500"></i>
+                <i class="fas fa-chalkboard-teacher fa-2x text-blue-500"></i>
               </div>
             </div>
             <div>
@@ -60,7 +60,7 @@
           <div class="flex">
             <div class="mr-4">
               <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
-                <i class="fas fa-hands-helping text-red-500 fa-2x"></i>
+                <i class="fas fa-hands-helping text-blue-500 fa-2x"></i>
               </div>
             </div>
             <div>
@@ -84,7 +84,7 @@
             <div class="flex">
               <div class="mr-4">
                 <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
-                    <i class="fas fa-book-reader fa-2x text-red-500"></i>
+                    <i class="fas fa-book-reader fa-2x text-blue-500"></i>
                 </div>
               </div>
               <div>
@@ -92,7 +92,7 @@
                   Crea tu programa
                 </h6>
                 <p class="text-sm text-gray-900">
-                    El primer paso lo das con tu pasión y conocimiento. Después, solo tienes que escoger un tema prometedor con la ayuda de nuestra herramienta Marketplace Insights.
+                    El primer paso lo das con tu pasión y conocimiento. Después, solo tienes que escoger un tema prometedor.
                 </p>
                 <p class="text-sm text-gray-900"> Tú decides la forma de enseñar, cómo le vas a poner tu sello propio.</p>
                 <hr class="w-full my-6 border-gray-300" />
@@ -101,7 +101,7 @@
             <div class="flex">
               <div class="mr-4">
                 <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
-                    <i class="fas fa-video text-red-500 fa-2x"></i>
+                    <i class="fas fa-video text-blue-500 fa-2x"></i>
                 </div>
               </div>
               <div>
@@ -116,7 +116,7 @@
             <div class="flex">
               <div class="mr-4">
                 <div class="flex items-center justify-center w-10 h-10 mb-3 rounded-full bg-indigo-50">
-                    <i class="fas fa-cloud-upload-alt fa-2x text-red-500"></i>
+                    <i class="fas fa-cloud-upload-alt fa-2x text-blue-500"></i>
                 </div>
               </div>
               <div>
