@@ -20,6 +20,7 @@
         "laravelcollective/html": "^6.2",
         "laraveles/spanish": "^1.5",
         "livewire/livewire": "^2.0",
+        "pusher/pusher-php-server": "^7.0",
         "spatie/laravel-permission": "^3.18"
     },
     "require-dev": {
