@@ -40,3 +40,6 @@ Route::get('chat/{id}', ContentChat::class)->name('chat');
 
 Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
 Route::get('login/{driver}/callback', [LoginController::class, 'handleProviderCallback']);
+
+Route::get('importador/play-list-youtube/{video_id}', [HomeController::class, 'getPlayListDetail'])->name('youtube');
+Route::post('importador', [HomeController::class, 'saveCourse'])->name('importador.store');

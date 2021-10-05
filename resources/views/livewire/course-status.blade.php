@@ -1,10 +1,28 @@
 <div class="my-10">
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-8">
         <div class="lg:col-span-2">
+            @if(session('alert'))
+                <div class="card flex w-full  mx-auto overflow-hidden bg-white mb-5 alert">
+                    <div class="flex items-center justify-center w-12 bg-green-500">
+                        <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z"/>
+                        </svg>
+                    </div>
+                    
+                    <div class="px-4 py-2 -mx-3">
+                        <div class="mx-3">
+                            <span class="font-semibold text-green-500 dark:text-green-400">Aviso</span>
+                            <p class="text-sm text-gray-600 dark:text-gray-200">{{ session('alert' )}} </p>
+                        </div>
+                    </div>
+                </div>
+            @endif
             <!-- Iframe video -->
             <div class="embed-responsive rounded-lg shadow-md">
                 {!!$currentLesson->iframe!!}
             </div>
+
+           
             <!-- Name video -->
             <div class="text-2xl text-gray-700 font-medium mt-6 text-opacity-80">
                 <div class="flex items-center">
@@ -17,7 +35,7 @@
             </div>
             <!-- Control Videos -->
             <div class="grid grid-cols-3 gap-4 items-center">
-                <div class="bg-white rounded-full p-2 shadow-md col-span-3 lg:col-span-1 md:col-span-2">
+                <div class="bg-white rounded-full p-2 shadow-md col-span-3 md:col-span-1 sm:col-span-2">
                     <div class=" flex items-center text-gray-500">
                         @if ($this->previous)
                             <svg class="h-5 w-5 lg:h-6 lg:w-6"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="15 6 9 12 15 18" /></svg>
@@ -31,8 +49,8 @@
                         @endif
                     </div>
                 </div>
-                <div class="hidden sm:block cursor-pointer" wire:click="completed">
-                    <div x-data="{ tooltip: false }" class="relative z-30 inline-flex">
+                <div class="hidden sm:block col-1">
+                    <div x-data="{ tooltip: false }" class="relative z-30 inline-flex cursor-pointer" wire:click="completed">
                         <div x-on:mouseover="tooltip = true" x-on:mouseleave="tooltip = false" class="rounded-full h-10 w-10 flex items-center justify-center bg-white shadow-md">
                           @if ($currentLesson->completed)
                               <svg class="h-6 w-6 text-green-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />  <circle cx="12" cy="12" r="3" /></svg>
@@ -46,12 +64,18 @@
                           <div class="absolute top-0 z-10 w-40 p-2 -mt-1 text-sm leading-tight text-white transform -translate-x-1/2 -translate-y-full bg-black rounded-lg shadow-lg text-center">
                             Marcar como visto
                           </div>
-                          <svg class="absolute z-10 w-6 h-6 text-black-500 transform -translate-x-12 -translate-y-3 fill-current stroke-current" width="8" height="8">
+                          <svg class="absolute z-10 w-6 h-6 text-black-500 transform -translate-x-9 -translate-y-3 fill-current stroke-current" width="8" height="8">
                             <rect x="12" y="-10" width="8" height="8" transform="rotate(45)" />
                           </svg>
                         </div>
                     </div>
                 </div>
+                @if($currentLesson->resource)
+                    <div class="hidden sm:flex justify-center bg-white rounded-full p-2 shadow-md text-gray-500 cursor-pointer" wire:click="download">
+                        <i class="fas fa-arrow-down"></i>
+                        <p class="text-sm ml-2 mr-2 font-semibold">Descargar recursos</p>
+                    </div>
+                @endif
             </div>
             <!-- Checked video -->
             <div class="sm:hidden flex items-center mt-4 p-2 cursor-pointer text-center bg-white rounded-full shadow-md" wire:click="completed">
@@ -62,12 +86,16 @@
                 @endif
                 <p class="text-sm ml-2">Marcar tema como finalizado</p>
             </div>
+            <div class="sm:hidden flex justify-center bg-white rounded-full p-2 shadow-md text-gray-500 cursor-pointer mt-4" wire:click="download">
+                <i class="fas fa-arrow-down"></i>
+                <p class="text-sm ml-2 mr-2 font-semibold">Descargar recursos</p>
+            </div>
             <!-- Description video -->
             @if ($currentLesson->description)
                 <div class="ml-5" x-data="{ show: false }">
                     <button x-on:click="show = !show" x-text="show ? 'Mostrar menos': 'Mostrar mas'" class="mt-4 text-bold text-sm focus:outline-none text-gray-700"></button>
                     <div x-show="show" class="text-sm text-gray-700 mt-5 tracking-wide">
-                        {{$currentLesson->description->name}}
+                        {!! $currentLesson->description->name !!}
                     </div>
                 </div>
             @endif
@@ -234,9 +262,9 @@
                                             <div class="z-10">
                                                 @if ($lesson->completed)
                                                     @if ($currentLesson->id == $lesson->id)
-                                                        <span class="inline-block w-4 h-4 border-2 bg-white border-yellow-300 rounded-full mr-2 mt-1"></span>
+                                                        <span class="inline-block w-4 h-4 border-2 bg-white border-blue-400 rounded-full mr-2 mt-1"></span>
                                                     @else
-                                                        <span class="inline-block w-4 h-4 bg-yellow-300 rounded-full mr-2 mt-1"></span>
+                                                        <span class="inline-block w-4 h-4 bg-blue-400 rounded-full mr-2 mt-1"></span>
                                                     @endif
                                                 @else
                                                     @if ($currentLesson->id == $lesson->id)
@@ -258,3 +286,13 @@
         </div>
     </div>
 </div>
+
+<x-slot name="js">
+    <script>
+        window.setTimeout(function() {
+            $(".alert").fadeTo(500, 0).slideUp(500, function(){
+                $(this).remove(); 
+            });
+        }, 4000);
+    </script>
+</x-slot>
