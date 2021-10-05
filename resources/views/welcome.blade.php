@@ -3,7 +3,7 @@
     {{--  Header site  --}}
     <section class="bg-cover bg-white">
         <div class="container py-10 lg:py-36">
-            <div class="grid gird-rows-1 grid-cols-1 lg:grid-cols-2">
+            <div class="grid gird-rows-1 grid-cols-1 lg:grid-cols-2" id="header">
                 <div class="grid gird-rows-3 order-last grid-cols-1 md:mx-20 lg:order-first lg:mx-0 lg:ml-28">
                     <h1 class="font-popins title-header font-bold text-4xl text-gray-700 text-center my-5 lg:text-left sm:my-0">La plataforma donde <span class="text-primary">aprendes</span> y enseñas.</h1>
                     <p class="text-black text-lg mt-2 mb-10 md:mb-20 text-center lg:mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
@@ -20,7 +20,7 @@
 
 
     <section class="bg-cover bg-primary">
-        <div class="container py-10 ">
+        <div class="container py-10" id="banner">
             <div class="grid gird-rows-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                 <div class="pb-8 lg:pb-0 text-center">
                     <i class="fas fa-laptop-code icon-large text-white"></i>
@@ -40,12 +40,11 @@
 
     {{--  Contenido del sitio  --}}
     <section class="bg-cover bg-gray-100">
-        <div class="py-10 lg:py-36">
+        <div class="py-10 lg:py-36" id="carrousel">
             <div class="container">
                 <h1 class="text-gray-600 text-center text-3xl mb-6 font-bold">Categorias</h1>
             </div>
             
-
             <div id="categories-slick" class="container categories-slick px-0 md:px-10 sm:px-6 lg:px-32 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
                 
                 <article class="rounded-3xl bg-white shadow-card">
@@ -108,14 +107,13 @@
                     </div>
                 </article>
             </div>
-        </div>
-        
+        </div>   
     </section>
 
     {{-- Aprende y conecta  --}}
     <section class="bg-cover bg-white">
         <div class="container py-10 lg:py-36">
-            <div class="grid gird-rows-1 grid-cols-1 lg:grid-cols-2">
+            <div class="grid gird-rows-1 grid-cols-1 lg:grid-cols-2" id="conecta-aprende">
                 <div class="lg:pl-16 xl:pl-24 lg:pr-20 xl:pr-28 box-image">
                     <img class="inline" src="{{ asset('img/home/aprende.svg')}}" alt="...">
                 </div>
@@ -127,10 +125,7 @@
                             <a href="{{route('courses.index')}}" class="transition duration-500 ease-in-out bg-primary hover:bg-gray-500 hover:text-white text-white font-bold py-4 px-12 rounded-full transform hover:-translate-y-1 hover:scale-105"> Descubre cursos </a>
                         </div>
                     </div>
-                    
-                    
                 </div>
-                
             </div>
         </div>
     </section>
@@ -158,4 +153,10 @@
         </div>
     </section>
     
+    <x-slot name="css">
+        <script src="{{ asset('app-assets\js\scripts\ui\scrollreveal.js')}}"></script>
+    </x-slot>
+    <x-slot name="js">
+        <script src="{{ asset('js\landing.js')}}"></script>
+    </x-slot>
 </x-app-layout>

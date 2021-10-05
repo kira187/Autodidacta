@@ -16,7 +16,9 @@
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}">
 
         @livewireStyles
-
+        @isset($css)
+            {{ $css }}
+        @endisset
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>

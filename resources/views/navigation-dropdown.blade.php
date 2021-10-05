@@ -19,7 +19,7 @@
 @endphp
 <nav x-data="{ open: false }" class="bg-white mt-2">
     <!-- Primary Navigation Menu -->
-    <div class="container">
+    <div class="container" id="navbar">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
