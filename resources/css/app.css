@@ -74,8 +74,12 @@
 }
 
 .slick-prev {
-    left: -40px;
+    left: -40px !important;
 }
+.slick-next {
+    right: 0px !important;
+}
+
 .slick-prev:before {
     content: url("/img/home/icon-left.svg");
 }

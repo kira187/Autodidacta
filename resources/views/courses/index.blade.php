@@ -8,8 +8,8 @@
                 </div>
                 <div class="grid gird-rows-3 grid-cols-1 md:mx-20 lg:mx-0 lg:mr-28 box-center">
                     <div>
-                        <h1 class="font-popins title-header font-bold text-4xl text-gray-700 text-center lg:text-left">Ingresa el curso que estas buscando.</h1>
-                        <p class="text-black text-lg mt-0 mb-10 md:mb-14">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus tenetur sunt laboriosam ratione quos eos laborum quam dolor.</p>
+                        <h1 class="font-popins title-header font-bold text-4xl text-gray-700 text-center lg:text-left leading-tight">Ingresa el curso que estás buscando.</h1>
+                        <p class="text-black text-lg mt-0 mb-10 md:mb-14">Aquí encontrarás una gran variedad de cursos que pueden ser útiles para cumplir con tus tareas, explora y aprende.</p>
                         @livewire('search')
                     </div>
                 </div>
