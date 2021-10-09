@@ -93,6 +93,166 @@ import slick from 'slick-carousel';
             });
         };
         //endregion
+        //region Courses
+        if ($("#popular-slick").length == 1) {
+
+            $('#popular-slick').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                infinite: true,
+                dots: true,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 2,
+                      }
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    }
+                  ]
+            });
+        };
+        //endregion
+        //region Courses
+        if ($("#recomender-slick").length == 1) {
+
+            $('#recomender-slick').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: false,
+                autoplaySpeed: 5000,
+                infinite: false,
+                dots: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 2,
+                      }
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    }
+                  ]
+            });
+        };
+        //endregion
+        //region Courses
+        if ($("#programming-slick").length == 1) {
+
+            $('#programming-slick').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: false,
+                autoplaySpeed: 5000,
+                infinite: false,
+                dots: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 2,
+                      }
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    }
+                  ]
+            });
+        };
+        //endregion
+        //region Courses
+        if ($("#view-slick").length == 1) {
+
+            $('#view-slick').slick({
+                slidesToShow: 4,
+                slidesToScroll: 1,
+                autoplay: false,
+                autoplaySpeed: 5000,
+                infinite: false,
+                dots: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 1280,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                      breakpoint: 1024,
+                      settings: {
+                        slidesToShow: 2,
+                      }
+                    },
+                    {
+                      breakpoint: 600,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    },
+                    {
+                      breakpoint: 480,
+                      settings: {
+                        slidesToShow: 1,
+                      }
+                    }
+                  ]
+            });
+        };
+        //endregion
 
 
 

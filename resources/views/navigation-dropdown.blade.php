@@ -8,12 +8,12 @@
         [
             'name' => 'Cursos',
             'route' => route('courses.index'),
-            'active' => request()->routeIs('courses.*')
+            'active' => request()->routeIs('courses.index')
         ],
         [
             'name' => 'Descubre',
-            'route' => route('courses.index'),
-            'active' => request()->routeIs('instructor.*')
+            'route' => route('courses.discover'),
+            'active' => request()->routeIs('courses.discover')
         ],
     ]
 @endphp
