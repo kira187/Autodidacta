@@ -3888,6 +3888,42 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
     ; //endregion
     //region Courses
 
+    if ($("#web-slick").length == 1) {
+      $('#web-slick').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        dots: true,
+        arrows: true,
+        responsive: [{
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 3
+          }
+        }, {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2
+          }
+        }, {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1
+          }
+        }, {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }]
+      });
+    }
+
+    ; //endregion
+    //region Courses
+
     if ($("#popular-slick").length == 1) {
       $('#popular-slick').slick({
         slidesToShow: 4,
@@ -3964,11 +4000,119 @@ __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
       $('#programming-slick').slick({
         slidesToShow: 4,
         slidesToScroll: 1,
-        autoplay: false,
+        autoplay: true,
         autoplaySpeed: 5000,
-        infinite: false,
+        infinite: true,
         dots: true,
-        arrows: false,
+        arrows: true,
+        responsive: [{
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 3
+          }
+        }, {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2
+          }
+        }, {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1
+          }
+        }, {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }]
+      });
+    }
+
+    ; //endregion
+    //region Courses
+
+    if ($("#design-slick").length == 1) {
+      $('#design-slick').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        dots: true,
+        arrows: true,
+        responsive: [{
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 3
+          }
+        }, {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2
+          }
+        }, {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1
+          }
+        }, {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }]
+      });
+    }
+
+    ; //endregion
+    //region Courses
+
+    if ($("#electronic-slick").length == 1) {
+      $('#electronic-slick').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        dots: true,
+        arrows: true,
+        responsive: [{
+          breakpoint: 1280,
+          settings: {
+            slidesToShow: 3
+          }
+        }, {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2
+          }
+        }, {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1
+          }
+        }, {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }]
+      });
+    }
+
+    ; //endregion
+    //region Courses
+
+    if ($("#math-slick").length == 1) {
+      $('#math-slick').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite: true,
+        dots: true,
+        arrows: true,
         responsive: [{
           breakpoint: 1280,
           settings: {
