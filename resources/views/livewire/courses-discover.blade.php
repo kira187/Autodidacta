@@ -86,12 +86,12 @@
         
 
         {{-- Cursos de electronica --}}
-        @if(isset($courses_web_development) && $courses_web_development->isNotEmpty() && $courses_web_development->count() > 4)
+        @if(isset($courses_electronic) && $courses_electronic->isNotEmpty() && $courses_electronic->count() > 4)
             <div>
                 <h2 class="font-popins font-bold text-2xl text-gray-700 text-center lg:text-center leading-tight mt-4">Cursos de Electrónica.</h2>
             </div>
             <div id="electronic-slick" class=" course-slick container grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 ">
-                @foreach ($courses_web_development as $course)
+                @foreach ($courses_electronic as $course)
                     <x-course-card :course="$course"/>
                 @endforeach
             </div>
@@ -99,12 +99,12 @@
 
         
         {{-- Cursos de matematicas --}}
-        @if(isset($courses_web_development) && $courses_web_development->isNotEmpty() && $courses_web_development->count() > 4)
+        @if(isset($courses_math) && $courses_math->isNotEmpty() && $courses_math->count() > 4)
             <div>
                 <h2 class="font-popins font-bold text-2xl text-gray-700 text-center lg:text-center leading-tight mt-4">Cursos de Matématicas.</h2>
             </div>
             <div id="math-slick" class=" course-slick container grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 ">
-                @foreach ($courses_web_development as $course)
+                @foreach ($courses_math as $course)
                     <x-course-card :course="$course"/>
                 @endforeach
             </div>
