@@ -11,14 +11,14 @@
           <div class="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
             <h2 class="mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
                 Ven a enseñar <br class="hidden md:block" /> con 
-              <span class="inline-block text-blue-500">nosotros</span>
+              <span class="inline-block text-red-500">nosotros</span>
             </h2>
             <p class="pr-5 mb-5 text-base text-gray-700 md:text-lg">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
+              Enseña lo que sabes y ayuda a los estudiantes a explorar sus intereses, adquirir nuevas habilidades y avanzar en sus carreras.
             </p>
             <div class="flex items-center">
               <a
-                href="{{ route('upgrade.to-instructor')}}" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-500 hover:bg-red-700 focus:shadow-outline focus:outline-none" > Empieza ahora </a>
+                href="{{ route('upgrade.to-instructor')}}" class="inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none" > Empieza ahora </a>
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
                   Crea tu programa
                 </h6>
                 <p class="text-sm text-gray-900">
-                    El primer paso lo das con tu pasión y conocimiento. Después, solo tienes que escoger un tema prometedor con la ayuda de nuestra herramienta Marketplace Insights.
+                    El primer paso lo das con tu pasión y conocimiento. Después, solo tienes que escoger un tema prometedor.
                 </p>
                 <p class="text-sm text-gray-900"> Tú decides la forma de enseñar, cómo le vas a poner tu sello propio.</p>
                 <hr class="w-full my-6 border-gray-300" />

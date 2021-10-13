@@ -9,7 +9,7 @@
                 <a href="{{ route('course.status', $course) }}" class="transition-colors duration-200 flex items-center px-4 py-3 border-b hover:bg-gray-100 -mx-2">
                     <img class="h-14 w-14 rounded object-cover mx-1" src="{{Storage::url($course->image->url)}}" alt="avatar">
                     <p class="text-gray-600 text-sm mx-2">
-                        <span class="font-medium" href="#"> {{$course->title}} </span>
+                        <span class="font-medium"> {{$course->title}} </span>
                     </p>
                 </a>
             @empty
