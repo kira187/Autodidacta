@@ -31,7 +31,7 @@
                 </div>
             </section>
 
-            <section class="mb-12">
+            <section class="pb-8">
                 <h1 class="font-bold text-3xl mb-2">Temario</h1>
                 @foreach ($course->sections as $section)
 
@@ -56,21 +56,30 @@
                 @endforeach
             </section>            
 
-            <section class="mb-8">
+            <section class="pb-8">
                 <h1 class="font-bold text-3xl mb-2 text-gray-800">Requisitos</h1>
 
                 <ul class="list-disc list-inside">
                     @foreach ($course->requirements as $requirement)
-                        <li class="text-gray-700 text-base py-1">{{ $requirement->name }}</li>
+                        <li class="text-gray-700 text-base pb-1">{{ $requirement->name }}</li>
                     @endforeach
                 </ul>
             </section>
 
-            <section>
+            <section class="pb-8">
                 <h1 class="font-bold text-3xl mb-2 text-gray-800">Descripción</h1>
                 <div class="text-gray-700 text-base tracking-wide leading-relaxed">
                     {!! $course->description !!}
                 </div>
+            </section>
+
+            <section class="pb-8">
+                <h1 class="font-bold text-3xl mb-2 text-gray-800">¿Para quién es este curso?</h1>
+                <ul class="list-disc list-inside">
+                    @foreach ($course->audience as $audience)
+                        <li class="text-gray-700 text-base pb-1">{{ $audience->name }}</li>
+                    @endforeach
+                </ul>
             </section>
 
             @livewire('courses-reviews', ['course' => $course])
@@ -120,7 +129,4 @@
             </aside>
         </div>
     </div>
-
- 
-
 </x-app-layout>

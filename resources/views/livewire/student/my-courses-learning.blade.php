@@ -1,6 +1,6 @@
 <div class="container py-8">
-    <h2 class="text-xl font-semibold text-gray-700 leading-tight mb-4">Mis Cursos</h2>        
-        <div class="max-w-7xl mx-auto px-4 pb-10 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
+    <h2 class="text-2xl font-semibold text-gray-700 leading-tight mb-4">Mis Cursos</h2>        
+    <div class="max-w-7xl mx-auto px-4 pb-10 sm:px-6 lg:px-8 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
             @foreach ($courses as $course)
                 <article class="rounded-3xl shadow-card">
                     <img class="rounded-t-3xl h-36 w-full object-cover card-image" src="{{ Storage::url($course->image->url) }}" alt="">
@@ -17,12 +17,10 @@
                             <a href="{{route('course.status', $course)}}" class=" font-bold text-primary hover:text-gray-700"> Continuar <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    
                 </article>
             @endforeach
-        </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
-            {{$courses->links()}}
-        </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4 mb-8">
+        {{$courses->links()}}
     </div>
 </div>

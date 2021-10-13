@@ -86,10 +86,12 @@
                 @endif
                 <p class="text-sm ml-2">Marcar tema como finalizado</p>
             </div>
-            <div class="sm:hidden flex justify-center bg-white rounded-full p-2 shadow-md text-gray-500 cursor-pointer mt-4" wire:click="download">
-                <i class="fas fa-arrow-down"></i>
-                <p class="text-sm ml-2 mr-2 font-semibold">Descargar recursos</p>
-            </div>
+            @if($currentLesson->resource)
+                <div class="sm:hidden flex justify-center bg-white rounded-full p-2 shadow-md text-gray-500 cursor-pointer mt-4" wire:click="download">
+                    <i class="fas fa-arrow-down"></i>
+                    <p class="text-sm ml-2 mr-2 font-semibold">Descargar recursos</p>
+                </div>
+            @endif
             <!-- Description video -->
             @if ($currentLesson->description)
                 <div class="ml-5" x-data="{ show: false }">
@@ -161,8 +163,35 @@
                           </div>
                         </div>
 
-                        <h3 class="font-bold text-lg py-4 text-opacity-60">Todos las preguntas de este curso (23)</h3>
-                        <div>
+                        <!-- Comments placeholder -->
+                        <h3 class="font-bold text-lg py-4 text-opacity-60">Todos las preguntas de este curso (@php echo (rand(1,50)) @endphp)</h3>
+                        <div class="p-4 bg-white border border-primary rounded-md">
+                            <div class="flex">
+                                <div class="mr-4 bg-gray-200 border border-gray-200 h-16 w-16 rounded animate-pulse"></div>
+                                <div class="space-y-1 flex flex-col w-full">
+                                    <div class="flex w-full items-center">
+                                        <div class="bg-gray-200 border border-gray-200 w-60 h-5 animate-pulse"></div>
+                                        <div class="ml-4 bg-ternary w-12 h-5 animate-pulse"></div>
+                                    </div>
+                                    <div class="bg-gray-200 border border-gray-200 w-36 h-5 animate-pulse"></div>
+                                    <div class="bg-gray-200 border border-gray-200 w-full h-14 animate-pulse">
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <div class="mt-4 flex items-center justify-between">
+                                <div class="flex items-center gap-2">
+                                    <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
+                                    <span class="bg-tertiary h-1 w-1 rounded animate-pulse"></span>
+                                    <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
+                                </div>
+                                <div class="bg-gray-200 border border-gray-200 w-16 h-5 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <!--Comments design-->
+                        {{-- <div>
                             <div class="flex items-start pt-6">
                                 <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"/>
                                 <div class="ml-3">
@@ -225,13 +254,20 @@
                                   </div>      
                                 </div>
                             </div>
-                        </div>
-                      </div>
+                        </div> --}}
                 </div>
             </div>
         </div>
         <!-- Left section lessons -->
         <div class="col">
+            @can('valued', $course)
+                <section class="card mb-8">
+                    <div class="card-body text-center">
+                        <a href="{{route('courses.info', $course)}}"> <i class="fas fa-star mr-1 text-yellow-300 text-sm"></i> <span class="text-gray-600 fond-bold"> Dejar una Calificación </span> </a>
+                    </div>
+                </section>
+            @endcan
+
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-xl leading-8 text-center mt-4 mb-4">{{ $course->title }}</h1>

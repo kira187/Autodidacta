@@ -47,7 +47,7 @@
 
                     <div class="card flex-1">
                         <div class="card-body bg-gray-100">
-                            <p><b>{{$review->user->name}}</b>  <i class="fas fa-star text-yellow-300"> ({{$review->rating}})</i></p>
+                            <p><b>{{$review->user->name}}</b>  <i class="fas fa-star text-yellow-300 "> ({{$review->rating}})</i></p>
 
                             {{ $review->comment}}
                         </div>

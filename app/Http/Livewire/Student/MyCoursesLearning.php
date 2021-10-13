@@ -11,7 +11,7 @@ class MyCoursesLearning extends Component
     {
         $courses = Course::whereHas('students', function($query){
             $query->where('user_id', auth()->user()->id);
-         })->paginate(8);
+         })->paginate(4);
         
         return view('livewire.student.my-courses-learning', compact('courses'));
     }
