@@ -80,6 +80,7 @@
     right: 0px !important;
 }
 
+
 .slick-prev:before {
     content: url("/img/home/icon-left.svg");
 }

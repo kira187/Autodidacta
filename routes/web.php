@@ -21,12 +21,12 @@ use App\Http\Livewire\Student\MyCoursesLearning;
 */
 
 Route::get('/', HomeController::class)->name('home');
-Route::get('/descubre', HomeController::class)->name('disvover');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('descubre', [CourseController::class, 'discover'])->name('courses.discover');
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.info');
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');

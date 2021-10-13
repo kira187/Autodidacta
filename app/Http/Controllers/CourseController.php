@@ -12,6 +12,12 @@ class CourseController extends Controller
         return view('courses.index');
     }
 
+    public function discover()
+    {
+        return view('courses.discover');
+    }
+
+
     public function info(Course  $course)
     {
         $this->authorize('published', $course);
