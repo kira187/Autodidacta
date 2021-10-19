@@ -3,16 +3,27 @@
         
 
         {{-- Recomendados --}}
-        @if(isset($courses) && $courses->isNotEmpty() && $courses->count() > 4)
+        @if(isset($courses_recommend) && $courses_recommend->isNotEmpty() && $courses_recommend->count() > 4)
             <div>
                 <h2 class="font-popins font-bold text-2xl text-gray-700 text-center lg:text-center leading-tight mt-16">Creemos que te podría gustar.</h2>
             </div>
             <div id="recomender-slick" class=" course-slick container grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 ">
-                @foreach ($courses as $course)
+                @foreach ($courses_recommend as $course)
                     <x-course-card :course="$course"/>
                 @endforeach
             
             </div>
+        @elseif(isset($courses_recommend) && $courses_recommend->isNotEmpty())
+        
+            <div>
+                <h2 class="font-popins font-bold text-2xl text-gray-700 text-center lg:text-center leading-tight mt-16">Creemos que te podría gustar.</h2>
+            </div>
+            <div class="grid gap-x-6 grid-cols-4 px-16">
+                @foreach ($courses_recommend as $course)
+                    <x-course-card :course="$course"/>
+                @endforeach
+            </div>
+
         @endif
 
 
@@ -73,12 +84,12 @@
 
 
         {{-- Cursos de diseño web --}}
-        @if(isset($courses_web_development) && $courses_web_development->isNotEmpty() && $courses_web_development->count() > 4)
+        @if(isset($courses_design) && $courses_design->isNotEmpty() && $courses_design->count() > 4)
             <div>
                 <h2 class="font-popins font-bold text-2xl text-gray-700 text-center lg:text-center leading-tight mt-4">Cursos de Diseño Web.</h2>
             </div>
             <div id="design-slick" class=" course-slick container grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-8 ">
-                @foreach ($courses_web_development as $course)
+                @foreach ($courses_design as $course)
                     <x-course-card :course="$course"/>
                 @endforeach
             </div>
