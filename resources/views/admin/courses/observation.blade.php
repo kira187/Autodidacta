@@ -89,7 +89,7 @@
     <script>
         ClassicEditor
             .create( document.querySelector( '#body' ), {
-                toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'blockQuote' ],
+                toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo' ],
                 heading: {
                     options: [
                         { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
