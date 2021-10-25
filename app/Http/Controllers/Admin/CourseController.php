@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ApprovedCourse;
-use App\Mail\RejectCourse;
+use App\Notifications\ApprovedCourse;
+use App\Notifications\RejectCourse;
+use App\Models\User;
 
 class CourseController extends Controller
 {
@@ -38,8 +38,7 @@ class CourseController extends Controller
         $course->status = 3;
         $course->save();
 
-        $mail = new ApprovedCourse($course);
-        Mail::to($course->teacher->email)->queue($mail);
+        $course->teacher->notify(New ApprovedCourse($course));
 
         return redirect()->route('admin.courses.index')->with('info', 'El curso se publicó correctamente!');
     }
@@ -60,8 +59,7 @@ class CourseController extends Controller
         $course->status = 1;
         $course->save();
 
-        $mail = new RejectCourse($course);
-        Mail::to($course->teacher->email)->queue($mail);
+        $course->teacher->notify(New RejectCourse($course));
 
         return redirect()->route('admin.courses.index')->with('info', 'El curso se ha rechazado correctamente');
     }
