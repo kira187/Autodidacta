@@ -42,6 +42,10 @@
                 @auth
                     @livewire('dropdown-user-courses')
 
+                    <div class="px-8">
+                        @livewire('notification-component')
+                    </div>
+                    
                     <x-jet-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -168,6 +172,15 @@
                     {{ $nav_link['name'] }}
                 </x-jet-responsive-nav-link>
             @endforeach
+            @auth
+                <x-jet-responsive-nav-link href="{{ route('student.courses') }}" >
+                    Mi aprendizaje
+                </x-jet-responsive-nav-link>
+                
+                <x-jet-responsive-nav-link href="#" >
+                    Notificaciones 
+                </x-jet-responsive-nav-link>
+            @endauth
         </div>
 
         <!-- Responsive Settings Options -->

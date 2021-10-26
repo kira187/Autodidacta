@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\HtmlString;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
 class ApprovedCourse extends Notification
 {
@@ -31,7 +32,7 @@ class ApprovedCourse extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database', 'broadcast'];
     }
 
     /**
@@ -43,7 +44,7 @@ class ApprovedCourse extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Curso Aprovado')
+                    ->subject('Curso Aprobado')
                     ->greeting('Hola '.$this->course->teacher->name)
                     ->line(new HtmlString('Recibes este correo para notificarte que tu curso <strong>' . $this->course->title . '</strong> ya fue publicado'))
                     ->action('Visualizar curso', route('courses.info', $this->course))
@@ -56,10 +57,22 @@ class ApprovedCourse extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
+    public function toDataBase($notifiable)
     {
         return [
-            //
+            'url' => route('courses.info', $this->course),
+            'message' => 'Tu curso, <span class="font-semibold text-gray-700">'. $this->course->title.'</span> ha sido aprobado. Echa un vistazo.'
         ];
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([]);
     }
 }

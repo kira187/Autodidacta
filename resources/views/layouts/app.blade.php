@@ -16,9 +16,6 @@
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}">
 
         @livewireStyles
-
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -68,6 +65,18 @@
         @stack('modals')
 
         @livewireScripts
+
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}"></script>
+        
+        @auth
+            <script>
+                Echo.private('App.Models.User.' + {{ Auth::user()->id}})
+                    .notification((notification) => {
+                        Livewire.emit('notification');
+                    });
+            </script>
+        @endauth
 
         @isset($js)
             {{ $js }}

@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\HtmlString;
-
+use Illuminate\Notifications\Messages\BroadcastMessage;
 class RejectCourse extends Notification
 {
     use Queueable;
@@ -31,7 +31,7 @@ class RejectCourse extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database', 'broadcast'];
     }
 
     /**
@@ -59,10 +59,22 @@ class RejectCourse extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
+    public function toDataBase($notifiable)
     {
         return [
-            //
+            'url' => route('instructor.courses.edit', $this->course),
+            'message' => 'Tu curso, <span class="font-semibold text-gray-700">'. $this->course->title.'</span> fue rechazado para su publicación. Revisa los comentarios realizados.'
         ];
+    }
+
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([]);
     }
 }

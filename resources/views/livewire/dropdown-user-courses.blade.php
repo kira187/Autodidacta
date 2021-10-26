@@ -1,5 +1,5 @@
 <div x-data="{ open:false }" class="relative my-32">
-    <button x-on:click="open = true" class="inline-flex items-center mr-10 pt-1 border-b-2 border-transparent text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+    <button x-on:click="open = true" class="inline-flex items-center pt-1 border-b-2 border-transparent text-sm font-poppins leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
         Mi aprendizaje
     </button>
 

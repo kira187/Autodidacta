@@ -22,24 +22,33 @@ use App\Http\Livewire\Student\MyCoursesLearning;
 
 Route::get('/', HomeController::class)->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::get('descubre', [CourseController::class, 'discover'])->name('courses.discover');
+/*
+ *  Courses 
+ */
 Route::get('cursos', [CourseController::class, 'index'])->name('courses.index');
 Route::get('cursos/{course}', [CourseController::class, 'info'])->name('courses.info');
 Route::post('cursos/{course}/enrolled', [CourseController::class, 'enrolled'])->middleware('auth')->name('course.enrolled');
 Route::get('cursos-status/{course}', CourseStatus::class)->name('course.status')->middleware('auth');
 Route::get('mis-cursos', MyCoursesLearning::class)->name('student.courses')->middleware('auth');
-Route::view('convertirme/instructor', 'instructor.make-instructor')->name('make-instructor');
-Route::get('upgrade/to-instructor', [UserController::class, 'upgradeUserToInstructor'])->name('upgrade.to-instructor')->middleware('auth');
-Route::view('contactanos', 'contact')->name('contact-us');
+
+/*
+ * Chat
+ */
 Route::view('chat', 'layouts.chat');
 Route::get('chat/{id}', ContentChat::class)->name('chat');
 
+/*
+ * Login Social Lite 
+ */
 Route::get('login/{driver}', [LoginController::class, 'redirectToProvider']);
 Route::get('login/{driver}/callback', [LoginController::class, 'handleProviderCallback']);
 
+/*
+ * Landing page - routes 
+ */
+Route::view('convertirme/instructor', 'instructor.make-instructor')->name('make-instructor');
+Route::get('upgrade/to-instructor', [UserController::class, 'upgradeUserToInstructor'])->name('upgrade.to-instructor')->middleware('auth');
+Route::view('contactanos', 'contact')->name('contact-us');
+Route::get('descubre', [CourseController::class, 'discover'])->name('courses.discover');
 Route::get('importador/play-list-youtube/{video_id}', [HomeController::class, 'getPlayListDetail'])->name('youtube');
 Route::post('importador', [HomeController::class, 'saveCourse'])->name('importador.store');
