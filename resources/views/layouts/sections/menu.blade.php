@@ -35,39 +35,47 @@
       <div class="navbar-container main-menu-content" data-menu="menu-container">
         <!-- include includes/mixins-->
         <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
+          @can('Ver dashboard')
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="{{ route('admin.home') }}">
+                <i data-feather="activity"></i>
+                <span>Estadisticas</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="{{ route('admin.roles.index') }}">
+                <i data-feather="sliders"></i>
+                <span>Roles</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="{{ route('admin.users.index') }}">
+                <i data-feather="users"></i>
+                <span>Usuarios</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="{{ route('admin.courses.index') }}">
+                <i data-feather="check"></i>
+                <span>Cursos por aprobar</span>
+              </a>
+            </li>
+            <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="index.html" data-toggle="dropdown"><i data-feather="book-open"></i><span data-i18n="Dashboards">Cursos</span></a>
+              <ul class="dropdown-menu">
+                <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.categories.index') }}" data-toggle="dropdown" data-i18n="Analytics"><i data-feather="tag"></i><span>Categorias</span></a>
+                </li>
+                <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.levels.index') }}" data-toggle="dropdown" data-i18n="eCommerce"><i data-feather="bar-chart-2"></i><span>Niveles de cursos</span></a>
+                </li>
+                <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.prices.index')}}" data-toggle="dropdown" data-i18n="eCommerce"><i data-feather="dollar-sign"></i><span>Precios</span></a>
+                </li>
+              </ul>
+            </li>
+          @endcan
           <li class="nav-item">
             <a class="nav-link d-flex align-items-center" href="{{ route('admin.home') }}">
-              <i data-feather="activity"></i>
-              <span>Estadisticas</span>
+              <i data-feather="play-circle"></i>
+              <span>Mis cursos</span>
             </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="{{ route('admin.roles.index') }}">
-              <i data-feather="sliders"></i>
-              <span>Roles</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="{{ route('admin.users.index') }}">
-              <i data-feather="users"></i>
-              <span>Usuarios</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="{{ route('admin.courses.index') }}">
-              <i data-feather="check"></i>
-              <span>Cursos por aprobar</span>
-            </a>
-          </li>
-          <li class="dropdown nav-item" data-menu="dropdown"><a class="dropdown-toggle nav-link d-flex align-items-center" href="index.html" data-toggle="dropdown"><i data-feather="book-open"></i><span data-i18n="Dashboards">Cursos</span></a>
-            <ul class="dropdown-menu">
-              <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.categories.index') }}" data-toggle="dropdown" data-i18n="Analytics"><i data-feather="tag"></i><span>Categorias</span></a>
-              </li>
-              <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.levels.index') }}" data-toggle="dropdown" data-i18n="eCommerce"><i data-feather="bar-chart-2"></i><span>Niveles de cursos</span></a>
-              </li>
-              <li data-menu=""><a class="dropdown-item d-flex align-items-center" href="{{ route('admin.prices.index')}}" data-toggle="dropdown" data-i18n="eCommerce"><i data-feather="dollar-sign"></i><span>Precios</span></a>
-              </li>
-            </ul>
           </li>
         </ul>
       </div>

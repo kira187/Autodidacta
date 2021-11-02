@@ -4,8 +4,9 @@
     @can('enrolled', $course)
         <article class="my-4">            
             @can('valued', $course)
-                {!! Form::textarea('comment', null, ['rows' => '3', 'class' => 'form-input w-full', 'placeholder' => 'Cuentanos que te parecio el curso', 'wire:model' => 'comment']) !!}
-                
+                {!! Form::textarea('comment', null, ['rows' => '3', 'class' => 'form-input w-full shadow-sm', 'placeholder' => 'Cuentanos que te parecio el curso', 'wire:model' => 'comment']) !!}
+                @error('comment') <strong class="text-xs text-red-600">{{ $message}}</strong> @enderror
+
                 <div class="flex items-center">
                     <button class="btn btn-primary mr-2" wire:click="store" >Guardar</button>
                     <ul class="flex">

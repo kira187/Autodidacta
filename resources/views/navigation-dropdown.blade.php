@@ -81,6 +81,10 @@
                                 </x-jet-dropdown-link>    
                             @endcan
 
+                            <x-jet-dropdown-link href="{{ route('chat.layout') }}">
+                                Chat
+                            </x-jet-dropdown-link>    
+                            
                             @can('Ver dashboard')
                                 <x-jet-dropdown-link href="{{ route('admin.home') }}">
                                     Administrador
@@ -208,7 +212,11 @@
                         Instructor
                     </x-jet-responsive-nav-link>    
                     @endcan
-
+                    
+                    <x-jet-responsive-nav-link href="{{ route('chat.layout') }}">
+                        Chat
+                    </x-jet-responsive-nav-link>    
+                    
                     @can('Ver dashboard')
                         <x-jet-responsive-nav-link href="{{ route('admin.home') }}">
                             Administrador

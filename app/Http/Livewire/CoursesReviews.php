@@ -14,6 +14,10 @@ class CoursesReviews extends Component
     public $rating = 5, $pageNumber = 1;
     public $hasMorePages;
 
+    protected $rules = [
+        'comment' => 'required|min:10',
+    ];
+
     protected $listeners = [
         'load-more' => 'loadMore'
     ];
@@ -35,6 +39,7 @@ class CoursesReviews extends Component
 
     public function store()
     {
+        $this->validate();
         $course = Course::find($this->course_id);
 
         $course->reviews()->create([

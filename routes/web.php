@@ -34,7 +34,7 @@ Route::get('mis-cursos', MyCoursesLearning::class)->name('student.courses')->mid
 /*
  * Chat
  */
-Route::view('chat', 'layouts.chat');
+Route::view('chat', 'layouts.chat')->name('chat.layout');
 Route::get('chat/{id}', ContentChat::class)->name('chat');
 
 /*
