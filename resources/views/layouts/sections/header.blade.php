@@ -28,7 +28,7 @@
             <ul class="search-list search-list-main"></ul>
           </div>
         </li>
-        <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
+        {{-- <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
           <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
             <li class="dropdown-menu-header">
               <div class="dropdown-header d-flex">
@@ -95,11 +95,13 @@
             </li>
             <li class="dropdown-menu-footer"><a class="btn btn-primary btn-block" href="javascript:void(0)">Read all notifications</a></li>
           </ul>
-        </li>
+        </li> --}}
         <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">{{ Auth::user()->name }}</span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="{{ Auth::user()->profile_photo_url }}" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span></a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="page-profile.html"><i class="mr-50" data-feather="user"></i> Profile</a><a class="dropdown-item" href="app-email.html"><i class="mr-50" data-feather="message-square"></i> Chats</a>
-            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('profile.show') }}"><i class="mr-50" data-feather="settings"></i> Settings</a>
+            <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">{{ Auth::user()->name }}</span>
+              <span class="user-status"> En linea</span>
+            </div><span class="avatar"><img class="round" src="{{ Auth::user()->profile_photo_url }}" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span></a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user"><a class="dropdown-item" href="{{ route('profile.show') }}"><i class="mr-50" data-feather="user"></i> Perfil</a><a class="dropdown-item" href="{{ route('chat.layout') }}"><i class="mr-50" data-feather="message-square"></i> Chats</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('profile.show') }}"><i class="mr-50" data-feather="settings"></i> Configuración</a>
             
             <form method="POST" action="{{ route('logout') }}">
               @csrf
