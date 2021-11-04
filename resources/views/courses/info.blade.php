@@ -32,7 +32,7 @@
             </section>
 
             <section class="pb-8">
-                <h1 class="font-bold text-3xl mb-2">Temario</h1>
+                <h1 class="font-bold text-3xl mb-2 text-gray-800">Temario</h1>
                 @foreach ($course->sections as $section)
 
                     <article class="bg-white mb-4 py-1 pr-1 shadow-lg rounded-lg" {{($loop->first) ? 'x-data={open:true}' : 'x-data={open:false}'}}>
@@ -109,6 +109,7 @@
             </section>
 
             <aside class="hidden lg:block">
+                <h1 class="font-bold text-2xl mb-2 text-gray-800">Recomendaciones</h1>
                 @foreach ($similares as $course)
                     <article class="flex mb-6 bg-white shadow-lg rounded-lg overflow-hidden">
                         <img class="h-32 w-40 object-cover" src="{{Storage::url($course->image->url)}}" alt="">

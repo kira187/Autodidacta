@@ -11,6 +11,13 @@ class CourseStatus extends Component
 {
     use AuthorizesRequests;
     public $course, $currentLesson;
+    public $openModal = false;
+    public $rating = 5, $comment;
+
+    protected $rules = [
+        'comment' => 'required|min:10',
+    ];
+    
 
     public function mount(Course $course)
     {
@@ -99,5 +106,24 @@ class CourseStatus extends Component
     public function download()
     {
         return response()->download(storage_path('app/public/' . $this->currentLesson->resource->url));
+    }
+
+    public function openModalReview()
+    {
+        $this->openModal =  true;
+    }
+
+    public function storeReview()
+    {
+        $this->validate();
+        $course = Course::find($this->course->id);
+
+        $comment = $course->reviews()->create([
+            'comment' => $this->comment,
+            'rating' => $this->rating,
+            'user_id' => auth()->user()->id
+        ]);
+
+        $this->openModal = false;
     }
 }

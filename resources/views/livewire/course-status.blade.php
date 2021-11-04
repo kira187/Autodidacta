@@ -263,7 +263,7 @@
             @can('valued', $course)
                 <section class="card mb-8">
                     <div class="card-body text-center">
-                        <a href="{{route('courses.info', $course)}}"> <i class="fas fa-star mr-1 text-yellow-300 text-sm"></i> <span class="text-gray-600 fond-bold"> Dejar una Calificación </span> </a>
+                        <button wire:click="openModalReview" wire:loading.attr="disabled"> <i class="fas fa-star mr-1 text-yellow-300 text-sm"></i> <span class="text-gray-600 fond-bold"> Dejar una Calificación </span> </button>
                     </div>
                 </section>
             @endcan
@@ -321,6 +321,38 @@
             </div>
         </div>
     </div>
+
+    <x-jet-dialog-modal wire:model="openModal">
+        <x-slot name="title">
+            Calificar curso
+        </x-slot>
+        <x-slot name="content">
+            {!! Form::textarea('comment', null, ['rows' => '3', 'class' => 'form-input w-full shadow-sm border border-gray-200', 'placeholder' => 'Cuentanos que te parecio el curso', 'wire:model.defer' => 'comment']) !!}
+            @error('comment') <strong class="text-xs text-red-600">{{ $message}}</strong> @enderror
+        </x-slot>
+        <x-slot name="footer">
+            <div class="flex items-center">
+                <x-jet-secondary-button  wire:click="storeReview"> Calificar </x-jet-secondary-button>
+                <ul class=" ml-2 flex">
+                    <li class="mr-1 cursor-pointer" wire:click="$set('rating', 1)">
+                        <i class="fas fa-star text-{{$rating >= 1 ? 'yellow' : 'gray'}}-300"></i>                                                                                                
+                    </li>
+                    <li class="mr-1 cursor-pointer" wire:click="$set('rating', 2)">
+                        <i class="fas fa-star text-{{$rating >= 2 ? 'yellow' : 'gray'}}-300"></i>
+                    </li>
+                    <li class="mr-1 cursor-pointer" wire:click="$set('rating', 3)">
+                        <i class="fas fa-star text-{{$rating >= 3 ? 'yellow' : 'gray'}}-300"></i>
+                    </li>
+                    <li class="mr-1 cursor-pointer" wire:click="$set('rating', 4)">
+                        <i class="fas fa-star text-{{$rating >= 4 ? 'yellow' : 'gray' }}-300"></i>
+                    </li>
+                    <li class="mr-1 cursor-pointer" wire:click="$set('rating', 5)">
+                        <i class="fas fa-star text-{{$rating == 5 ? 'yellow' : 'gray'}}-300"></i>
+                    </li>
+                </ul>
+            </div>
+        </x-slot>
+    </x-jet-dialog-modal>
 </div>
 
 <x-slot name="js">

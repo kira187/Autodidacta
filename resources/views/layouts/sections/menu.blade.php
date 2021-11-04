@@ -71,8 +71,18 @@
               </ul>
             </li>
           @endcan
+
+          @can('Leer cursos')
+            <li class="nav-item">
+              <a class="nav-link d-flex align-items-center" href="{{ route('admin.home') }}">
+                <i data-feather="book-open"></i>
+                <span>Instructor</span>
+              </a>
+            </li>
+          @endcan
+
           <li class="nav-item">
-            <a class="nav-link d-flex align-items-center" href="{{ route('admin.home') }}">
+            <a class="nav-link d-flex align-items-center" href="{{ route('student.courses') }}">
               <i data-feather="play-circle"></i>
               <span>Mis cursos</span>
             </a>
