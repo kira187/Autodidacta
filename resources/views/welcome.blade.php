@@ -28,11 +28,11 @@
                 </div>
                 <div class="pb-8 lg:pb-0 text-center">
                     <i class="fas fa-chalkboard-teacher icon-large text-white"></i>
-                    <p class="text-white text-left ml-2" style="display: inline-block"><b>Asesorias personalizadas</b> <br>Potencia tus conocimientos</p>
+                    <p class="text-white text-left ml-2" style="display: inline-block"><b>Asesorias personalizadas</b> <br>Chatea con tus instructores</p>
                 </div>
                 <div class="col-span-1 md:col-span-2 lg:col-span-1 text-center">
                     <i class="fas fa-hands-helping icon-large text-white"></i>
-                    <p class="text-white text-left ml-2" style="display: inline-block"><b>Apoyo entre alumnos</b> <br>Potencia tus conocimientos</p>
+                    <p class="text-white text-left ml-2" style="display: inline-block"><b>Apoyo entre alumnos</b> <br>Comparte opiniones y dudas</p>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
                             <h1 class="text-xl font-bold text-gray-700">Matemáticas</h1>
                         </header>
         
-                        <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi maiores veniam </p>
+                        <p class="text-sm text-gray-500 mt-2">Adéntrate en el mundo de las matemáticas, resuelve tus dudas y sé un experto.</p>
 
                         <p class="text-sm font-bold text-gray-500 mt-10">Ver todos los cursos <span class="text-md"><i class="fas fa-arrow-circle-right"></i></span></p>
                     </div>
@@ -72,7 +72,7 @@
                             <h1 class="text-xl font-bold text-gray-700">Programación</h1>
                         </header>
         
-                        <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi maiores veniam </p>
+                        <p class="text-sm text-gray-500 mt-2">Da tus primeros pasos en el mundo de la programación y amplia tus conocimientos.</p>
 
                         <p class="text-sm font-bold text-gray-500 mt-10">Ver todos los cursos <span class="text-md"><i class="fas fa-arrow-circle-right"></i></span></p>
                     </div>
@@ -87,7 +87,7 @@
                             <h1 class="text-xl font-bold text-gray-700">Química</h1>
                         </header>
         
-                        <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi maiores veniam </p>
+                        <p class="text-sm text-gray-500 mt-2">Estudia a la materia en cuanto a sus propiedades, estructura, composición y mucho más.</p>
 
                         <p class="text-sm font-bold text-gray-500 mt-10">Ver todos los cursos <span class="text-md"><i class="fas fa-arrow-circle-right"></i></span></p>
                     </div>
@@ -102,7 +102,7 @@
                             <h1 class="text-xl font-bold text-gray-700">Electrónica</h1>
                         </header>
         
-                        <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi maiores veniam </p>
+                        <p class="text-sm text-gray-500 mt-2">Trata con circuitos eléctricos que involucran componentes eléctricos activos, transistores, diodos y mucho más.</p>
 
                         <p class="text-sm font-bold text-gray-500 mt-10">Ver todos los cursos <span class="text-md"><i class="fas fa-arrow-circle-right"></i></span></p>
                     </div>
