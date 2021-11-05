@@ -55,8 +55,8 @@
                             <p class="text-white">Copyright © 2021 Autodidacta</p>
                         </div>
                         <div class="pr-0 xl:pr-28 text-center  md:text-right col-span-1 sm:col-span-2 xl:col-span-1">
-                            <a href="" class=" mb-4 md:mb-0 hover:text-gray-700 inline-block text-white mr-0 sm:mr-10"><p>Politicas de privacidad</p></a>
-                            <a href="" class=" mb-4 md:mb-0 hover:text-gray-700 inline-block text-white"><p>Terminos y condiciones</p></a>
+                            <a href="#" class=" mb-4 md:mb-0 hover:text-gray-700 inline-block text-white mr-0 sm:mr-10"><p>Politicas de privacidad</p></a>
+                            <a href="#" class=" mb-4 md:mb-0 hover:text-gray-700 inline-block text-white"><p>Terminos y condiciones</p></a>
                         </div>
                     </div>
                 </div>
