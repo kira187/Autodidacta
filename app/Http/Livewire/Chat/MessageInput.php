@@ -14,22 +14,29 @@ class MessageInput extends Component
 
     public function mount($userChatId)
     {
+        //id del usuario o usuario qque envia o recive ==> 4
+
         $this->text = '';
         $this->userChatId = $userChatId;
         $this->currentUser = auth()->user()->id;
 
-        if (Chat::where('receiver', $this->userChatId)->orWhere('sender', $this->userChatId)->exists()) {
-            $this->chat = Chat::select('id')
-                ->where('sender', $this->userChatId)
-                ->Orwhere('receiver', $this->userChatId)
-                ->first();
+        $chat = Chat::where('receiver', $this->userChatId)
+            ->where('sender', $this->currentUser)
+            ->Orwhere( function($query) {
+                return $query
+                    ->where('sender', $this->userChatId)
+                    ->where('receiver', $this->currentUser);
+            })->first();
+
+        if ($chat) {
+            $this->chat = $chat;
         }
     }
 
     public function sendMessage()
     {
         $this->validate ([
-            'text' => 'required'
+            'text' => 'required|max:255'
         ]);
 
         if (!$this->chat) {

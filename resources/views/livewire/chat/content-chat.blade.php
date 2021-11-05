@@ -9,7 +9,7 @@
                 @if (isset($user))
                     <div class="avatar avatar-border m-0 mr-1">
                         <img src="{{ $user->profile_photo_url }}" alt="avatar" height="36" width="36" />
-                        <span class="avatar-status-busy"></span>
+                        <span class="avatar-status-online"></span>
                     </div>
                     <div>
                         <h6 class="mb-0">{{ $user->name }}</h6>
@@ -20,7 +20,7 @@
                 @else
                     <div class="avatar avatar-border m-0 mr-1">
                         <img src="{{ $chat->user_receiver->id == Auth::user()->id ? $chat->user_sender->profile_photo_url : $chat->user_receiver->profile_photo_url }}" alt="avatar" height="36" width="36" />
-                        <span class="avatar-status-busy"></span>
+                        <span class="avatar-status-online"></span>
                     </div>
                     <div>
                         <h6 class="mb-0">{{ $chat->user_receiver->id == Auth::user()->id ? $chat->user_sender->name : $chat->user_receiver->name }}</h6>
