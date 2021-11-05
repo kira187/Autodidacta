@@ -109,11 +109,44 @@ class CoursesDiscover extends Component
 
                             $courses_recommend = Course::whereIn('id', $coursesToRecomend)->get(); 
 
+                            if(!empty($courses_recommend)){
+
+                                return view('livewire.courses-discover', compact('courses', 'courses_programming', 'courses_recommend', 'courses_web_development', 'courses_design', 'courses_electronic', 'courses_math'));
+                            }
+
+                            $courses_user = Course::whereHas('students', function($query){
+                                $query->where('user_id', auth()->user()->id);
+                            })->get()->take(5);
+        
+                                
+                            $courses_recommend = Course::where('category_id', $courses_user[0]->category_id)
+                                ->where('id', '!=', $courses_user[0]->id)
+                                ->where('status', 3)
+                                ->latest('id')
+                                ->take(5)
+                                ->get();
+        
                             return view('livewire.courses-discover', compact('courses', 'courses_programming', 'courses_recommend', 'courses_web_development', 'courses_design', 'courses_electronic', 'courses_math'));
                         }
 
                         
                     }
+
+                    $courses_user = Course::whereHas('students', function($query){
+                        $query->where('user_id', auth()->user()->id);
+                    })->get()->take(5);
+
+                        
+                    $courses_recommend = Course::where('category_id', $courses_user[0]->category_id)
+                        ->where('id', '!=', $courses_user[0]->id)
+                        ->where('status', 3)
+                        ->latest('id')
+                        ->take(5)
+                        ->get();
+
+                    return view('livewire.courses-discover', compact('courses', 'courses_programming', 'courses_recommend', 'courses_web_development', 'courses_design', 'courses_electronic', 'courses_math'));
+
+                    
                 } catch (\Throwable $th) {
                     Log::error($th);
                 }
