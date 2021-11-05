@@ -96,7 +96,7 @@ class CoursesDiscover extends Component
 
                             if($courses_recommendation->isNotEmpty()){
 
-                                $idsCourses = $courses_recommendation->pluck('id')->toArray(); // get only the id of the courses
+                                $idsCourses = $courses_recommendation->pluck('id')->where('status', 3)->toArray(); // get only the id of the courses
 
                                 $resultado = array_diff($idsCourses, $idsUserCourses); // get the different courses for the recomendation
                                 
