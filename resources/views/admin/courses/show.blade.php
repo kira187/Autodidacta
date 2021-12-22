@@ -40,7 +40,7 @@
                                 <span class="text-gray-700 text-sm">{{ $goal->name }}</span>
                             </li>
                         @empty
-                            <li class="text-gray-700 text-base"> Este curso no cuenta con ninguna meta.</li>
+                            <li class="text-gray-700 text-base"> Este curso no cuenta con metas.</li>
                         @endforelse
                     </ul>
                 </div>
@@ -72,7 +72,7 @@
                 @empty
                     <article class="card">
                         <div class="card-body">
-                            Este curso no tiene ninguna sección asignada.
+                            Este curso aun no cuenta con secciones.
                         </div>
                     </article>
                 @endforelse
@@ -127,7 +127,7 @@
                         <button type="submit" class="btn btn-primary w-full">Aprobar curso</button>
                     </form>
 
-                    <a href="{{ route('admin.courses.observation', $course) }}" class="btn btn-danger w-full block text-center mt-4">Observar curso</a>
+                    <a href="{{ route('admin.courses.observation', $course) }}" class="btn btn-danger w-full block text-center mt-4">Realizar observaciones del curso</a>
                 </div>
             </section>
         </div>

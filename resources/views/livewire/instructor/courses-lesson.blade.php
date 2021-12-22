@@ -5,15 +5,11 @@
 
                 @if ($lesson->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <div class="text-gray-700">
-                            <label class="block mb-1">Nombre</label>
-                            <input wire:model="lesson.name" type="text" class="form-input w-full border">
-                        </div>
-                        @error('lesson.name')
-                            <span class="text-xs text-red-700">{{ $message }}</span>
-                        @enderror
-
-                        <div class="text-gray-700 mt-4">
+                        <x-jet-label for="lesson.name" value="Nombre" />
+                        <x-input type="text" class="mt-1 block w-full" wire:model="lesson.name" />
+                        <x-jet-input-error for="lesson.name" class="mt-2" />
+                                                
+                        <div class="text-gray-700 my-4">
                             <label class="block mb-1">Plataforma</label>
                             <select wire:model="lesson.platform_id" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                 @foreach ($platforms as $platform)
@@ -22,18 +18,13 @@
                             </select>
                         </div>
 
-                        <div class=" mt-4">
-                            <label for="" class="w-32">URL:</label>
-                            <input wire:model="lesson.url" type="text" class="form-input w-full border">
-                        </div>
-
-                        @error('lesson.url')
-                            <span class="text-xs text-red-700">{{ $message }}</span>
-                        @enderror
+                        <x-jet-label for="lesson.url" value="URL del video" />
+                        <x-input type="text" class="mt-1 block w-full" wire:model="lesson.url" />
+                        <x-jet-input-error for="lesson.url" class="mt-2" />
 
                         <div class="mt-4 flex justify-center sm:justify-end">
-                            <button type="submit" class="btn-sm btn-primary">Actualizar</button>
-                            <button type="button" class="btn-sm btn-danger ml-2" wire:click="cancel">Cancelar</button>
+                            <x-jet-button type="submit"> Actualizar</x-jet-button>
+                            <x-jet-danger-button type="button" class="ml-2" wire:click="cancel">Cancelar </x-jet-danger-button>
                         </div>
                     </form>
                 @else

@@ -7,18 +7,15 @@
             <div class="card-body bg-gray-100">
                 @if ($goal->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <input type="text" wire:model="goal.name" class="form-input w-full">
-
-                        @error('goal.name')
-                            <span class="text-xs text-red-500">{{ $message }}</span>                            
-                        @enderror
+                        <x-input type="text" class="block w-full" wire:model="goal.name"/>
+                        <x-jet-input-error for="goal.name" class="mt-2" />
                     </form>
                 @else
                     <header class="flex justify-between">
                         <h1> {{ $item->name }} </h1>
                         <div>
-                            <i class="fas fa-edit text-blue-500 cursor-pointer" wire:click="edit({{ $item }})"></i>
-                            <i class="fas fa-trash text-red-500 cursor-pointer ml-2" wire:click="confirmGoalDeletion({{ $item }})" wire:loading.attr="disabled"></i>
+                            <i class="fas fa-edit text-gray-600 cursor-pointer" wire:click="edit({{ $item }})"></i>
+                            <i class="fas fa-trash text-red-600 cursor-pointer ml-2" wire:click="confirmGoalDeletion({{ $item }})" wire:loading.attr="disabled"></i>
                         </div>
                     </header>
                 @endif
@@ -29,14 +26,10 @@
     <article class="card">
         <div class="card-body bg-gray-100">
             <form wire:submit.prevent="store">
-                <input wire:model="name" type="text" class="form-input w-full" placeholder="Agregar el nombre de una meta">
-
-                @error('name')
-                    <span class="text-xs text-red-500">{{ $message }}</span>    
-                @enderror
-
+                <x-input type="text" class="mt-1 block w-full" wire:model="name" placeholder="Descripción de la meta"/>
+                <x-jet-input-error for="name" class="mt-2" />
                 <div class="flex justify-end mt-4">
-                    <button type="submit" class="btn-sm btn-primary"><i class="fas fa-flag-checkered"></i> Agregar meta</button>
+                    <x-jet-button type="submit"><i class="fas fa-flag-checkered mr-1"></i> Agregar meta</x-jet-button>
                 </div>
             </form>
         </div>

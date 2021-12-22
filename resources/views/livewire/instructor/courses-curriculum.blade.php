@@ -8,10 +8,8 @@
             <div class="card-body bg-gray-100">                
                 @if ($section->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <input wire:model="section.name" type="text" class="form-input w-full" placeholder="Ingrese el nombre de la sección">
-                        @error('section.name')
-                            <span class="text-xs text-red-600 font-bold">{{$message}}</span>
-                        @enderror
+                        <x-input type="text" class="block w-full" wire:model="section.name"/>
+                        <x-jet-input-error for="section.name" class="mt-2" />
                     </form>
                 @else
                     <header class="flex justify-between items-center">

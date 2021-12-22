@@ -34,7 +34,7 @@
     @enderror
 </div>
 
-<div class="grid grid-cols-2 gap-4 mb-4">
+<div class="grid grid-cols-3 gap-4 mb-4">
     <div class="col-span-3 lg:col-span-1">
         {!! Form::label('category_id', 'Categoria:') !!}
         {!! Form::select('category_id', $categories, null, ['class' => 'form-input block w-full mt-1 border']) !!}
@@ -45,10 +45,10 @@
         {!! Form::select('level_id', $levels, null, ['class' => 'form-input block w-full mt-1 border']) !!}
     </div>
 
-    {{-- <div class="col-span-3 lg:col-span-1">
+    <div class="col-span-3 lg:col-span-1">
         {!! Form::label('price_id', 'Precio:') !!}
         {!! Form::select('price_id', $prices, null, ['class' => 'form-input block w-full mt-1 border']) !!}
-    </div> --}}
+    </div>
     {!! Form::hidden('price_id', 1) !!}
 </div>
 

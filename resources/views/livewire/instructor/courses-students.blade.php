@@ -5,7 +5,7 @@
 
     <x-table-responsive>
         <div class="px-6 py-4">
-            <input wire:model="search" class="form-input flex-1 shadow-sm w-full" placeholder="Buscar estudiante...">
+            <x-input type="search" wire:model="search" class="block w-full" placeholder="Buscar estudiante..."/>
         </div>
 
         @if ($students->count())
