@@ -24,7 +24,7 @@
 
            
             <!-- Name video -->
-            <div class="text-2xl text-gray-700 font-medium mt-6 text-opacity-80">
+            <div class="text-xl text-gray-700 font-medium mt-6 text-opacity-80">
                 <div class="flex items-center">
                     <svg class="mr-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
                     {{$currentLesson->name}}
@@ -84,7 +84,7 @@
                 @else
                     <i class="fas fa-toggle-off text-2xl text-gray-600"></i>
                 @endif
-                <p class="text-sm ml-2">Marcar tema como finalizado</p>
+                <p class="text-sm ml-2">Marcar tema como visto</p>
             </div>
             @if($currentLesson->resource)
                 <div class="sm:hidden flex justify-center bg-white rounded-full p-2 shadow-md text-gray-500 cursor-pointer mt-4" wire:click="download">
@@ -95,16 +95,144 @@
             <!-- Description video -->
             @if ($currentLesson->description)
                 <div class="ml-5" x-data="{ show: false }">
-                    <button x-on:click="show = !show" x-text="show ? 'Mostrar menos': 'Mostrar mas'" class="mt-4 text-bold text-sm focus:outline-none text-gray-700"></button>
                     <div x-show="show" class="text-sm text-gray-700 mt-5 tracking-wide">
                         {!! $currentLesson->description->name !!}
                     </div>
+                    <button x-on:click.debounce.100="show = !show" x-text="show ? 'Mostrar menos': 'Mostrar mas'" class="mt-4 text-bold text-sm focus:outline-none text-gray-700"></button>
                 </div>
             @endif
             <div class="flex items-center justify-between my-4">
                 <span class="w-full border-b dark:border-gray-600"></span>
             </div>
             <!-- Comments section -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="sm:px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+                        <!--Buscar-->
+                        <div class="-mx-3 md:flex mb-2">
+                          <div class="md:w-full px-3">
+                            <div class="relative flex w-full flex-wrap items-stretch mb-3">
+                              <span
+                                class="z-10 h-full leading-snug font-normal text-center text-gray-400 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-2 py-2">
+                                <i class="fas fa-search"></i>
+                              </span>
+                              <input type="text" placeholder="Buscar todas las preguntas del curso" class="px-2 py-2 placeholder-gray-400 text-gray-600 border-gray-300 relative bg-white rounded text-sm border border-grey-lighter w-full pl-10 focus:outline-none" />
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Filtros -->
+                        <div class="-mx-3 md:flex mb-4">
+                          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                            <div class="relative">
+                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
+                                    <option hidden selected>Todas las clases</option>
+                                    <option>Element 1</option>
+                                    <option>Element 2</option>
+                                    <option>Element 3</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                            <div class="relative">
+                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
+                                    <option hidden selected>Seleccionar orden</option>
+                                    <option>Element 1</option>
+                                    <option>Element 2</option>
+                                    <option>Element 3</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                          </div>
+                          <div class="md:w-1/2 px-3 mb-6 md:mb-0">
+                            <div class="relative">
+                                <select class="block appearance-none rounded-md shadow-sm w-full border border-gray-300 py-2 bg-white px-4 pr-8 leading-tight focus:outline-none focus:border-gray-500 sm:text-sm text-gray-500">
+                                    <option hidden selected>Filtrar preguntas</option>
+                                    <option>Element 1</option>
+                                    <option>Element 2</option>
+                                    <option>Element 3</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Comments placeholder -->
+                        <h3 class="font-bold text-lg py-4 text-opacity-60">Todos las preguntas de este curso (@php echo (rand(1,50)) @endphp)</h3>                        
+                        <div>
+                            <div class="flex items-start pt-6">
+                                <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"/>
+                                <div class="ml-3">
+                                  <span class="font-bold text-gray-700 sm:text-base text-sm">ERROR AL MARCAR UNIDAD COMO CULMINADA</span>
+                                  <p class="text-gray-500 text-sm sm:block hidden pb-4">Buenas noches profesor!Cuando le doy como culminada una unidad me arroja este error y por ende no</p>
+                                  <div class="text-xs flex">
+                                    <a href="#" class="text-blue-500">Lucas </a>
+                                    <a href="#" class="px-2 text-blue-500">• Clase 25 •</a>
+                                    <div class="text-gray-500 text-xs ">hace 2 días</div>
+                                  </div>
+                                </div>
+                                <div class="ml-4">
+                                  <div class="flex pb-0.5">
+                                    <span class="font-semibold pr-2">1</span> <svg class="h-6 w-6 text-gray-700"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="16" y1="9" x2="12" y2="5" />  <line x1="8" y1="9" x2="12" y2="5" /></svg>
+                                  </div>
+                                  <div class="flex pb-0.5">
+                                    <span class="font-semibold pr-2">0</span> <svg class="h-6 w-6 text-gray-700"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />  <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" /></svg>
+                                  </div>      
+                                </div>
+                            </div>
+                            <div class="flex items-start pt-6">
+                                <img class="h-10 w-10 rounded-full" src="https://images.pexels.com/photos/61100/pexels-photo-61100.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"/>
+                                <div class="ml-3">
+                                  <span class="font-bold text-gray-700">$withCount</span>
+                                  <p class="text-gray-500 text-sm sm:block hidden pb-4">En el minuto 5:59 me genera el siguiente error : SQLSTATE[42S02]: Base table or view not found: 1146</p>
+                                  
+                                  <div class="text-xs flex">
+                                    <a href="#" class="text-blue-500">Alexa Correa </a>
+                                    <a href="#" class="px-2 text-blue-500">• Clase 39 •</a>
+                                    <div class="text-gray-500">hace 1 días</div>
+                                  </div>
+                                </div>
+                                <div class="ml-4">
+                                  <div class="flex pb-0.5">
+                                    <span class="font-semibold pr-2">1</span> <svg class="h-6 w-6 text-gray-700"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="16" y1="9" x2="12" y2="5" />  <line x1="8" y1="9" x2="12" y2="5" /></svg>
+                                  </div>
+                                  <div class="flex pb-0.5">
+                                    <span class="font-semibold pr-2">0</span> <svg class="h-6 w-6 text-gray-700"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />  <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" /></svg>
+                                  </div>      
+                                </div>
+                            </div>
+                            <div class="flex items-start pt-6">
+                                <img class="h-10 w-10 rounded-full" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"/>
+                                <div class="ml-3">
+                                  <span class="font-bold text-gray-700">ErrorException</span>
+                                  <p class="text-gray-500 text-sm sm:block hidden pb-4">Saludos estoy en el minuto 21:35 de la sección 2 capitulo 9 y al correr la migración me aparece el siguie..</p>
+                                  
+                                  <div class="text-xs flex">
+                                    <a href="#" class="text-blue-500">Javier de Jesus Correa </a>
+                                    <a href="#" class="px-2 text-blue-500">• Clase 25 •</a>
+                                    <div class="text-gray-500">hace 2 días</div>
+                                  </div>
+                                </div>
+                                <div class="ml-4">
+                                  <div class="flex pb-0.5">
+                                    <span class="font-semibold pr-2">1</span> <svg class="h-6 w-6 text-gray-700"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <line x1="12" y1="5" x2="12" y2="19" />  <line x1="16" y1="9" x2="12" y2="5" />  <line x1="8" y1="9" x2="12" y2="5" /></svg>
+                                  </div>
+                                  <div class="flex pb-0.5">
+                                    <span class="font-semibold pr-2">0</span> <svg class="h-6 w-6 text-gray-700"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M21 14l-3 -3h-7a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1h9a1 1 0 0 1 1 1v10" />  <path d="M14 15v2a1 1 0 0 1 -1 1h-7l-3 3v-10a1 1 0 0 1 1 -1h2" /></svg>
+                                  </div>      
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- Left section lessons -->
         <div class="col">
@@ -118,7 +246,9 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-xl leading-8 text-center mt-4 mb-4">{{ $course->title }}</h1>
+                    <div class="text-center mt-4 mb-4">
+                        <a href="{{ route('courses.info', $course) }}" class="text-xl leading-8 hover:text-gray-700">{{ $course->title }}</a>
+                    </div>
                     <div class="flex items-center">
                         <figure>
                             <img class="w-12 h-12 object-cover rounded-full mr-4 shadow-xl" src="{{$course->teacher->profile_photo_url}}" alt="">
@@ -136,32 +266,36 @@
                         <div class="h-full bg-green-400 absolute transtion-all duration-500" style="width:{{$this->progress. '%'}}"></div>
                     </div>
     
-                    <ul>
+                    <ul class="pt-4">
                         @foreach ($course->sections as $section)
                             <li class="text-gray-600 mb-4">
-                                <a class="font-bold text-sm inline-block mb-2" href="">{{$section->name}}</a>
-                                <ul class="subindice">
-                                    @foreach ($section->lessons as $lesson)
-                                        <li class="flex mb-2">
-                                            <div class="z-10">
-                                                @if ($lesson->completed)
-                                                    @if ($currentLesson->id == $lesson->id)
-                                                        <span class="inline-block w-4 h-4 border-2 bg-white border-blue-400 rounded-full mr-2 mt-1"></span>
+                                <div {{($section->lessons->contains('id', $currentLesson->id)) ? 'x-data={open:true}' : 'x-data={open:false}'}}>
+                                    <button class="flex justify-between items-center w-full font-semibold text-sm mb-2" x-on:click="open =!open">{{$section->name}} 
+                                        <i :class="{'rotate-180': open, 'rotate-0': !open}"class="fas fa-angle-up transition-transform duration-800 transform"></i>
+                                    </button>
+                                    <ul class="subindice relative overflow-hidden transition-all max-h-0 duration-700" x-ref="sectionContent" x-bind:style="open == true ? 'max-height: ' + $refs.sectionContent.scrollHeight + 'px' : ''">
+                                        @foreach ($section->lessons as $lesson)
+                                            <li class="flex mb-2">
+                                                <div class="z-10">
+                                                    @if ($lesson->completed)
+                                                        @if ($currentLesson->id == $lesson->id)
+                                                            <span class="inline-block w-4 h-4 border-2 bg-white border-blue-400 rounded-full mr-2 mt-1"></span>
+                                                        @else
+                                                            <span class="inline-block w-4 h-4 bg-blue-400 rounded-full mr-2 mt-1"></span>
+                                                        @endif
                                                     @else
-                                                        <span class="inline-block w-4 h-4 bg-blue-400 rounded-full mr-2 mt-1"></span>
+                                                        @if ($currentLesson->id == $lesson->id)
+                                                            <span class="inline-block w-4 h-4 border-2 border-gray-500 bg-white rounded-full mr-2 mt-1"></span>
+                                                        @else
+                                                            <span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2 mt-1"></span>
+                                                        @endif
                                                     @endif
-                                                @else
-                                                    @if ($currentLesson->id == $lesson->id)
-                                                        <span class="inline-block w-4 h-4 border-2 border-gray-500 bg-white rounded-full mr-2 mt-1"></span>
-                                                    @else
-                                                        <span class="inline-block w-4 h-4 bg-gray-400 rounded-full mr-2 mt-1"></span>
-                                                    @endif
-                                                @endif
-                                            </div>
-                                            <a class="cursor-pointer text-sm tracking-wide text-opacity-75" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
+                                                </div>
+                                                <a class="cursor-pointer text-sm tracking-wide text-opacity-75" wire:click="changeLesson({{$lesson}})" >{{$lesson->name}}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </li>
                         @endforeach
                     </ul>
@@ -176,7 +310,7 @@
         </x-slot>
         <x-slot name="content">
             {!! Form::textarea('comment', null, ['rows' => '3', 'class' => 'form-input w-full shadow-sm border border-gray-200', 'placeholder' => 'Cuentanos que te parecio el curso', 'wire:model.defer' => 'comment']) !!}
-            @error('comment') <strong class="text-xs text-red-600">{{ $message}}</strong> @enderror
+            <x-jet-input-error for="comment" class="mt-2" />
         </x-slot>
         <x-slot name="footer">
             <div class="flex items-center">

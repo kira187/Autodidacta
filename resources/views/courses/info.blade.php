@@ -17,14 +17,14 @@
 
     <div class="container grid grid-cols-1 lg:grid-cols-3 gap-6 pb-24">
         <div class="order-2 lg:col-span-2 lg:order-1">
+            <h1 class="header-title">Lo que aprenderas</h1>
             <section class="card mb-12">
                 <div class="card-body">
-                    <h1 class="font-semibold text-2xl mb-4 text-gray-700"><i class="far fa-list-alt mr-2"></i> Lo que aprenderas</h1>
                     <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
                         @foreach ($course->goals as $goal)
-                            <li class="flex items-baseline">
+                            <li class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i> 
-                                <span class="text-gray-700 text-sm">{{ $goal->name }}</span>
+                                <span class="text-gray-700 text-sm text-justify">{{ $goal->name }}</span>
                             </li>
                         @endforeach
                     </ul>
@@ -32,13 +32,15 @@
             </section>
 
             <section class="pb-8">
-                <h1 class="font-bold text-3xl mb-2 text-gray-800">Temario</h1>
+                <h1 class="header-title">Temario</h1>
                 @foreach ($course->sections as $section)
-
                     <article class="bg-white mb-4 py-1 pr-1 shadow-lg rounded-lg" {{($loop->first) ? 'x-data={open:true}' : 'x-data={open:false}'}}>
-                        <header class=" px-4 py-2 cursor-pointer bg-white" x-on:click="open =!open">
-                            <h1 class="font-bold text-lg text-gray-600">{{ $section->name}}</h1>
-                        </header>
+                        <header class="flex items-center w-full text-left px-4 py-2 cursor-pointer bg-white" x-on:click="open =!open">
+                            <h1 class="course-section-title">{{ $section->name}}</h1>
+                            <span class="ml-auto">
+                                {{ $section->lessons->count() }} clases
+                            </span>
+                        </header>                      
 
                             <div class="px-4 border-l-4 bg-grey-lightest border-blue-400 relative overflow-hidden transition-all max-h-0 duration-700" 
                                 x-ref="sectionContent" 
@@ -57,7 +59,7 @@
             </section>            
 
             <section class="pb-8">
-                <h1 class="font-bold text-3xl mb-2 text-gray-800">Requisitos</h1>
+                <h1 class="header-title">Requisitos del curso</h1>
 
                 <ul class="list-disc list-inside">
                     @foreach ($course->requirements as $requirement)
@@ -67,14 +69,14 @@
             </section>
 
             <section class="pb-8">
-                <h1 class="font-bold text-3xl mb-2 text-gray-800">Descripción</h1>
-                <div class="text-gray-700 text-base tracking-wide leading-relaxed">
+                <h1 class="header-title">Descripción</h1>
+                <div class="text-gray-700 text-base tracking-wide leading-relaxed text-justify">
                     {!! $course->description !!}
                 </div>
             </section>
 
             <section class="pb-8">
-                <h1 class="font-bold text-3xl mb-2 text-gray-800">¿Para quién es este curso?</h1>
+                <h1 class="header-title">¿Para quién es este curso?</h1>
                 <ul class="list-disc list-inside">
                     @foreach ($course->audience as $audience)
                         <li class="text-gray-700 text-base pb-1">{{ $audience->name }}</li>
@@ -109,7 +111,7 @@
             </section>
 
             <aside class="hidden lg:block">
-                <h1 class="font-bold text-2xl mb-2 text-gray-800">Recomendaciones</h1>
+                <h1 class="header-title">Recomendaciones</h1>
                 @foreach ($similares as $course)
                     <article class="flex mb-6 bg-white shadow-lg rounded-lg overflow-hidden">
                         <img class="h-32 w-40 object-cover" src="{{Storage::url($course->image->url)}}" alt="">
