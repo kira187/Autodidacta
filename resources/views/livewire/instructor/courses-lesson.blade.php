@@ -34,21 +34,57 @@
 
                     <div x-show="open">
                         <hr class="my-2">
-                        <p class="text-sm"> Plataforma: {{$item->platform->name}} </p>
-                        <p class="text-sm"> Enlace: <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
+                        <div 
+                        x-data="{
+                            openTab: 1,
+                            activeClasses: 'text-white bg-blue-500',
+                            inactiveClasses: 'text-gray-600 bg-white hover:text-blue-500'
+                        }"
 
-                        <div class="my-2">
-                            <button class="btn-sm btn-primary text-sm" wire:click="edit({{$item}})" >Editar</button>
-                            <button class="btn-sm btn-danger text-sm" wire:click="confirmLessonDeletion({{ $item }})" wire:loading.attr="disabled">Eliminar</button>
-                        </div>
+                        class="flex flex-wrap">
+                            <div class="w-full">
+                              <ul class="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row">
+                                <li @click="openTab = 1" class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                  <a :class="openTab === 1 ? activeClasses : inactiveClasses" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer">
+                                    <i class="fas fa-video text-base mr-1"></i>  Video
+                                  </a>
+                                </li>
+                                <li @click="openTab = 2" class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                  <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pinter" >
+                                    <i class="fas fa-align-left text-base mr-1"></i>  Descripción
+                                  </a>
+                                </li>
 
-                        <div class="mb-4">
-                            @livewire('instructor.lesson-description', ['lesson' => $item], key('lesson-description' .$item->id))
-                        </div>
-
-                        <div>
-                            @livewire('instructor.lesson-resources', ['lesson' => $item], key('lesson-resources' .$item->id))
-                        </div>
+                                <li @click="openTab = 3" class="-mb-px mr-2 last:mr-0 flex-auto text-center">
+                                  <a :class="openTab === 3 ? activeClasses : inactiveClasses" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer">
+                                    <i class="fas fa-file-archive text-base mr-1"></i>  Recursos
+                                  </a>
+                                </li>
+                              </ul>
+                              <div class="relative flex flex-col min-w-0 break-words bg-white w-full">
+                                <div class="px-4 py-5 flex-auto">
+                                  <div class="tab-content tab-space">
+                                    <div x-show="openTab === 1">
+                                        <p class="text-sm"> <strong>Plataforma:</strong> {{$item->platform->name}} </p>
+                                        <p class="text-sm"> <strong>Enlace:</strong> <a class="text-blue-600" href="{{$item->url}}" target="_blank">{{$item->url}}</a></p>
+                
+                                        <div class="flex justify-end mt-4">
+                                            <button class="btn-sm btn-primary text-sm" wire:click="edit({{$item}})" >Editar</button>
+                                            <button class="btn-sm btn-danger text-sm ml-2" wire:click="confirmLessonDeletion({{ $item }})" wire:loading.attr="disabled">Eliminar</button>
+                                        </div>
+                                    </div>
+                                    <div x-show="openTab === 2" class="mb-4">
+                                        @livewire('instructor.lesson-description', ['lesson' => $item], key('lesson-description' .$item->id))
+                                    </div>
+                                    <div x-show="openTab === 3" class="mb-4">
+                                        @livewire('instructor.lesson-resources', ['lesson' => $item], key('lesson-resources' .$item->id))
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        
                     </div>
                 @endif
             </div>
