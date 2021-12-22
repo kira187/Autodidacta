@@ -70,7 +70,7 @@
                 
                                         <div class="flex justify-end mt-4">
                                             <button class="btn-sm btn-primary text-sm" wire:click="edit({{$item}})" >Editar</button>
-                                            <button class="btn-sm btn-danger text-sm ml-2" wire:click="confirmLessonDeletion({{ $item }})" wire:loading.attr="disabled">Eliminar</button>
+                                            <button class="btn-sm btn-danger text-sm ml-2" wire:click="destroy({{$item}})">Eliminar</button>
                                         </div>
                                     </div>
                                     <div x-show="openTab === 2" class="mb-4">
@@ -141,17 +141,4 @@
             </div>
         </article>
     </div>
-    
-    <x-jet-dialog-modal wire:model="confirmingLessonDeletion">
-        <x-slot name="title">
-            Eliminar lección
-        </x-slot>
-        <x-slot name="content">
-            Estas seguro que deseas eliminar la lección ?
-        </x-slot>
-        <x-slot name="footer">
-            <x-jet-secondary-button wire:click="$toggle('confirmingLessonDeletion', false)" wire:loading.attr="disabled"> Mantenerlo </x-jet-secondary-button>
-            <x-jet-danger-button class="ml-2" wire:click="deleteLesson({{ $confirmingLessonDeletion }})" wire:loading.attr="disabled">Eliminar</x-jet-danger-button>
-        </x-slot>
-    </x-jet-dialog-modal>
 </div>
