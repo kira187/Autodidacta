@@ -102,12 +102,8 @@
             </div>
         </div>
 
-        @stack('modals')
         @livewireScripts
-
-        @isset($js)
-            {{ $js }}
-        @endisset
-        
+        @stack('js')
+        @stack('modals')
     </body>
 </html>

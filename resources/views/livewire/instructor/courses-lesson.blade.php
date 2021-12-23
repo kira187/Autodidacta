@@ -50,7 +50,7 @@
                                   </a>
                                 </li>
                                 <li @click="openTab = 2" class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-                                  <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pinter" >
+                                  <a :class="openTab === 2 ? activeClasses : inactiveClasses" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal cursor-pointer" >
                                     <i class="fas fa-align-left text-base mr-1"></i>  Descripción
                                   </a>
                                 </li>
@@ -70,7 +70,7 @@
                 
                                         <div class="flex justify-end mt-4">
                                             <button class="btn-sm btn-primary text-sm" wire:click="edit({{$item}})" >Editar</button>
-                                            <button class="btn-sm btn-danger text-sm ml-2" wire:click="destroy({{$item}})">Eliminar</button>
+                                            <button class="btn-sm btn-danger text-sm ml-2" wire:click="$emit('confirmDelete', {{$item->id }})">Eliminar</button>
                                         </div>
                                     </div>
                                     <div x-show="openTab === 2" class="mb-4">
@@ -84,7 +84,6 @@
                               </div>
                             </div>
                           </div>
-                        
                     </div>
                 @endif
             </div>
@@ -135,10 +134,38 @@
                 </div>
                 
                 <div class="mt-4 flex justify-end">
-                    <button class="btn-sm btn-danger" x-on:click="open = false">Cancelar</button>
-                    <button class="btn-sm btn-primary ml-2" wire:click="store">Agregar</button>
+                    <button class="btn-sm btn-primary" wire:click="store">Agregar</button>
+                    <button class="btn-sm btn-danger ml-2" x-on:click="open = false">Cancelar</button>
                 </div>
             </div>
         </article>
     </div>
+
+    @push('js')
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>       
+    <script>
+        Livewire.on('confirmDelete', lessonId => {
+            Swal.fire({
+                title: '¿Estas seguro?',
+                text: "Esta acción es irreversible",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3b82f6',
+                cancelButtonColor: '#ef4444',
+                confirmButtonText: 'Eliminar',
+                cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emitTo('instructor.courses-lesson', 'destroy', lessonId);
+
+                    Swal.fire(
+                        'Eliminado',
+                        'Lección eliminada correctamente',
+                        'success'
+                    )
+                }
+            })
+        });
+    </script>
+    @endpush
 </div>

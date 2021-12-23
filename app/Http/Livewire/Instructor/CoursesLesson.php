@@ -12,6 +12,8 @@ class CoursesLesson extends Component
 
     public $section, $lesson, $platforms, $name, $platform_id = 1, $url;
 
+    protected $listeners = ['render', 'destroy'];
+
     protected $rules = [
         'lesson.name' => 'required',
         'lesson.platform_id' => 'required',
