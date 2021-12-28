@@ -15,17 +15,18 @@
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css')}}">
 
         @livewireStyles
-
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
+            @livewire('livewire-toast')
             @livewire('navigation-dropdown')
 
             <!-- Page Content -->
             <div class="container w-full flex flex-wrap mx-auto px-2 pt-8">
                 <div class="w-full lg:w-1/5 lg:px-6 text-xl text-gray-800 leading-normal">
+                    <button onclick="myFunction()">Click me</button>
                    <p class="text-base font-bold py-2 lg:pb-6 text-gray-700">Edición del curso</p>
                    <div class="block lg:hidden sticky inset-0">
                         <select id="country" onchange="location = this.value;" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
@@ -105,5 +106,11 @@
         @livewireScripts
         @stack('js')
         @stack('modals')
+        <script>
+            function myFunction() {
+                Livewire.emitTo('livewire-toast', 'show', 'Project Added Successfully');
+
+            }
+        </script>
     </body>
 </html>
