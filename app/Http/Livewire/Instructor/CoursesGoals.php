@@ -37,6 +37,7 @@ class CoursesGoals extends Component
 
         $this->reset('name');
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', 'Meta agregada correctamente');
     }
 
     public function edit(Goal $goal)
@@ -51,6 +52,7 @@ class CoursesGoals extends Component
         $this->goal = new Goal();
 
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', 'Meta acualizada correctamente');
     }
 
     public function confirmGoalDeletion(Goal $goal)
@@ -63,6 +65,7 @@ class CoursesGoals extends Component
         $goal->delete();
         $this->course = Course::find($this->course->id);
         $this->confirmingGoalDeletion = false;
+        $this->emitTo('livewire-toast', 'show', ['type' => 'info', 'message' => 'Meta eliminada satisfactoriamente']);
     }
     
 }

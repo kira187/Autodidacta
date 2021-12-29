@@ -50,7 +50,7 @@
                 <h1 class="text-xl font-bold mb-4"> Agregar nueva sección</h1>
 
                 <div>
-                    <input wire:model="name" type="text" class="form-input w-full" placeholder="Escriba el nombre de la sección">
+                    <input wire:model="name" type="text" class="form-input w-full border" placeholder="Escriba el nombre de la sección">
                     @error('name')
                         <span class="text-xs text-red-600 font-bold">{{$message}}</span>
                     @enderror

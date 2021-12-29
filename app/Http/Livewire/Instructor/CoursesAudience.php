@@ -36,6 +36,7 @@ class CoursesAudience extends Component
 
         $this->reset('name');
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', 'Audiencia agregada exitosamente');
     }
 
     public function edit(Audience $audience)
@@ -50,11 +51,13 @@ class CoursesAudience extends Component
         $this->audience = new Audience();
 
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', 'Audiencia modificada exitosamente');
     }
 
     public function destroy(Audience $audience)
     {
         $audience->delete();
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', ['type' => 'info', 'message' => 'Audiencia eliminada']);
     }
 }

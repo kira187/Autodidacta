@@ -55,6 +55,7 @@ class CoursesLesson extends Component
 
         $this->reset([ 'name', 'platform_id', 'url' ]);
         $this->section = Section::find($this->section->id);
+        $this->emitTo('livewire-toast', 'show', ['type' => 'success', 'message' => 'Lección agregada exitosamente']);
     }
 
     public function edit(Lesson $lesson)
@@ -74,6 +75,7 @@ class CoursesLesson extends Component
         $this->lesson = new Lesson();
 
         $this->section = Section::find($this->section->id);
+        $this->emitTo('livewire-toast', 'show', ['type' => 'info', 'message' => 'Lección actualizada correctamente']);
     }
 
     public function cancel()

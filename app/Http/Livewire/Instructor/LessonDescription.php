@@ -31,13 +31,15 @@ class LessonDescription extends Component
         $this->validate(["name" => "required"]);
         $this->description = $this->lesson->description()->create(['name' => $this->name]);
         $this->reset('name');
-        $this->lesson = Lesson::find($this->lesson->id); 
+        $this->lesson = Lesson::find($this->lesson->id);
+        $this->emitTo('livewire-toast', 'show', 'Descripción creada correctamente');
     }
     
     public function update()
     {
         $this->validate();
         $this->description->save();        
+        $this->emitTo('livewire-toast', 'show', 'Descripción actualizada correctamente');
     }
 
     public function destroy()    

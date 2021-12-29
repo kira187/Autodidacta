@@ -43,6 +43,7 @@ class CoursesCurriculum extends Component
 
         $this->reset('name');
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', ['type' => 'info', 'message' => 'Sección creada exitosamente']);
     }
 
     public function edit(Section $section)
@@ -56,6 +57,7 @@ class CoursesCurriculum extends Component
         $this->section->save();
         $this->section = new Section();
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', ['type' => 'info', 'message' => 'Sección actualzada correctamente']);
     }
 
     public function confirmSectionDeletion(Section $section)
@@ -68,5 +70,6 @@ class CoursesCurriculum extends Component
         $section->delete();
         $this->course = Course::find($this->course->id);
         $this->confirmingSectionDeletion = false;
+        $this->emitTo('livewire-toast', 'show', ['type' => 'info', 'message' => 'Seccion eliminada correctamente']);
     }
 }

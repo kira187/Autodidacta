@@ -75,7 +75,7 @@ class CourseController extends Controller
             ]);
         }
 
-        return redirect()->route('instructor.courses.edit', $course);
+        return redirect()->route('instructor.courses.edit', $course)->with('livewire-toast', 'Nuevo curso creado');
     }
 
     /**
@@ -145,9 +145,7 @@ class CourseController extends Controller
                 ]);
             }
         }
-
-        return redirect()->route('instructor.courses.index');
-
+        return redirect()->route('instructor.courses.edit', $course)->with('livewire-toast', 'Curso actualizado correctamente');
     }
 
     /**
@@ -176,7 +174,7 @@ class CourseController extends Controller
             $course->observation->delete();
         }
 
-        return redirect()->route('instructor.courses.edit', $course);
+        return redirect()->route('instructor.courses.edit', $course)->with('livewire-toast', 'Curso enviado a revisión');
     }
 
     public function observation(Course $course)

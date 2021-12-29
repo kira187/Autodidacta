@@ -37,6 +37,7 @@ class CoursesRequirements extends Component
 
         $this->reset('name');
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', 'Requerimiento creado exitosamente');
     }
 
     public function edit(Requirement $requirement)
@@ -51,6 +52,7 @@ class CoursesRequirements extends Component
         $this->requirement = new Requirement();
 
         $this->course = Course::find($this->course->id);
+        $this->emitTo('livewire-toast', 'show', 'Requerimiento actualizado');
     }
 
     public function confirmRequirementDeletion(Requirement $requirement)
@@ -63,5 +65,6 @@ class CoursesRequirements extends Component
         $requirement->delete();
         $this->course = Course::find($this->course->id);
         $this->confirmingRequirementDeletion = false;
+        $this->emitTo('livewire-toast', 'show', ['type' => 'info', 'message' => 'Requisito eliminado satisfactoriamente']);
     }
 }

@@ -26,7 +26,6 @@
             <!-- Page Content -->
             <div class="container w-full flex flex-wrap mx-auto px-2 pt-8">
                 <div class="w-full lg:w-1/5 lg:px-6 text-xl text-gray-800 leading-normal">
-                    <button onclick="myFunction()">Click me</button>
                    <p class="text-base font-bold py-2 lg:pb-6 text-gray-700">Edición del curso</p>
                    <div class="block lg:hidden sticky inset-0">
                         <select id="country" onchange="location = this.value;" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
@@ -58,7 +57,7 @@
                             </a>
                          </li>
                          <li class="py-1 md:my-0 hover:bg-purple-100 lg:hover:bg-transparent">
-                            <a href="{{route('instructor.courses.students', $course)}}" class="@routeIs('instructor.courses.students', $course) border-blue-500 text-gray-900 font-bold @else border-transparent @endif block pl-4 align-middle text-gray-700 no-underline hover:text-blue-500 border-l-4 lg:hover:border-gray-400">
+                            <a href="{{route('instructor.courses.students', $course)}}" class="@routeIs('instructor.courses.students', $course) border-blue-500 text-gray-900 font-bold @else border-transparent @endif block pl-4 align-middle no-underline hover:text-blue-500 border-l-4 lg:hover:border-gray-400">
                             <span class="pb-1 md:pb-0 text-sm">Estudiantes</span>
                             </a>
                          </li>
@@ -109,7 +108,6 @@
         <script>
             function myFunction() {
                 Livewire.emitTo('livewire-toast', 'show', 'Project Added Successfully');
-
             }
         </script>
     </body>
