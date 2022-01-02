@@ -8,7 +8,7 @@
             <div class="card-body bg-gray-100">                
                 @if ($section->id == $item->id)
                     <form wire:submit.prevent="update">
-                        <x-input type="text" class="block w-full" wire:model="section.name"/>
+                        <x-jet-input type="text" class="block w-full" wire:model.defer="section.name"/>
                         <x-jet-input-error for="section.name" class="mt-2" />
                     </form>
                 @else

@@ -105,6 +105,9 @@
         @livewireScripts
         @stack('js')
         @stack('modals')
+        @isset($js)
+            {{ $js }}
+        @endisset
         <script>
             function myFunction() {
                 Livewire.emitTo('livewire-toast', 'show', 'Project Added Successfully');

@@ -114,3 +114,23 @@
 .course-section-title {
     @apply font-semibold text-lg text-gray-600;
 }
+
+.comment-element {
+    @apply p-2 pt-6 hover:bg-gray-50;
+}
+
+.comment-content {
+    @apply flex items-start;
+}
+
+.comment-title {
+    @apply font-bold text-gray-700 sm:text-base text-sm cursor-pointer;
+}
+
+.comment-body {
+    @apply text-gray-500 text-sm sm:block hidden pb-4;
+}
+
+.comment-autor {
+    @apply text-xs flex sm:ml-10 justify-center sm:justify-start;
+}
