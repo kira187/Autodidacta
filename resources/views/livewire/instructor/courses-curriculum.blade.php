@@ -15,13 +15,13 @@
                     <header class="flex justify-between items-center">
                         <h1 x-on:click="open = !open" class="cursor-pointer"><strong>Sección:</strong> {{$item->name}}</h1>
                         <div>
-                            <button class="p-1 focus:outline-none text-teal-500 hover:text-teal-600" wire:click="edit({{ $item }})">
+                            <button class="rounded shadow-md bg-white hover:shadow-lg p-1 focus:outline-none text-teal-500 hover:text-teal-600" wire:click="edit({{ $item }})">
                                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                 </svg>
                             </button>
                             
-                            <button class="cursor-pointer p-1 focus:outline-none text-red-500 hover:text-red-600" wire:click="confirmSectionDeletion({{ $item }})" wire:loading.attr="disabled">
+                            <button class="rounded shadow-md bg-white hover:shadow-lg cursor-pointer p-1 focus:outline-none text-red-500 hover:text-red-600" wire:click="confirmSectionDeletion({{ $item }})" wire:loading.attr="disabled">
                                 <svg  class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                 </svg>

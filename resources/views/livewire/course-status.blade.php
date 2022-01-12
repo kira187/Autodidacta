@@ -105,7 +105,8 @@
                 <span class="w-full border-b dark:border-gray-600"></span>
             </div>
             <!-- Comments section -->
-            @livewire('courses.comments', ['course' => $course])
+            <livewire:courses.comments key="{{ now() }}" :course="$course" :lesson="$currentLesson" />
+
         </div>
         <!-- Left section lessons -->
         <div class="col">

@@ -14,6 +14,7 @@ class RenameNameColumn extends Migration
     public function up()
     {
         Schema::table('comments', function (Blueprint $table) {
+            $table->string('title')->after('id');
             $table->renameColumn('name', 'body');
             $table->integer('parent_id')->unsigned()->nullable()->after('commentable_id');
         });
@@ -27,7 +28,8 @@ class RenameNameColumn extends Migration
     public function down()
     {
         Schema::table('comments', function (Blueprint $table) {
-            //
+            $table->dropColumn('title', 'parent_id');
+            $table->renameColumn('body', 'name');
         });
     }
 }

@@ -13,7 +13,7 @@ class Comment extends Model
 
     //Relationship polymorphic 
     public function commentable()
-    {
+    {  
         return $this->morphTo();
     }
 

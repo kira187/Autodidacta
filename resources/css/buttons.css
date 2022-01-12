@@ -3,7 +3,7 @@
 }
 
 .btn-sm {
-    @apply text-sm font-medium h-8 px-4 rounded-lg;
+    @apply text-sm font-medium h-8 px-4 rounded-lg shadow-md;
 }
 
 .btn-primary {
