@@ -8,6 +8,11 @@ Objetivos:
 - Incitar a la comunidad estudiantil, docente y general a compartir sus conocimientos a través de una plataforma web.
 - Crear un espacio donde se resuelvan dudas y se hagan comentarios sobre lo aprendido en los cursos; los alumnos teniendo interacción con los instructores y viceversa.
 
+## Requerimientos
+- Node JS >= 14
+- PHP >= 7.4
+- Composer >= 2.0
+
 ## Instalación
 
 1. Clonar proyecto
