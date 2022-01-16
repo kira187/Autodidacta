@@ -1,6 +1,6 @@
 <section>
     <h1 class="header-title">Reseñas de los estudiantes</h1>
-    {{-- <div class="card">
+    <div class="card">
         <div class="card-body">
             <p class="text-gray-800 text-xl pb-2">{{ count($reviews) }} Calificaciones</p>
             @forelse ($reviews as $review)
@@ -28,9 +28,8 @@
                 @endif
             </div>
         </div>
-    </div> --}}
-
-    <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 sm:gap-6 items-center">
+    </div>
+    {{-- <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 sm:gap-6 items-center">
         <div class="text-center text-yellow-300">
             <p class="text-6xl font-bold">5</p>
             <ul class="flex space-x-1 text-xs justify-center">
@@ -52,7 +51,6 @@
             </ul>
             <p class="text-lg font-semibold">Calificaciones</p>
         </div>
-
         <ul class="col-span-1 sm:col-span-3">
             <li class="flex items-center">
                 <div class="relative pt-1 flex-1">
@@ -103,89 +101,93 @@
                     </li>
                 </ul>
                 <span class="w-16">
-                        0%
-                    </span>
+                0%
+                </span>
             </li>
             <li class="flex items-center">
                 <div class="relative pt-1 flex-1">
-    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-300">
-        <div style="width:0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-500">
-        </div>
-    </div>
-  </div>                    <ul class="flex space-x-1 text-xs ml-4 mr-2">
-    <li>
-        <i class="fas fa-star text-yellow-300"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-yellow-300"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-yellow-300"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-</ul>                    <span class="w-16">
-                        0%
-                    </span>
-                </li>
-                            <li class="flex items-center">
-                    <div class="relative pt-1 flex-1">
-    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-300">
-        <div style="width:0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-500">
-        </div>
-    </div>
-  </div>                    <ul class="flex space-x-1 text-xs ml-4 mr-2">
-    <li>
-        <i class="fas fa-star text-yellow-300"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-yellow-300"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-</ul>                    <span class="w-16">
-                        0%
-                    </span>
-                </li>
-                            <li class="flex items-center">
-                    <div class="relative pt-1 flex-1">
-    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-300">
-        <div style="width:0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-500">
-        </div>
-    </div>
-  </div>                    <ul class="flex space-x-1 text-xs ml-4 mr-2">
-    <li>
-        <i class="fas fa-star text-yellow-300"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-    <li>
-        <i class="fas fa-star text-gray-600"></i>
-    </li>
-</ul>                    <span class="w-16">
-                        0%
-                    </span>
-                </li>
-            
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-300">
+                        <div style="width:0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-500">
+                        </div>
+                    </div>
+                </div>
+                <ul class="flex space-x-1 text-xs ml-4 mr-2">
+                    <li>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                </ul>
+                <span class="w-16">
+                0%
+                </span>
+            </li>
+            <li class="flex items-center">
+                <div class="relative pt-1 flex-1">
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-300">
+                        <div style="width:0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-500">
+                        </div>
+                    </div>
+                </div>
+                <ul class="flex space-x-1 text-xs ml-4 mr-2">
+                    <li>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                </ul>
+                <span class="w-16">
+                0%
+                </span>
+            </li>
+            <li class="flex items-center">
+                <div class="relative pt-1 flex-1">
+                    <div class="overflow-hidden h-2 text-xs flex rounded bg-gray-300">
+                        <div style="width:0%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-gray-500">
+                        </div>
+                    </div>
+                </div>
+                <ul class="flex space-x-1 text-xs ml-4 mr-2">
+                    <li>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star text-gray-600"></i>
+                    </li>
+                </ul>
+                <span class="w-16">
+                0%
+                </span>
+            </li>
         </ul>
-
-    </div>
+    </div> --}}
 </section>
